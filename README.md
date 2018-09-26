@@ -20,7 +20,7 @@ EULA is available at [EULA website][LICENSE]
 
 4. Make sure all of the files are selected and click Import.
 
-5. Add [Metrica Unity plugin](https://appmetrica.yandex.com/doc//mobile-sdk-dg/concepts/unity-plugin-docpage/) to the project.
+5. Add [Metrica Unity plugin](https://appmetrica.yandex.com/doc//mobile-sdk-dg/concepts/unity-plugin-docpage/) to the project, only if you use `yandex-mobileads-<version>.unitypackage`.
 
 6. You can use one of demo scripts in folder `samples` to test plugin. Just add one of this files to your project.
 
