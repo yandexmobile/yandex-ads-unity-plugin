@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 0.2.0
+
+#### Added
+* Support for Rewarded Ads
+
+#### Updated
+* Improvements and optimizations
+
 ## Version 0.1.1
 
 #### Updated
