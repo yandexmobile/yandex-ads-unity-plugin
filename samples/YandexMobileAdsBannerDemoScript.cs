@@ -1,7 +1,7 @@
 /*
  * This file is a part of the Yandex Advertising Network
  *
- * Version for Android (C) 2018 YANDEX
+ * Version for Android (C) 2019 YANDEX
  *
  * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
@@ -25,10 +25,6 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
 
     private Banner banner;
     
-    void Start() {
-        Screen.orientation = ScreenOrientation.Portrait;
-    }
-
     public void OnGUI()
     {
         GUIStyle style = new GUIStyle();

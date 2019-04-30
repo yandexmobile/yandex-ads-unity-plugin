@@ -1,3 +1,12 @@
+/*
+ * This file is a part of the Yandex Advertising Network
+ *
+ * Version for Android (C) 2019 YANDEX
+ *
+ * You may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,10 +25,6 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
     private readonly int FontSize = (int) (0.035f * Screen.width);
 
     private RewardedAd rewardedAd;
-
-    void Start() {
-        Screen.orientation = ScreenOrientation.Portrait;
-    }
     
     public void OnGUI()
     {
@@ -52,10 +57,10 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
         {
             this.rewardedAd.Destroy();
         }
-
-        // Replace BLOCK_ID with your unique Block ID.
-        string blockId = "BLOCK_ID";
-        this.rewardedAd = new RewardedAd(blockId);
+        
+        // Replace demo R-M-DEMO-rewarded-client-side-rtb with actual Block ID
+        string adUnitId = "R-M-DEMO-rewarded-client-side-rtb";
+        this.rewardedAd = new RewardedAd(adUnitId);
 
         this.rewardedAd.OnRewardedAdLoaded += this.HandleRewardedAdLoaded;
         this.rewardedAd.OnRewardedAdFailedToLoad += this.HandleRewardedAdFailedToLoad;

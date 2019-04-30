@@ -1,5 +1,15 @@
 # Change Log
 
+## Version 0.3.0
+
+#### Added
+* Ability to specify age and gender in ad request
+* Support for GDPR to obtain and manage consent from users from GDPR region to serve personalized ads
+* UnityAds mediation
+
+#### Fixed
+* Fixed displaying banner in safe area on iOS
+
 ## Version 0.2.0
 
 #### Added
