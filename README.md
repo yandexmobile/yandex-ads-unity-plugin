@@ -65,6 +65,7 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation by several 
 | mobileads-admob-mediation | AdMob mediation |
 | mobileads-facebook-mediation | Facebook mediation |
 | mobileads-mytarget-mediation | MyTarget mediation |
+| mobileads-mopub-mediation | MoPub mediation |
 | mobileads-startapp-mediation | StartApp mediation |
 | mobileads-unityads-mediation | UnityAds mediation |
 | admob-mobileads-mediation | Third-party mediation with AdMob |

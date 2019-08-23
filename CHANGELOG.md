@@ -1,5 +1,16 @@
 # Change Log
 
+## Version 0.3.1
+
+#### Added
+* MoPub mediation
+
+#### Updated
+* Improvements and optimizations
+
+#### Fixed
+* Fixed IL2CPP build
+
 ## Version 0.3.0
 
 #### Added
