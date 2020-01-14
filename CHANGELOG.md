@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 0.4.0
+
+#### Updated
+* Supported Android SDK version 2.112
+* Supported iOS SDK version 2.14.0
+* Improvements and optimizations
+
 ## Version 0.3.2
 
 #### Updated
