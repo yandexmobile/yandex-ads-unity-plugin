@@ -60,18 +60,18 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation by several 
 
 | Package | Description |
 | --- | --- |
-| yandex-mobileads-0.4.0 | Main Yandex Mobile Ads package |
-| yandex-mobileads-lite-0.4.0 | Main Yandex Mobile Ads package distributed for using with [Google resolver]|
-| mobileads-admob-mediation-0.4.0 | AdMob mediation |
-| mobileads-applovin-mediation-0.1.0 | AppLovin mediation |
-| mobileads-facebook-mediation-0.4.0 | Facebook mediation |
-| mobileads-ironsource-mediation-0.1.0 | IronSource mediation |
-| mobileads-mytarget-mediation-0.4.0 | MyTarget mediation |
-| mobileads-mopub-mediation-0.4.0 | MoPub mediation |
-| mobileads-startapp-mediation-0.4.0 | StartApp mediation |
-| mobileads-unityads-mediation-0.4.0 | UnityAds mediation |
-| admob-mobileads-mediation-0.4.0 | Third-party mediation with AdMob |
-| mopub-mobileads-mediation-0.4.0 | Third-party mediation with MoPub |
+| yandex-mobileads-0.5.0 | Main Yandex Mobile Ads package |
+| yandex-mobileads-lite-0.5.0 | Main Yandex Mobile Ads package distributed for using with [Google resolver]|
+| mobileads-admob-mediation-0.5.0 | AdMob mediation |
+| mobileads-applovin-mediation-0.2.0 | AppLovin mediation |
+| mobileads-facebook-mediation-0.5.0 | Facebook mediation |
+| mobileads-ironsource-mediation-0.2.0 | IronSource mediation |
+| mobileads-mytarget-mediation-0.5.0 | MyTarget mediation |
+| mobileads-mopub-mediation-0.5.0 | MoPub mediation |
+| mobileads-startapp-mediation-0.5.0 | StartApp mediation |
+| mobileads-unityads-mediation-0.5.0 | UnityAds mediation |
+| admob-mobileads-mediation-0.5.0 | Third-party mediation with AdMob |
+| mopub-mobileads-mediation-0.5.0 | Third-party mediation with MoPub |
 
 [Google resolver]: https://github.com/googlesamples/unity-jar-resolver
 [DOCUMENTATION]: https://tech.yandex.com/mobile-ads/
