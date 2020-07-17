@@ -1,6 +1,6 @@
 # Change Log
 
-## Version 0.5.0
+## Version 0.2.0
 
 #### Updated
 * Supported Android AppLovin adapter version 0.5.0
