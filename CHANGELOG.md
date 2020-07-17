@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 0.5.0
+
+#### Updated
+* Supported Android SDK version 2.160
+* Supported iOS SDK version 2.16.0
+* Support sticky and flexible banner formats
+
 ## Version 0.4.0
 
 #### Updated
