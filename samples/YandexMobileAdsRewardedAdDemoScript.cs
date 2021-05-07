@@ -64,13 +64,12 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
 
         this.rewardedAd.OnRewardedAdLoaded += this.HandleRewardedAdLoaded;
         this.rewardedAd.OnRewardedAdFailedToLoad += this.HandleRewardedAdFailedToLoad;
-        this.rewardedAd.OnRewardedAdOpened += this.HandleRewardedAdOpened;
-        this.rewardedAd.OnRewardedAdClosed += this.HandleRewardedAdClosed;
-        this.rewardedAd.OnRewardedAdLeftApplication += this.HandleRewardedAdLeftApplication;
+        this.rewardedAd.OnReturnedToApplication += this.HandleReturnedToApplication;
+        this.rewardedAd.OnLeftApplication += this.HandleLeftApplication;
         this.rewardedAd.OnRewardedAdShown += this.HandleRewardedAdShown;
-        this.rewardedAd.OnRewardedAdFailedToShow += this.HandleRewardedAdFailedToShow;
         this.rewardedAd.OnRewardedAdDismissed += this.HandleRewardedAdDismissed;
-        this.rewardedAd.OnRewarded += this.HandleOnRewarded;
+        this.rewardedAd.OnImpression += this.HandleImpression;
+        this.rewardedAd.OnRewarded += this.HandleRewarded;
 
         this.rewardedAd.LoadAd(this.CreateAdRequest());
     }
@@ -114,19 +113,14 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
             "HandleRewardedAdFailedToLoad event received with message: " + args.Message);
     }
 
-    public void HandleRewardedAdOpened(object sender, EventArgs args)
+    public void HandleReturnedToApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardedAdOpened event received");
+        MonoBehaviour.print("HandleReturnedToApplication event received");
     }
 
-    public void HandleRewardedAdClosed(object sender, EventArgs args)
+    public void HandleLeftApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardedAdClosed event received");
-    }
-
-    public void HandleRewardedAdLeftApplication(object sender, EventArgs args)
-    {
-        MonoBehaviour.print("HandleRewardedAdLeftApplication event received");
+        MonoBehaviour.print("HandleLeftApplication event received");
     }
 
     public void HandleRewardedAdShown(object sender, EventArgs args)
@@ -145,9 +139,15 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
         MonoBehaviour.print("HandleRewardedAdDismissed event received");
     }
 
-    public void HandleOnRewarded(object sender, Reward args)
+    public void HandleImpression(object sender, ImpressionData impressionData)
     {
-        MonoBehaviour.print("HandleOnRewarded event received: amout = " + args.amount + ", type = " + args.type);
+        var data = impressionData == null ? "null" : impressionData.rawData;
+        logUtils.LogMessageOnTheScreen("HandleImpression event received with data: " + data);
+    }
+
+    public void HandleRewarded(object sender, Reward args)
+    {
+        MonoBehaviour.print("HandleRewarded event received: amout = " + args.amount + ", type = " + args.type);
     }
 
     #endregion

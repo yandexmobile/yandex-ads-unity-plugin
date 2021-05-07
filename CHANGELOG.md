@@ -1,5 +1,19 @@
 # Change Log
 
+## Version 1.0.0
+
+#### Updated
+* Supported iOS SDK version 4.1.2
+    * Added ad impression callbacks
+    * Added support for SKAdNetwork
+    * Added improvements for interstitial design
+    * Optimized loading of rewarded ads
+* Supported Android SDK version 4.1.0
+    * Improved ads tracking
+    * Improved impression tracking
+    * Improved requests retry policy
+* Other improvements and optimizations
+
 ## Version 0.6.0
 
 #### Updated

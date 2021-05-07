@@ -66,9 +66,9 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
 
         this.banner.OnAdLoaded += this.HandleAdLoaded;
         this.banner.OnAdFailedToLoad += this.HandleAdFailedToLoad;
-        this.banner.OnAdOpened += this.HandleAdOpened;
-        this.banner.OnAdClosed += this.HandleAdClosed;
-        this.banner.OnAdLeftApplication += this.HandleAdLeftApplication;
+        this.banner.OnReturnedToApplication += this.HandleReturnedToApplication;
+        this.banner.OnLeftApplication += this.HandleLeftApplication;
+        this.banner.OnImpression += this.HandleImpression;
 
         this.banner.LoadAd(this.CreateAdRequest());
     }
@@ -100,19 +100,20 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
         MonoBehaviour.print("HandleAdFailedToLoad event received with message: " + args.Message);
     }
 
-    public void HandleAdOpened(object sender, EventArgs args)
+    public void HandleReturnedToApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdOpened event received");
-    }
-
-    public void HandleAdClosed(object sender, EventArgs args)
-    {
-        MonoBehaviour.print("HandleAdClosed event received");
+        MonoBehaviour.print("HandleReturnedToApplication event received");
     }
 
     public void HandleAdLeftApplication(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleAdLeftApplication event received");
+    }
+
+    public void HandleImpression(object sender, ImpressionData impressionData)
+    {
+        var data = impressionData == null ? "null" : impressionData.rawData;
+        logUtils.LogMessageOnTheScreen("HandleImpression event received with data: " + data);
     }
 
     #endregion
