@@ -70,12 +70,11 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
 
         this.interstitial.OnInterstitialLoaded += this.HandleInterstitialLoaded;
         this.interstitial.OnInterstitialFailedToLoad += this.HandleInterstitialFailedToLoad;
-        this.interstitial.OnInterstitialOpened += this.HandleInterstitialOpened;
-        this.interstitial.OnInterstitialClosed += this.HandleInterstitialClosed;
-        this.interstitial.OnInterstitialLeftApplication += this.HandleInterstitialLeftApplication;
+        this.interstitial.OnReturnedToApplication += this.HandleReturnedToApplication;
+        this.interstitial.OnLeftApplication += this.HandleLeftApplication;
         this.interstitial.OnInterstitialShown += this.HandleInterstitialShown;
-        this.interstitial.OnInterstitialFailedToShow += this.HandleInterstitialFailedToShow;
         this.interstitial.OnInterstitialDismissed += this.HandleInterstitialDismissed;
+        this.interstitial.OnImpression += this.HandleImpression;
 
         this.interstitial.LoadAd(this.CreateAdRequest());
     }
@@ -119,19 +118,14 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
             "HandleInterstitialFailedToLoad event received with message: " + args.Message);
     }
 
-    public void HandleInterstitialOpened(object sender, EventArgs args)
+    public void HandleReturnedToApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleInterstitialOpened event received");
+        MonoBehaviour.print("HandleReturnedToApplication event received");
     }
 
-    public void HandleInterstitialClosed(object sender, EventArgs args)
+    public void HandleLeftApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleInterstitialClosed event received");
-    }
-
-    public void HandleInterstitialLeftApplication(object sender, EventArgs args)
-    {
-        MonoBehaviour.print("HandleInterstitialLeftApplication event received");
+        MonoBehaviour.print("HandleLeftApplication event received");
     }
 
     public void HandleInterstitialShown(object sender, EventArgs args)
@@ -148,6 +142,12 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
     public void HandleInterstitialDismissed(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleInterstitialDismissed event received");
+    }
+
+    public void HandleImpression(object sender, ImpressionData impressionData)
+    {
+        var data = impressionData == null ? "null" : impressionData.rawData;
+        logUtils.LogMessageOnTheScreen("HandleImpression event received with data: " + data);
     }
 
     #endregion
