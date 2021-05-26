@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 1.1.0
+
+#### Updated
+* Supported iOS MoPub adapter version 0.22.0
+* Fixed iOS support for dismissal callbacks
+
 ## Version 1.0.0
 
 #### Updated
