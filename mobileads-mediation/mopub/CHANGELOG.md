@@ -1,5 +1,15 @@
 # Change Log
 
+## Version 1.1.0
+
+#### Updated
+* Supported Android MoPub adapter version 5.18.0.0
+* Supported Android MoPub SDK version 5.18.0
+* Supported Android Yandex Mobile Ads SDK version 4.4.0
+* Supported iOS MoPub adapter version 5.18.0.0
+* Supported iOS MoPub SDK version 5.18.0
+* Supported iOS Yandex Mobile Ads SDK version 4.4.1
+
 ## Version 1.0.0
 
 #### Updated

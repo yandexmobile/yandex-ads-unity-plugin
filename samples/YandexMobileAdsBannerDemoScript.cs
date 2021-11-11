@@ -99,6 +99,11 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
     {
         MonoBehaviour.print("HandleAdFailedToLoad event received with message: " + args.Message);
     }
+    
+    public void HandleLeftApplication(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleLeftApplication event received");
+    }
 
     public void HandleReturnedToApplication(object sender, EventArgs args)
     {
@@ -113,7 +118,7 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
     public void HandleImpression(object sender, ImpressionData impressionData)
     {
         var data = impressionData == null ? "null" : impressionData.rawData;
-        logUtils.LogMessageOnTheScreen("HandleImpression event received with data: " + data);
+        MonoBehaviour.print("HandleImpression event received with data: " + data);
     }
 
     #endregion

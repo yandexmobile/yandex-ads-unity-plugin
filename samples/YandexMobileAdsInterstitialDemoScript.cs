@@ -147,7 +147,7 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
     public void HandleImpression(object sender, ImpressionData impressionData)
     {
         var data = impressionData == null ? "null" : impressionData.rawData;
-        logUtils.LogMessageOnTheScreen("HandleImpression event received with data: " + data);
+        MonoBehaviour.print("HandleImpression event received with data: " + data);
     }
 
     #endregion

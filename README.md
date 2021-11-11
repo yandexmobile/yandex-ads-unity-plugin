@@ -64,18 +64,22 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation by several 
 
 | Package | Description |
 | --- | --- |
-| yandex-mobileads-1.0.0 | Main Yandex Mobile Ads package |
-| yandex-mobileads-lite-1.0.0 | Main Yandex Mobile Ads package distributed for using with [Google resolver]|
-| mobileads-admob-mediation-1.0.0 | AdMob mediation |
-| mobileads-applovin-mediation-1.0.0 | AppLovin mediation |
-| mobileads-facebook-mediation-1.0.0 | Facebook mediation |
-| mobileads-ironsource-mediation-1.0.0 | IronSource mediation |
-| mobileads-mytarget-mediation-1.0.0 | MyTarget mediation |
-| mobileads-mopub-mediation-1.0.0 | MoPub mediation |
-| mobileads-startapp-mediation-1.0.0 | StartApp mediation |
-| mobileads-unityads-mediation-1.0.0 | UnityAds mediation |
-| admob-mobileads-mediation-0.6.0 | Third-party mediation with AdMob |
-| mopub-mobileads-mediation-1.1.0 | Third-party mediation with MoPub |
+| yandex-mobileads-lite-1.1.0 | Main Yandex Mobile Ads package distributed for use with [Google resolver]|
+| mobileads-adcolony-mediation-1.0.0 |  AdColony mediation (Supported only by android) |
+| mobileads-admob-mediation-1.1.0 | AdMob mediation |
+| mobileads-applovin-mediation-1.1.0 | AppLovin mediation |
+| mobileads-chartboost-mediation-1.0.0 |  Chartboost mediation (Supported only by android) |
+| mobileads-facebook-mediation-1.1.0 | Facebook mediation |
+| mobileads-ironsource-mediation-1.1.0 | IronSource mediation |
+| mobileads-mytarget-mediation-1.1.0 | MyTarget mediation |
+| mobileads-pangle-mediation-1.0.0 |  Pangle mediation (Supported only by android) |
+| mobileads-mopub-mediation-1.1.0 | MoPub mediation |
+| mobileads-startapp-mediation-1.1.0 | StartApp mediation |
+| mobileads-tapjoy-mediation-1.0.0 |  Tapjoy mediation (Supported only by android) |
+| mobileads-unityads-mediation-1.1.0 | UnityAds mediation |
+| mobileads-vungle-mediation-1.0.0 |  Vungle mediation (Supported only by android) |
+| admob-mobileads-mediation-1.1.0 | Third-party mediation with AdMob |
+| mopub-mobileads-mediation-1.2.0 | Third-party mediation with MoPub |
 
 [Google resolver]: https://github.com/googlesamples/unity-jar-resolver
 [DOCUMENTATION]: https://yandex.com/dev/mobile-ads/

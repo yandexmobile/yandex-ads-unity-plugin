@@ -1,5 +1,15 @@
 # Change Log
 
+## Version 1.1.0
+
+#### Updated
+* Supported Android Facebook adapter version 6.7.0.0
+* Supported Android Audience Network SDK version 6.7.0
+* Supported Android Yandex Mobile Ads SDK version 4.4.0
+* Supported iOS Facebook adapter version 6.7.0.0
+* Supported iOS Audience Network SDK version 6.7.0
+* Supported iOS Yandex Mobile Ads SDK version 4.4.1
+
 ## Version 1.0.0
 
 #### Updated

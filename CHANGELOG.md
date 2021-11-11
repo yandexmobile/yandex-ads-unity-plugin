@@ -1,5 +1,18 @@
 # Change Log
 
+## Version 1.1.0
+
+#### Updated
+* Main Yandex Mobile Ads package distributed only for use with Google Resolver
+* Supported iOS SDK version 4.4.1
+  * Added support for delayed close button in interstitial ads
+  * Added support for SKAdNetwork 3.0
+  * Added improvements for fullscreen designs
+* Supported Android SDK version 4.4.0
+  * Optimized rendering of rewarded ads
+  * Added improvements for fullscreen designs
+* Other improvements and optimizations
+
 ## Version 1.0.0
 
 #### Updated
