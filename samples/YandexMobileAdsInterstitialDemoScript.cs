@@ -72,9 +72,11 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
         this.interstitial.OnInterstitialFailedToLoad += this.HandleInterstitialFailedToLoad;
         this.interstitial.OnReturnedToApplication += this.HandleReturnedToApplication;
         this.interstitial.OnLeftApplication += this.HandleLeftApplication;
+        this.interstitial.OnAdClicked += this.HandleAdClicked;
         this.interstitial.OnInterstitialShown += this.HandleInterstitialShown;
         this.interstitial.OnInterstitialDismissed += this.HandleInterstitialDismissed;
         this.interstitial.OnImpression += this.HandleImpression;
+        this.interstitial.OnInterstitialFailedToShow += this.HandleInterstitialFailedToShow;
 
         this.interstitial.LoadAd(this.CreateAdRequest());
     }
@@ -128,15 +130,14 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
         MonoBehaviour.print("HandleLeftApplication event received");
     }
 
+    public void HandleAdClicked(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdClicked event received");
+    }
+
     public void HandleInterstitialShown(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleInterstitialShown event received");
-    }
-
-    public void HandleInterstitialFailedToShow(object sender, AdFailureEventArgs args)
-    {
-        MonoBehaviour.print(
-            "HandleInterstitialFailedToShow event received with message: " + args.Message);
     }
 
     public void HandleInterstitialDismissed(object sender, EventArgs args)
@@ -148,6 +149,12 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
     {
         var data = impressionData == null ? "null" : impressionData.rawData;
         MonoBehaviour.print("HandleImpression event received with data: " + data);
+    }
+
+    public void HandleInterstitialFailedToShow(object sender, AdFailureEventArgs args)
+    {
+        MonoBehaviour.print(
+            "HandleInterstitialFailedToShow event received with message: " + args.Message);
     }
 
     #endregion
