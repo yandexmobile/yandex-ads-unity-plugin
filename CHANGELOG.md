@@ -1,5 +1,21 @@
 # Change Log
 
+## Version 2.0.0
+
+#### Updated
+* Supported iOS SDK version 5.0.0
+  * Added improvements for fullscreen designs
+  * Updated minimum supported version to iOS 10
+  * Migrated to XCFramework
+  * Added click callback
+* Supported Android SDK version 5.0.0
+  * Added improvements for fullscreen designs
+  * Added Kotlin dependency
+  * Added automatic SDK initialization
+  * Removed deprecated and legacy API
+  * Added click callback
+* Other improvements and optimizations
+
 ## Version 1.1.0
 
 #### Updated

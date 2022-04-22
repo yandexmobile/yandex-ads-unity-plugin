@@ -68,6 +68,7 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
         this.banner.OnAdFailedToLoad += this.HandleAdFailedToLoad;
         this.banner.OnReturnedToApplication += this.HandleReturnedToApplication;
         this.banner.OnLeftApplication += this.HandleLeftApplication;
+        this.banner.OnAdClicked += this.HandleAdClicked;
         this.banner.OnImpression += this.HandleImpression;
 
         this.banner.LoadAd(this.CreateAdRequest());
@@ -113,6 +114,11 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
     public void HandleAdLeftApplication(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleAdLeftApplication event received");
+    }
+
+    public void HandleAdClicked(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdClicked event received");
     }
 
     public void HandleImpression(object sender, ImpressionData impressionData)

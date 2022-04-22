@@ -48,38 +48,38 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation by several 
    * [Android AdMob setup documentation](https://yandex.com/dev/mobile-ads/doc/android/adapters/admob-adapter-docpage/#setting)
    * [iOS AdMob setup documentation](https://yandex.com/dev/mobile-ads/doc/ios/adapters/admob-adapter-docpage/#setting)
 
-### MoPub
+### IronSource
 
-1. Integrate [MoPub](https://developers.mopub.com/docs/unity)
+1. Integrate [IronSource](https://developers.is.com/ironsource-mobile/unity/unity-plugin/)
 
-2. Import package `mopub-mobileads-mediation-<version>.unitypackage` from the folder `third-party-networks-mediation`
+2. Import package `ironsource-mobileads-mediation-<version>.unitypackage` from folder `third-party-networks-mediation`
 
-3. Get the Block ID in the Yandex Partner interface for each Ad Unit created in MoPub. Then set up mediation in [the MoPub web interface](https://app.mopub.com).
+3. Get the Block ID in the Yandex Partner interface for each ad placement configured in Ironsource. Then set up mediation in [the Ironsource web interface](https://platform.ironsrc.com/partners/dashboard).
 
    For more information, please visit our:
-   * [Android MoPub setup documentation](https://yandex.com/dev/mobile-ads/doc/android/adapters/mopub-adapter-docpage/#setting)
-   * [iOS MoPub setup documentation](https://yandex.com/dev/mobile-ads/doc/ios/adapters/mopub-adapter-docpage/#setting)
+   * [Android Ironsource setup documentation](https://yandex.com/dev/mobile-ads/doc/android/adapters/ironsource-adapter-docpage/#setting)
+   * [iOS Ironsource setup documentation](https://yandex.com/dev/mobile-ads/doc/ios/adapters/ironsource-adapter-docpage/#setting)
 
 ## Unity packages
 
 | Package | Description |
 | --- | --- |
-| yandex-mobileads-lite-1.1.0 | Main Yandex Mobile Ads package distributed for use with [Google resolver]|
-| mobileads-adcolony-mediation-1.0.0 |  AdColony mediation (Supported only by android) |
-| mobileads-admob-mediation-1.1.0 | AdMob mediation |
-| mobileads-applovin-mediation-1.1.0 | AppLovin mediation |
-| mobileads-chartboost-mediation-1.0.0 |  Chartboost mediation (Supported only by android) |
-| mobileads-facebook-mediation-1.1.0 | Facebook mediation |
-| mobileads-ironsource-mediation-1.1.0 | IronSource mediation |
-| mobileads-mytarget-mediation-1.1.0 | MyTarget mediation |
-| mobileads-pangle-mediation-1.0.0 |  Pangle mediation (Supported only by android) |
-| mobileads-mopub-mediation-1.1.0 | MoPub mediation |
-| mobileads-startapp-mediation-1.1.0 | StartApp mediation |
-| mobileads-tapjoy-mediation-1.0.0 |  Tapjoy mediation (Supported only by android) |
-| mobileads-unityads-mediation-1.1.0 | UnityAds mediation |
-| mobileads-vungle-mediation-1.0.0 |  Vungle mediation (Supported only by android) |
-| admob-mobileads-mediation-1.1.0 | Third-party mediation with AdMob |
-| mopub-mobileads-mediation-1.2.0 | Third-party mediation with MoPub |
+| yandex-mobileads-lite-2.0.0 | Main Yandex Mobile Ads package distributed for use with [Google resolver]|
+| mobileads-adcolony-mediation-2.0.0 |  AdColony mediation (Supported only by android) |
+| mobileads-admob-mediation-2.0.0 | AdMob mediation |
+| mobileads-applovin-mediation-2.0.0 | AppLovin mediation |
+| mobileads-chartboost-mediation-2.0.0 |  Chartboost mediation (Supported only by android) |
+| mobileads-facebook-mediation-2.0.0 | Facebook mediation |
+| mobileads-ironsource-mediation-2.0.0 | IronSource mediation |
+| mobileads-mytarget-mediation-2.0.0 | MyTarget mediation |
+| mobileads-pangle-mediation-2.0.0 |  Pangle mediation (Supported only by android) |
+| mobileads-mopub-mediation-2.0.0 | MoPub mediation |
+| mobileads-startapp-mediation-2.0.0 | StartApp mediation |
+| mobileads-tapjoy-mediation-2.0.0 |  Tapjoy mediation (Supported only by android) |
+| mobileads-unityads-mediation-2.0.0 | UnityAds mediation |
+| mobileads-vungle-mediation-2.0.0 |  Vungle mediation (Supported only by android) |
+| admob-mobileads-mediation-2.0.0 | Third-party mediation with AdMob |
+| ironsource-mobileads-mediation-2.0.0 | Third-party mediation with IronSource |
 
 [Google resolver]: https://github.com/googlesamples/unity-jar-resolver
 [DOCUMENTATION]: https://yandex.com/dev/mobile-ads/

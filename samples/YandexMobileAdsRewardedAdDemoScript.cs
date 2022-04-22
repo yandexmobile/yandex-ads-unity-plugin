@@ -66,10 +66,12 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
         this.rewardedAd.OnRewardedAdFailedToLoad += this.HandleRewardedAdFailedToLoad;
         this.rewardedAd.OnReturnedToApplication += this.HandleReturnedToApplication;
         this.rewardedAd.OnLeftApplication += this.HandleLeftApplication;
+        this.rewardedAd.OnAdClicked += this.HandleAdClicked;
         this.rewardedAd.OnRewardedAdShown += this.HandleRewardedAdShown;
         this.rewardedAd.OnRewardedAdDismissed += this.HandleRewardedAdDismissed;
         this.rewardedAd.OnImpression += this.HandleImpression;
         this.rewardedAd.OnRewarded += this.HandleRewarded;
+        this.rewardedAd.OnRewardedAdFailedToShow += this.HandleRewardedAdFailedToShow;
 
         this.rewardedAd.LoadAd(this.CreateAdRequest());
     }
@@ -123,15 +125,14 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
         MonoBehaviour.print("HandleLeftApplication event received");
     }
 
+    public void HandleAdClicked(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdClicked event received");
+    }
+
     public void HandleRewardedAdShown(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleRewardedAdShown event received");
-    }
-
-    public void HandleRewardedAdFailedToShow(object sender, AdFailureEventArgs args)
-    {
-        MonoBehaviour.print(
-            "HandleRewardedAdFailedToShow event received with message: " + args.Message);
     }
 
     public void HandleRewardedAdDismissed(object sender, EventArgs args)
@@ -148,6 +149,12 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
     public void HandleRewarded(object sender, Reward args)
     {
         MonoBehaviour.print("HandleRewarded event received: amout = " + args.amount + ", type = " + args.type);
+    }
+
+    public void HandleRewardedAdFailedToShow(object sender, AdFailureEventArgs args)
+    {
+        MonoBehaviour.print(
+            "HandleRewardedAdFailedToShow event received with message: " + args.Message);
     }
 
     #endregion
