@@ -25,7 +25,7 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
     private readonly int FontSize = (int) (0.035f * Screen.width);
 
     private Interstitial interstitial;
-    
+
     public void OnGUI()
     {
         GUIStyle style = new GUIStyle();
@@ -53,13 +53,8 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
 
     private void RequestInterstitial()
     {
-        // Replace demo R-M-DEMO-240x400-context with actual Block ID
-        // Following demo Block IDs may be used for testing:
-        // R-M-DEMO-240x400-context
-        // R-M-DEMO-400x240-context
-        // R-M-DEMO-320x480
-        // R-M-DEMO-480x320
-        string adUnitId = "R-M-DEMO-240x400-context";
+        // Replace demo R-M-DEMO-interstitial with actual Block ID
+        string adUnitId = "R-M-DEMO-interstitial";
 
         if (this.interstitial != null)
         {
