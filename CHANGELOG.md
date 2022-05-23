@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 2.1.0
+
+#### Updated
+* Supported iOS SDK version 5.0.2
+    * Improvements and optimizations
+* Supported Android SDK version 5.1.0
+    * Fixed ANR issue
+    * Improvements and optimizations
+
 ## Version 2.0.0
 
 #### Updated
