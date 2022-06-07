@@ -53,7 +53,7 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
 
     private void RequestInterstitial()
     {
-        // Replace demo R-M-DEMO-interstitial with actual Block ID
+        // Replace demo R-M-DEMO-interstitial with actual Ad Unit ID
         string adUnitId = "R-M-DEMO-interstitial";
 
         if (this.interstitial != null)
