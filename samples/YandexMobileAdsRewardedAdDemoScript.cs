@@ -58,7 +58,7 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
             this.rewardedAd.Destroy();
         }
         
-        // Replace demo R-M-DEMO-rewarded-client-side-rtb with actual Block ID
+        // Replace demo R-M-DEMO-rewarded-client-side-rtb with actual Ad Unit ID
         string adUnitId = "R-M-DEMO-rewarded-client-side-rtb";
         this.rewardedAd = new RewardedAd(adUnitId);
 
