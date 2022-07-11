@@ -49,14 +49,19 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
         // Replace demo R-M-DEMO-320x50 with actual Ad Unit ID
         // Following demo Block IDs may be used for testing:
         // R-M-DEMO-320x50
-        string adUnitId = "R-M-DEMO-320x50";
+        // R-M-DEMO-320x100
+        string adUnitId = "R-M-DEMO-320x100";
 
         if (this.banner != null)
         {
             this.banner.Destroy();
         }
 
-        this.banner = new Banner(adUnitId, AdSize.BANNER_320x50, AdPosition.BottomCenter);
+        // Set flexible banner maximum width and height
+        AdSize bannerMaxSize = AdSize.FlexibleSize(GetScreenWidthDp(), 100);
+        // Or set sticky banner maximum width
+        //AdSize bannerMaxSize = AdSize.StickySize(GetScreenWidthDp());
+        this.banner = new Banner(adUnitId, bannerMaxSize, AdPosition.BottomCenter);
 
         this.banner.OnAdLoaded += this.HandleAdLoaded;
         this.banner.OnAdFailedToLoad += this.HandleAdFailedToLoad;
@@ -66,6 +71,13 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
         this.banner.OnImpression += this.HandleImpression;
 
         this.banner.LoadAd(this.CreateAdRequest());
+    }
+    
+    // Example how to get screen width for request
+    private int GetScreenWidthDp()
+    {
+        int screenWidth = (int)Screen.safeArea.width;
+        return ScreenUtils.ConvertPixelsToDp(screenWidth);
     }
 
     private Rect CreateButton(float positionX, float positionY)
