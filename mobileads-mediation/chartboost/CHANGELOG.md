@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.2.0
+
+#### Updated
+* Supported Android Chartboost adapter version 8.3.1.1
+* Supported Android Yandex Mobile Ads SDK version 5.2.0
+
 ## Version 2.0.0
 
 #### Updated

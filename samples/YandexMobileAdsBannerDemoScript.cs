@@ -56,7 +56,6 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
         {
             this.banner.Destroy();
         }
-
         // Set flexible banner maximum width and height
         AdSize bannerMaxSize = AdSize.FlexibleSize(GetScreenWidthDp(), 100);
         // Or set sticky banner maximum width
@@ -72,7 +71,7 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
 
         this.banner.LoadAd(this.CreateAdRequest());
     }
-    
+
     // Example how to get screen width for request
     private int GetScreenWidthDp()
     {
