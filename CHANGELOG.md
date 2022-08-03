@@ -1,5 +1,15 @@
 # Change Log
 
+## Version 2.2.0
+
+#### Updated
+* Deprecated fixed banner sizes
+* Supported iOS SDK version 5.1.0
+    * Improvements and optimizations
+* Supported Android SDK version 5.2.0
+    * Improvements and optimizations
+    * Updated Android Gradle plugin version to 7.1.3
+
 ## Version 2.1.1
 
 #### Updated
