@@ -68,7 +68,7 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation by several 
 
 | Package | Description |
 | --- | --- |
-| yandex-mobileads-lite-2.1.1 | Main Yandex Mobile Ads package distributed for use with [Google resolver]|
+| yandex-mobileads-lite-2.2.0 | Main Yandex Mobile Ads package distributed for use with [Google resolver]|
 | mobileads-adcolony-mediation-2.2.0 |  AdColony mediation (Supported only by android) |
 | mobileads-admob-mediation-2.2.0 | AdMob mediation |
 | mobileads-applovin-mediation-2.2.0 | AppLovin mediation |
@@ -77,7 +77,6 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation by several 
 | mobileads-mintegral-mediation-2.2.0 | Mintegral mediation |
 | mobileads-mytarget-mediation-2.2.0 | MyTarget mediation |
 | mobileads-pangle-mediation-2.2.0 |  Pangle mediation (Supported only by android) |
-| mobileads-mopub-mediation-2.2.0 | MoPub mediation |
 | mobileads-startapp-mediation-2.2.0 | StartApp mediation |
 | mobileads-tapjoy-mediation-2.2.0 |  Tapjoy mediation (Supported only by android) |
 | mobileads-unityads-mediation-2.2.0 | UnityAds mediation |
