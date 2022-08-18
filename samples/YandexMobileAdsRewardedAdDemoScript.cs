@@ -16,39 +16,42 @@ using YandexMobileAds.Base;
 
 public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
 {
-    private readonly float ButtonWidth = 0.8f * Screen.width;
-    private readonly float ButtonHeight = 0.1f * Screen.height;
-    private readonly float ColumnPosition = 0.1f * Screen.width;
-    private readonly float RowFirstPosition = 0.05f * Screen.height;
-    private readonly float RowSecondPosition = 0.225f * Screen.height;
-    private readonly float RowThirdPosition = 0.4f * Screen.height;
-    private readonly int FontSize = (int) (0.035f * Screen.width);
+    private String message = "";
 
     private RewardedAd rewardedAd;
     
     public void OnGUI()
     {
-        GUIStyle style = new GUIStyle();
+        var fontSize = (int) (0.05f * Math.Min(Screen.width, Screen.height));
 
-        GUI.skin.button.fontSize = FontSize;
+        var labelStyle = GUI.skin.GetStyle("label");
+        labelStyle.fontSize = fontSize;
 
-        Rect requestRewardedAdRect = this.CreateButton(ColumnPosition, RowFirstPosition);
-        if (GUI.Button(requestRewardedAdRect, "Request\nRewarded Ad"))
-        {
-            this.RequestRewardedAd();
-        }
+        var buttonStyle = GUI.skin.GetStyle("button");
+        buttonStyle.fontSize = fontSize;
 
-        Rect showRewardedAdRect = this.CreateButton(ColumnPosition, RowSecondPosition);
-        if (GUI.Button(showRewardedAdRect, "Show\nRewarded Ad"))
-        {
-            this.ShowRewardedAd();
-        }
+        #if UNITY_EDITOR
+            this.message = "Mobile ads SDK is not available in editor. Only Android and iOS environments are supported";
+        #else
+            if (GUILayout.Button("Request Rewarded Ad", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
+            {
+                this.RequestRewardedAd();
+            }
 
-        Rect destroyRewardedAdRect = this.CreateButton(ColumnPosition, RowThirdPosition);
-        if (GUI.Button(destroyRewardedAdRect, "Destroy\nRewarded Ad"))
-        {
-            this.rewardedAd.Destroy();
-        }
+            if (this.rewardedAd != null && this.rewardedAd.IsLoaded()) {
+                if (GUILayout.Button("Show Rewarded Ad", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
+                {
+                    this.ShowRewardedAd();
+                }
+            }
+
+            if (GUILayout.Button("Destroy Rewarded Ad", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
+            {
+                this.rewardedAd.Destroy();
+            }
+        #endif
+
+        GUILayout.Label(this.message, labelStyle);
     }
 
     private void RequestRewardedAd()
@@ -74,27 +77,12 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
         this.rewardedAd.OnRewardedAdFailedToShow += this.HandleRewardedAdFailedToShow;
 
         this.rewardedAd.LoadAd(this.CreateAdRequest());
-    }
-
-    private Rect CreateButton(float positionX, float positionY)
-    {
-        return new Rect(
-            positionX,
-            positionY,
-            ButtonWidth,
-            ButtonHeight);
+        this.DisplayMessage("Rewarded Ad is requested");
     }
 
     private void ShowRewardedAd()
     {
-        if (this.rewardedAd.IsLoaded())
-        {
-            this.rewardedAd.Show();
-        }
-        else
-        {
-            MonoBehaviour.print("Rewarded Ad is not ready yet");
-        }
+        this.rewardedAd.Show();
     }
 
     private AdRequest CreateAdRequest()
@@ -102,58 +90,64 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
         return new AdRequest.Builder().Build();
     }
 
+    private void DisplayMessage(String message)
+    {
+        this.message = message + (this.message.Length == 0 ? "" : "\n--------\n" + this.message);
+        MonoBehaviour.print(message);
+    }
+
     #region Rewarded Ad callback handlers
 
     public void HandleRewardedAdLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardedAdLoaded event received");
+        this.DisplayMessage("HandleRewardedAdLoaded event received");
     }
 
     public void HandleRewardedAdFailedToLoad(object sender, AdFailureEventArgs args)
     {
-        MonoBehaviour.print(
+        this.DisplayMessage(
             "HandleRewardedAdFailedToLoad event received with message: " + args.Message);
     }
 
     public void HandleReturnedToApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleReturnedToApplication event received");
+        this.DisplayMessage("HandleReturnedToApplication event received");
     }
 
     public void HandleLeftApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleLeftApplication event received");
+        this.DisplayMessage("HandleLeftApplication event received");
     }
 
     public void HandleAdClicked(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdClicked event received");
+        this.DisplayMessage("HandleAdClicked event received");
     }
 
     public void HandleRewardedAdShown(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardedAdShown event received");
+        this.DisplayMessage("HandleRewardedAdShown event received");
     }
 
     public void HandleRewardedAdDismissed(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardedAdDismissed event received");
+        this.DisplayMessage("HandleRewardedAdDismissed event received");
     }
 
     public void HandleImpression(object sender, ImpressionData impressionData)
     {
         var data = impressionData == null ? "null" : impressionData.rawData;
-        MonoBehaviour.print("HandleImpression event received with data: " + data);
+        this.DisplayMessage("HandleImpression event received with data: " + data);
     }
 
     public void HandleRewarded(object sender, Reward args)
     {
-        MonoBehaviour.print("HandleRewarded event received: amout = " + args.amount + ", type = " + args.type);
+        this.DisplayMessage("HandleRewarded event received: amout = " + args.amount + ", type = " + args.type);
     }
 
     public void HandleRewardedAdFailedToShow(object sender, AdFailureEventArgs args)
     {
-        MonoBehaviour.print(
+        this.DisplayMessage(
             "HandleRewardedAdFailedToShow event received with message: " + args.Message);
     }
 

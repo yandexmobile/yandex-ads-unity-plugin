@@ -16,39 +16,42 @@ using YandexMobileAds.Base;
 
 public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
 {
-    private readonly float ButtonWidth = 0.8f * Screen.width;
-    private readonly float ButtonHeight = 0.1f * Screen.height;
-    private readonly float ColumnPosition = 0.1f * Screen.width;
-    private readonly float RowFirstPosition = 0.05f * Screen.height;
-    private readonly float RowSecondPosition = 0.225f * Screen.height;
-    private readonly float RowThirdPosition = 0.4f * Screen.height;
-    private readonly int FontSize = (int) (0.035f * Screen.width);
+    private String message = "";
 
     private Interstitial interstitial;
 
     public void OnGUI()
     {
-        GUIStyle style = new GUIStyle();
+        var fontSize = (int) (0.05f * Math.Min(Screen.width, Screen.height));
 
-        GUI.skin.button.fontSize = FontSize;
+        var labelStyle = GUI.skin.GetStyle("label");
+        labelStyle.fontSize = fontSize;
 
-        Rect requestInterstitialRect = this.CreateButton(ColumnPosition, RowFirstPosition);
-        if (GUI.Button(requestInterstitialRect, "Request\nInterstitial"))
-        {
-            this.RequestInterstitial();
-        }
+        var buttonStyle = GUI.skin.GetStyle("button");
+        buttonStyle.fontSize = fontSize;
 
-        Rect showInterstitialRect = this.CreateButton(ColumnPosition, RowSecondPosition);
-        if (GUI.Button(showInterstitialRect, "Show\nInterstitial"))
-        {
-            this.ShowInterstitial();
-        }
+        #if UNITY_EDITOR
+            this.message = "Mobile ads SDK is not available in editor. Only Android and iOS environments are supported";
+        #else
+            if (GUILayout.Button("Request Interstitial", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
+            {
+                this.RequestInterstitial();
+            }
 
-        Rect destroyInterstitialRect = this.CreateButton(ColumnPosition, RowThirdPosition);
-        if (GUI.Button(destroyInterstitialRect, "Destroy\nInterstitial"))
-        {
-            this.interstitial.Destroy();
-        }
+            if (this.interstitial != null && this.interstitial.IsLoaded()) {
+                if (GUILayout.Button("Show Interstitial", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
+                {
+                    this.ShowInterstitial();
+                }
+            }
+
+            if (GUILayout.Button("Destroy Interstitial", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
+            {
+                this.interstitial.Destroy();
+            }
+        #endif
+
+        GUILayout.Label(this.message, labelStyle);
     }
 
     private void RequestInterstitial()
@@ -74,27 +77,12 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
         this.interstitial.OnInterstitialFailedToShow += this.HandleInterstitialFailedToShow;
 
         this.interstitial.LoadAd(this.CreateAdRequest());
-    }
-
-    private Rect CreateButton(float positionX, float positionY)
-    {
-        return new Rect(
-            positionX,
-            positionY,
-            ButtonWidth,
-            ButtonHeight);
+        this.DisplayMessage("Interstitial is requested");
     }
 
     private void ShowInterstitial()
     {
-        if (this.interstitial.IsLoaded())
-        {
-            this.interstitial.Show();
-        }
-        else
-        {
-            MonoBehaviour.print("Interstitial is not ready yet");
-        }
+        this.interstitial.Show();
     }
 
     private AdRequest CreateAdRequest()
@@ -102,54 +90,58 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
         return new AdRequest.Builder().Build();
     }
 
+    private void DisplayMessage(String message)
+    {
+        this.message = message + (this.message.Length == 0 ? "" : "\n--------\n" + this.message);
+        MonoBehaviour.print(message);
+    }
+
     #region Interstitial callback handlers
 
     public void HandleInterstitialLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleInterstitialLoaded event received");
+        this.DisplayMessage("HandleInterstitialLoaded event received");
     }
 
     public void HandleInterstitialFailedToLoad(object sender, AdFailureEventArgs args)
     {
-        MonoBehaviour.print(
-            "HandleInterstitialFailedToLoad event received with message: " + args.Message);
+        this.DisplayMessage("HandleInterstitialFailedToLoad event received with message: " + args.Message);
     }
 
     public void HandleReturnedToApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleReturnedToApplication event received");
+        this.DisplayMessage("HandleReturnedToApplication event received");
     }
 
     public void HandleLeftApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleLeftApplication event received");
+        this.DisplayMessage("HandleLeftApplication event received");
     }
 
     public void HandleAdClicked(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdClicked event received");
+        this.DisplayMessage("HandleAdClicked event received");
     }
 
     public void HandleInterstitialShown(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleInterstitialShown event received");
+        this.DisplayMessage("HandleInterstitialShown event received");
     }
 
     public void HandleInterstitialDismissed(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleInterstitialDismissed event received");
+        this.DisplayMessage("HandleInterstitialDismissed event received");
     }
 
     public void HandleImpression(object sender, ImpressionData impressionData)
     {
         var data = impressionData == null ? "null" : impressionData.rawData;
-        MonoBehaviour.print("HandleImpression event received with data: " + data);
+        this.DisplayMessage("HandleImpression event received with data: " + data);
     }
 
     public void HandleInterstitialFailedToShow(object sender, AdFailureEventArgs args)
     {
-        MonoBehaviour.print(
-            "HandleInterstitialFailedToShow event received with message: " + args.Message);
+        this.DisplayMessage("HandleInterstitialFailedToShow event received with message: " + args.Message);
     }
 
     #endregion

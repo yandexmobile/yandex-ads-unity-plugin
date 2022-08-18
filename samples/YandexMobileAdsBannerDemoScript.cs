@@ -16,32 +16,35 @@ using YandexMobileAds.Base;
 
 public class YandexMobileAdsBannerDemoScript : MonoBehaviour
 {
-    private readonly float ButtonWidth = 0.8f * Screen.width;
-    private readonly float ButtonHeight = 0.1f * Screen.height;
-    private readonly float ColumnPosition = 0.1f * Screen.width;
-    private readonly float RowFirstPosition = 0.05f * Screen.height;
-    private readonly float RowSecondPosition = 0.225f * Screen.height;
-    private readonly int FontSize = (int) (0.035f * Screen.width);
+    private String message = "";
 
     private Banner banner;
     
     public void OnGUI()
     {
-        GUIStyle style = new GUIStyle();
+        var fontSize = (int) (0.05f * Math.Min(Screen.width, Screen.height));
 
-        GUI.skin.button.fontSize = FontSize;
+        var labelStyle = GUI.skin.GetStyle("label");
+        labelStyle.fontSize = fontSize;
 
-        Rect requestBannerRect = this.CreateButton(ColumnPosition, RowFirstPosition);
-        if (GUI.Button(requestBannerRect, "Request\nBanner"))
-        {
-            this.RequestBanner();
-        }
+        var buttonStyle = GUI.skin.GetStyle("button");
+        buttonStyle.fontSize = fontSize;
 
-        Rect destroyBannerRect = this.CreateButton(ColumnPosition, RowSecondPosition);
-        if (GUI.Button(destroyBannerRect, "Destroy\nBanner"))
-        {
-            this.banner.Destroy();
-        }
+        #if UNITY_EDITOR
+            this.message = "Mobile ads SDK is not available in editor. Only Android and iOS environments are supported";
+        #else
+            if (GUILayout.Button("Request Banner", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
+            {
+                this.RequestBanner();
+            }
+
+            if (GUILayout.Button("Destroy Banner", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
+            {
+                this.banner.Destroy();
+            }
+        #endif
+
+        GUILayout.Label(this.message, labelStyle);
     }
 
     private void RequestBanner()
@@ -70,6 +73,7 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
         this.banner.OnImpression += this.HandleImpression;
 
         this.banner.LoadAd(this.CreateAdRequest());
+        this.DisplayMessage("Banner is requested");
     }
 
     // Example how to get screen width for request
@@ -79,57 +83,54 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
         return ScreenUtils.ConvertPixelsToDp(screenWidth);
     }
 
-    private Rect CreateButton(float positionX, float positionY)
-    {
-        return new Rect(
-            positionX,
-            positionY,
-            ButtonWidth,
-            ButtonHeight);
-    }
-
     private AdRequest CreateAdRequest()
     {
         return new AdRequest.Builder().Build();
+    }
+
+    private void DisplayMessage(String message)
+    {
+        this.message = message + (this.message.Length == 0 ? "" : "\n--------\n" + this.message);
+        MonoBehaviour.print(message);
     }
 
     #region Banner callback handlers
 
     public void HandleAdLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdLoaded event received");
+        this.DisplayMessage("HandleAdLoaded event received");
         this.banner.Show();
     }
 
     public void HandleAdFailedToLoad(object sender, AdFailureEventArgs args)
     {
-        MonoBehaviour.print("HandleAdFailedToLoad event received with message: " + args.Message);
+        this.DisplayMessage("HandleAdFailedToLoad event received with message: " + args.Message);
     }
     
     public void HandleLeftApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleLeftApplication event received");
+        this.DisplayMessage("HandleLeftApplication event received");
     }
 
     public void HandleReturnedToApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleReturnedToApplication event received");
+        this.DisplayMessage("HandleReturnedToApplication event received");
     }
 
     public void HandleAdLeftApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdLeftApplication event received");
+        this.DisplayMessage("HandleAdLeftApplication event received");
     }
 
     public void HandleAdClicked(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdClicked event received");
+        this.DisplayMessage("HandleAdClicked event received");
     }
 
     public void HandleImpression(object sender, ImpressionData impressionData)
     {
         var data = impressionData == null ? "null" : impressionData.rawData;
-        MonoBehaviour.print("HandleImpression event received with data: " + data);
+        this.DisplayMessage("HandleImpression event received with data: " + data);
     }
 
     #endregion
