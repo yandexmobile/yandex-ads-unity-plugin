@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 2.2.1
+
+#### Updated
+* Supported Android SDK version 5.2.1
+
 ## Version 2.2.0
 
 #### Updated
