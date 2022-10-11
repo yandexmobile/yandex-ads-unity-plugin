@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.3.0
+
+#### Updated
+* Supported iOS SDK version 5.2.1
+* Supported Android SDK version 5.3.0
+
+
 ## Version 2.2.1
 
 #### Updated
