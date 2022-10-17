@@ -74,7 +74,7 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation by several 
 | mobileads-applovin-mediation-2.3.0 | AppLovin mediation |
 | mobileads-chartboost-mediation-2.3.0 |  Chartboost mediation (Supported only by android) |
 | mobileads-ironsource-mediation-2.3.0 | IronSource mediation |
-| mobileads-mintegral-mediation-2.3.0 | Mintegral mediation |
+| mobileads-mintegral-mediation-2.3.1 | Mintegral mediation |
 | mobileads-mytarget-mediation-2.3.0 | MyTarget mediation |
 | mobileads-pangle-mediation-2.3.0 |  Pangle mediation (Supported only by android) |
 | mobileads-startapp-mediation-2.3.0 | StartApp mediation |
