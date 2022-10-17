@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 2.3.1
+
+#### Updated
+* Supported Android Mintegral adapter version 15.8.01.3
+
 ## Version 2.3.0
 
 #### Updated
