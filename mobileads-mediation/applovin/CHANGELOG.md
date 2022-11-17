@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.4.0
+
+#### Updated
+* Supported Android AppLovin adapter version 11.5.3.0
+* Supported Android AppLovin SDK version 11.5.3
+* Supported Android Yandex Mobile Ads SDK version 5.4.0
+
 ## Version 2.3.0
 
 #### Updated

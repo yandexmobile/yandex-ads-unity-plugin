@@ -19,7 +19,7 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
     private String message = "";
 
     private Banner banner;
-    
+
     public void OnGUI()
     {
         var fontSize = (int) (0.05f * Math.Min(Screen.width, Screen.height));
@@ -49,6 +49,10 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
 
     private void RequestBanner()
     {
+
+        //Sets COPPA restriction for user age under 13
+        MobileAds.SetAgeRestrictedUser(true)
+
         // Replace demo R-M-DEMO-320x50 with actual Ad Unit ID
         // Following demo Block IDs may be used for testing:
         // R-M-DEMO-320x50
@@ -106,7 +110,7 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
     {
         this.DisplayMessage("HandleAdFailedToLoad event received with message: " + args.Message);
     }
-    
+
     public void HandleLeftApplication(object sender, EventArgs args)
     {
         this.DisplayMessage("HandleLeftApplication event received");

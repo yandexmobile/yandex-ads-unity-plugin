@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.4.0
+
+#### Updated
+* Supported Android Pangle adapter version 4.3.0.4.2
+* Supported Android Yandex Mobile Ads SDK version 5.4.0
+
 ## Version 2.3.0
 
 #### Updated

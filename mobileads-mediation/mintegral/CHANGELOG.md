@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.4.0
+
+#### Updated
+* Supported Android Mintegral adapter version 15.8.01.4
+* Supported Android Yandex Mobile Ads SDK version 5.4.0
+
 ## Version 2.3.1
 
 #### Updated

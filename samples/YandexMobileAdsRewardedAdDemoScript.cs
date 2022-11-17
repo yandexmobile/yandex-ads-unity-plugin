@@ -19,7 +19,7 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
     private String message = "";
 
     private RewardedAd rewardedAd;
-    
+
     public void OnGUI()
     {
         var fontSize = (int) (0.05f * Math.Min(Screen.width, Screen.height));
@@ -56,11 +56,14 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
 
     private void RequestRewardedAd()
     {
+        //Sets COPPA restriction for user age under 13
+        MobileAds.SetAgeRestrictedUser(true)
+
         if (this.rewardedAd != null)
         {
             this.rewardedAd.Destroy();
         }
-        
+
         // Replace demo R-M-DEMO-rewarded-client-side-rtb with actual Ad Unit ID
         string adUnitId = "R-M-DEMO-rewarded-client-side-rtb";
         this.rewardedAd = new RewardedAd(adUnitId);
