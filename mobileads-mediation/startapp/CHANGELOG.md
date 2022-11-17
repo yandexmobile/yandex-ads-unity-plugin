@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.4.0
+
+#### Updated
+* Supported Android StartApp adapter version 4.10.4.0
+* Supported Android StartApp SDK version 4.10.4
+* Supported Android Yandex Mobile Ads SDK version 5.4.0
+
 ## Version 2.3.0
 
 #### Updated

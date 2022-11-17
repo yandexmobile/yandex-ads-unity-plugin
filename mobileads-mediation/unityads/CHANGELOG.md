@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.4.0
+
+#### Updated
+* Supported Android UnityAds adapter version 4.4.1.0
+* Supported Android UnityAds SDK version 4.4.1
+* Supported Android Yandex Mobile Ads SDK version 5.4.0
+
 ## Version 2.3.0
 
 #### Updated

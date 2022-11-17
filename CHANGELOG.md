@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.4.0
+
+#### Updated
+* Supported Android SDK version 5.4.0
+* Added COPPA support
+
 ## Version 2.3.0
 
 #### Updated

@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.4.0
+
+#### Updated
+* Supported Android Yandex Mobile Ads SDK version 5.4.0
+* Supported Android AdColony adapter version 4.8.0.2
+
 ## Version 2.3.0
 
 #### Updated
