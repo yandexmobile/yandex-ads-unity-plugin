@@ -51,7 +51,7 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
     {
 
         //Sets COPPA restriction for user age under 13
-        MobileAds.SetAgeRestrictedUser(true)
+        MobileAds.SetAgeRestrictedUser(true);
 
         // Replace demo R-M-DEMO-320x50 with actual Ad Unit ID
         // Following demo Block IDs may be used for testing:
