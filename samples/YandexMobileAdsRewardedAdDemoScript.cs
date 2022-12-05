@@ -57,7 +57,7 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
     private void RequestRewardedAd()
     {
         //Sets COPPA restriction for user age under 13
-        MobileAds.SetAgeRestrictedUser(true)
+        MobileAds.SetAgeRestrictedUser(true);
 
         if (this.rewardedAd != null)
         {

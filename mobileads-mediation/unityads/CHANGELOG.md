@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.5.0
+
+#### Updated
+* Supported iOS UnityAds adapter version 4.4.1.0
+* Supported iOS UnityAds SDK version 4.4.1
+* Supported iOS Yandex Mobile Ads SDK version 5.3.1
+
 ## Version 2.4.0
 
 #### Updated

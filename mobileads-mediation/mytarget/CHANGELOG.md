@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.5.0
+
+#### Updated
+* Supported iOS MyTarget adapter version 5.17.0.0
+* Supported iOS MyTarget SDK version 5.17.0
+* Supported iOS Yandex Mobile Ads SDK version 5.3.1
+
 ## Version 2.4.0
 
 #### Updated
