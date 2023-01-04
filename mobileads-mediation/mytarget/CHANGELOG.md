@@ -1,5 +1,15 @@
 # Change Log
 
+## Version 2.6.0
+
+#### Updated
+* Supported Android MyTarget adapter version 5.16.2.0
+* Supported Android MyTarget SDK version 5.16.2
+* Supported Android Yandex Mobile Ads SDK version 5.5.0
+* Supported iOS MyTarget adapter version 5.17.1.0
+* Supported iOS MyTarget SDK version 5.17.1
+* Supported iOS Yandex Mobile Ads SDK version 5.4.0
+
 ## Version 2.5.0
 
 #### Updated
