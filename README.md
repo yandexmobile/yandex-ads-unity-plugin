@@ -68,21 +68,21 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation by several 
 
 | Package                              | Description |
 |--------------------------------------| --- |
-| yandex-mobileads-lite-2.6.0          | Main Yandex Mobile Ads package distributed for use with [Google resolver]|
+| yandex-mobileads-lite-2.7.0          | Main Yandex Mobile Ads package distributed for use with [Google resolver]|
 | mobileads-adcolony-mediation-2.4.0   |  AdColony mediation (Supported only by android) |
-| mobileads-admob-mediation-2.6.0      | AdMob mediation |
-| mobileads-applovin-mediation-2.6.0   | AppLovin mediation |
+| mobileads-admob-mediation-2.7.0      | AdMob mediation |
+| mobileads-applovin-mediation-2.7.0   | AppLovin mediation |
 | mobileads-chartboost-mediation-2.5.0 |  Chartboost mediation (Supported only by android) |
-| mobileads-ironsource-mediation-2.6.0 | IronSource mediation |
-| mobileads-mintegral-mediation-2.6.0  | Mintegral mediation |
-| mobileads-mytarget-mediation-2.6.0   | MyTarget mediation |
+| mobileads-ironsource-mediation-2.7.0 | IronSource mediation |
+| mobileads-mintegral-mediation-2.7.0  | Mintegral mediation |
+| mobileads-mytarget-mediation-2.7.0   | MyTarget mediation |
 | mobileads-pangle-mediation-2.5.0     |  Pangle mediation (Supported only by android) |
 | mobileads-startapp-mediation-2.4.0   | StartApp mediation (Supported only by android) |
 | mobileads-tapjoy-mediation-2.4.0     |  Tapjoy mediation (Supported only by android) |
-| mobileads-unityads-mediation-2.6.0   | UnityAds mediation |
+| mobileads-unityads-mediation-2.7.0   | UnityAds mediation |
 | mobileads-vungle-mediation-2.4.0     |  Vungle mediation (Supported only by android) |
-| admob-mobileads-mediation-2.6.0      | Third-party mediation with AdMob |
-| ironsource-mobileads-mediation-2.6.0 | Third-party mediation with IronSource |
+| admob-mobileads-mediation-2.7.0      | Third-party mediation with AdMob |
+| ironsource-mobileads-mediation-2.7.0 | Third-party mediation with IronSource |
 
 [Google resolver]: https://github.com/googlesamples/unity-jar-resolver
 [DOCUMENTATION]: https://yandex.com/dev/mobile-ads/
