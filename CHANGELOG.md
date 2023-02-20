@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 2.7.0
+
+#### Updated
+
+* Supported Android SDK version 5.5.1
+    * Improvements and optimizations
+* Supported iOS SDK version 5.5.0
+    * Improvements and optimizations
+
 ## Version 2.6.0
 
 #### Updated
