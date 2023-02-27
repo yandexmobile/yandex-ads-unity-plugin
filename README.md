@@ -32,7 +32,7 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation by several 
 
 3. Add [Google resolver] to your project, if you haven't done it yet. Resolve dependencies.
 
-4. Set up meditation according to [AdFox documentation](https://yandex.com/dev/mobile-ads/doc/plugins/unity/mob-mediation/list-network-docpage/)
+4. Set up mediation according to [AdFox documentation](https://yandex.com/dev/mobile-ads/doc/plugins/unity/mob-mediation/list-network-docpage/)
 
 ## Third-party mediation
 
