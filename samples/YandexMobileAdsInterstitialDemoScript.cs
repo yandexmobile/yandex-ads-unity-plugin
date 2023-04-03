@@ -59,8 +59,8 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
         //Sets COPPA restriction for user age under 13
         MobileAds.SetAgeRestrictedUser(true);
 
-        // Replace demo R-M-DEMO-interstitial with actual Ad Unit ID
-        string adUnitId = "R-M-DEMO-interstitial";
+        // Replace demo Unit ID 'demo-interstitial-yandex' with actual Ad Unit ID
+        string adUnitId = "demo-interstitial-yandex";
 
         if (this.interstitial != null)
         {
