@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.8.0
+
+#### Updated
+
+* Supported Android MobileAds Mediation version 5.9.0.0
+* Supported iOS MobileAds Mediation version 5.8.0
+
 ## Version 2.7.0
 
 #### Added
