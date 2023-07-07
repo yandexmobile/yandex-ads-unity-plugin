@@ -1,20 +1,30 @@
 # Change Log
 
+## Version 2.8.0
+
+#### Updated
+
+* Supported Android UnityAds adapter version 4.7.1.1
+* Supported iOS UnityAds adapter version 4.7.1.1
+
 ## Version 2.7.0
 
 #### Updated
+
 * Supported iOS UnityAds adapter version 4.5.0.0
 * Supported iOS Yandex Mobile Ads SDK version 5.5.0
 
 ## Version 2.6.0
 
 #### Updated
+
 * Supported iOS UnityAds adapter version 4.4.1.1
 * Supported iOS Yandex Mobile Ads SDK version 5.4.0
 
 ## Version 2.5.0
 
 #### Updated
+
 * Supported iOS UnityAds adapter version 4.4.1.0
 * Supported iOS UnityAds SDK version 4.4.1
 * Supported iOS Yandex Mobile Ads SDK version 5.3.1
@@ -22,6 +32,7 @@
 ## Version 2.4.0
 
 #### Updated
+
 * Supported Android UnityAds adapter version 4.4.1.0
 * Supported Android UnityAds SDK version 4.4.1
 * Supported Android Yandex Mobile Ads SDK version 5.4.0
@@ -29,6 +40,7 @@
 ## Version 2.3.0
 
 #### Updated
+
 * Supported Android UnityAds adapter version 4.2.1.1
 * Supported Android Yandex Mobile Ads SDK version 5.3.0
 * Supported iOS UnityAds adapter version 4.3.0.0
@@ -38,11 +50,13 @@
 ## Version 2.2.1
 
 #### Updated
+
 * Supported Android Yandex Mobile Ads SDK version 5.2.1
 
 ## Version 2.2.0
 
 #### Updated
+
 * Supported Android UnityAds adapter version 4.2.1.0
 * Supported Android UnityAds SDK version 4.2.1
 * Supported Android Yandex Mobile Ads SDK version 5.2.0
@@ -53,6 +67,7 @@
 ## Version 2.0.0
 
 #### Updated
+
 * Supported Android UnityAds adapter version 4.0.0.0
 * Supported Android UnityAds SDK version 4.0.0
 * Supported Android Yandex Mobile Ads SDK version 5.0.0
@@ -63,6 +78,7 @@
 ## Version 1.1.0
 
 #### Updated
+
 * Supported Android UnityAds adapter version 3.7.5.0
 * Supported Android UnityAds SDK version 3.7.5
 * Supported Android Yandex Mobile Ads SDK version 4.4.0
@@ -73,6 +89,7 @@
 ## Version 1.0.0
 
 #### Updated
+
 * Supported Android Yandex Mobile Ads SDK version 4.1.0
 * Supported Android UnityAds adapter version 1.5.0
 * Supported Android UnityAds SDK version 3.6.0
@@ -83,6 +100,7 @@
 ## Version 0.6.0
 
 #### Updated
+
 * Supported Android UnityAds adapter version 1.3.0
 * Supported Android UnityAds SDK version 3.4.0
 * Supported Android Yandex Mobile Ads SDK version 3.0.0
@@ -93,6 +111,7 @@
 ## Version 0.5.0
 
 #### Updated
+
 * Supported Android UnityAds adapter version 1.2.0
 * Supported Android UnityAds SDK version 3.4.0
 * Supported iOS UnityAds adapter version 0.6.0

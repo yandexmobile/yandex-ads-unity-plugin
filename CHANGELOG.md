@@ -1,5 +1,16 @@
 # Change Log
 
+## Version 2.8.0
+
+#### Updated
+
+* Supported Android SDK version 5.9.0
+  * Improved logs for SDK correct integration check
+  * Improvements and optimizations
+* Supported iOS SDK version 5.8.0
+  * Added improvements and fixes
+  * Updated integration logs
+
 ## Version 2.7.0
 
 #### Updated
