@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.9.0
+
+#### Updated
+
+* Supported Android AdMob adapter version 22.1.0.0
+* Supported iOS AdMob adapter version 10.7.0.0
+
 ## Version 2.8.0
 
 #### Updated
