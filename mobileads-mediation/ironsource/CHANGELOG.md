@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.9.0
+
+#### Updated
+
+* Supported Android IronSource adapter version 7.3.1.1.0
+* Supported iOS IronSource adapter version 7.3.0.3
+
 ## Version 2.8.0
 
 #### Updated

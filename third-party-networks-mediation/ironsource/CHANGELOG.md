@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 2.9.0
+
+#### Updated
+
+* Supported Android IronSource adapter version 5.10.0.0
+* Supported iOS IronSource adapter version 5.9.0.0
+* Supported IronSource Unity plugin 7.3.0.1
+
 ## Version 2.8.0
 
 #### Updated
