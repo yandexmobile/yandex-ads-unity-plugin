@@ -1,7 +1,7 @@
 /*
  * This file is a part of the Yandex Advertising Network
  *
- * Version for Android (C) 2019 YANDEX
+ * Version for Android (C) 2023 YANDEX
  *
  * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
@@ -18,11 +18,19 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
 {
     private String message = "";
 
+    private InterstitialAdLoader interstitialAdLoader;
     private Interstitial interstitial;
+
+    public void Awake()
+    {
+        this.interstitialAdLoader = new InterstitialAdLoader();
+        this.interstitialAdLoader.OnAdLoaded += this.HandleAdLoaded;
+        this.interstitialAdLoader.OnAdFailedToLoad += this.HandleAdFailedToLoad;
+    }
 
     public void OnGUI()
     {
-        var fontSize = (int) (0.05f * Math.Min(Screen.width, Screen.height));
+        var fontSize = (int)(0.05f * Math.Min(Screen.width, Screen.height));
 
         var labelStyle = GUI.skin.GetStyle("label");
         labelStyle.fontSize = fontSize;
@@ -30,26 +38,29 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
         var buttonStyle = GUI.skin.GetStyle("button");
         buttonStyle.fontSize = fontSize;
 
-        #if UNITY_EDITOR
-            this.message = "Mobile ads SDK is not available in editor. Only Android and iOS environments are supported";
-        #else
+#if UNITY_EDITOR
+        this.message = "Mobile ads SDK is not available in editor. Only Android and iOS environments are supported";
+#else
             if (GUILayout.Button("Request Interstitial", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
             {
                 this.RequestInterstitial();
             }
 
-            if (this.interstitial != null && this.interstitial.IsLoaded()) {
+            if (this.interstitial != null)
+            {
                 if (GUILayout.Button("Show Interstitial", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
                 {
                     this.ShowInterstitial();
                 }
             }
-
-            if (GUILayout.Button("Destroy Interstitial", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
+            if(this.interstitial != null)
             {
-                this.interstitial.Destroy();
+                if (GUILayout.Button("Destroy Interstitial", buttonStyle, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 8)))
+                {
+                    this.interstitial.Destroy();
+                }
             }
-        #endif
+#endif
 
         GUILayout.Label(this.message, labelStyle);
     }
@@ -67,30 +78,30 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
             this.interstitial.Destroy();
         }
 
-        this.interstitial = new Interstitial(adUnitId);
-
-        this.interstitial.OnInterstitialLoaded += this.HandleInterstitialLoaded;
-        this.interstitial.OnInterstitialFailedToLoad += this.HandleInterstitialFailedToLoad;
-        this.interstitial.OnReturnedToApplication += this.HandleReturnedToApplication;
-        this.interstitial.OnLeftApplication += this.HandleLeftApplication;
-        this.interstitial.OnAdClicked += this.HandleAdClicked;
-        this.interstitial.OnInterstitialShown += this.HandleInterstitialShown;
-        this.interstitial.OnInterstitialDismissed += this.HandleInterstitialDismissed;
-        this.interstitial.OnImpression += this.HandleImpression;
-        this.interstitial.OnInterstitialFailedToShow += this.HandleInterstitialFailedToShow;
-
-        this.interstitial.LoadAd(this.CreateAdRequest());
+        this.interstitialAdLoader.LoadAd(this.CreateAdRequest(adUnitId));
         this.DisplayMessage("Interstitial is requested");
     }
 
     private void ShowInterstitial()
     {
+        if (this.interstitial == null)
+        {
+            this.DisplayMessage("Interstitial is not ready yet");
+            return;
+        }
+
+        this.interstitial.OnAdClicked += this.HandleAdClicked;
+        this.interstitial.OnAdShown += this.HandleAdShown;
+        this.interstitial.OnAdFailedToShow += this.HandleAdFailedToShow;
+        this.interstitial.OnAdImpression += this.HandleImpression;
+        this.interstitial.OnAdDismissed += this.HandleAdDismissed;
+
         this.interstitial.Show();
     }
 
-    private AdRequest CreateAdRequest()
+    private AdRequestConfiguration CreateAdRequest(string adUnitId)
     {
-        return new AdRequest.Builder().Build();
+        return new AdRequestConfiguration.Builder(adUnitId).Build();
     }
 
     private void DisplayMessage(String message)
@@ -101,50 +112,44 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
 
     #region Interstitial callback handlers
 
-    public void HandleInterstitialLoaded(object sender, EventArgs args)
+    public void HandleAdLoaded(object sender, InterstitialAdLoadedEventArgs args)
     {
-        this.DisplayMessage("HandleInterstitialLoaded event received");
+        this.DisplayMessage("HandleAdLoaded event received");
+
+        this.interstitial = args.Interstitial;
     }
 
-    public void HandleInterstitialFailedToLoad(object sender, AdFailureEventArgs args)
+    public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        this.DisplayMessage("HandleInterstitialFailedToLoad event received with message: " + args.Message);
+        this.DisplayMessage($"HandleAdFailedToLoad event received with message: {args.Message}");
     }
-
-    public void HandleReturnedToApplication(object sender, EventArgs args)
-    {
-        this.DisplayMessage("HandleReturnedToApplication event received");
-    }
-
-    public void HandleLeftApplication(object sender, EventArgs args)
-    {
-        this.DisplayMessage("HandleLeftApplication event received");
-    }
-
     public void HandleAdClicked(object sender, EventArgs args)
     {
         this.DisplayMessage("HandleAdClicked event received");
     }
 
-    public void HandleInterstitialShown(object sender, EventArgs args)
+    public void HandleAdShown(object sender, EventArgs args)
     {
-        this.DisplayMessage("HandleInterstitialShown event received");
+        this.DisplayMessage("HandleAdShown event received");
     }
 
-    public void HandleInterstitialDismissed(object sender, EventArgs args)
+    public void HandleAdDismissed(object sender, EventArgs args)
     {
-        this.DisplayMessage("HandleInterstitialDismissed event received");
+        this.DisplayMessage("HandleAdDismissed event received");
+
+        this.interstitial.Destroy();
+        this.interstitial = null;
     }
 
     public void HandleImpression(object sender, ImpressionData impressionData)
     {
         var data = impressionData == null ? "null" : impressionData.rawData;
-        this.DisplayMessage("HandleImpression event received with data: " + data);
+        this.DisplayMessage($"HandleImpression event received with data: {data}");
     }
 
-    public void HandleInterstitialFailedToShow(object sender, AdFailureEventArgs args)
+    public void HandleAdFailedToShow(object sender, AdFailureEventArgs args)
     {
-        this.DisplayMessage("HandleInterstitialFailedToShow event received with message: " + args.Message);
+        this.DisplayMessage($"HandleAdFailedToShow event received with message: {args.Message}");
     }
 
     #endregion

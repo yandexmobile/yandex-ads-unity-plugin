@@ -1,7 +1,7 @@
 /*
  * This file is a part of the Yandex Advertising Network
  *
- * Version for Android (C) 2019 YANDEX
+ * Version for Android (C) 2023 YANDEX
  *
  * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
@@ -60,10 +60,10 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
         {
             this.banner.Destroy();
         }
-        // Set inline banner maximum width and height
-        AdSize bannerMaxSize = AdSize.InlineSize(GetScreenWidthDp(), 100);
-        // Or set sticky banner maximum width
-        //AdSize bannerMaxSize = AdSize.StickySize(GetScreenWidthDp());
+        // Set sticky banner width
+        BannerAdSize bannerSize = BannerAdSize.StickySize(GetScreenWidthDp());
+        // Or set inline banner maximum width and height
+        // BannerAdSize bannerSize = BannerAdSize.InlineSize(GetScreenWidthDp(), 300);
         this.banner = new Banner(adUnitId, bannerMaxSize, AdPosition.BottomCenter);
 
         this.banner.OnAdLoaded += this.HandleAdLoaded;

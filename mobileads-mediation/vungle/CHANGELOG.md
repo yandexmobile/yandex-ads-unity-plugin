@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 6.0.0
+
+#### Updated
+
+* Supported Android Vungle adapter version 6.12.1.3
+
 ## Version 2.9.0
 
 #### Updated

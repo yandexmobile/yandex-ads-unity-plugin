@@ -2,6 +2,11 @@
 
 #### Updated
 
+## Version 6.0.0
+
+* Supported Android AdColony adapter version 4.8.0.6
+* Supported iOS AdColony adapter version 4.9.0.5
+
 ## Version 2.9.0
 
 * Supported Android AdColony adapter version 4.8.0.5

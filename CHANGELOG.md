@@ -1,5 +1,19 @@
 # Change Log
 
+## Version 6.0.0
+
+#### Updated
+* Added App Open Ad format
+* Supported Android SDK version 6.0.0
+* Supported iOS SDK version 6.0.0
+* Changed versioning to match the major version of the native SDK's
+
+#### Breaking changes
+
+* New banner ad size API
+* Interstitial ad loading and ad show API decomposition
+* Rewarded ad loading and ad show API decomposition
+
 ## Version 2.9.0
 
 #### Updated
