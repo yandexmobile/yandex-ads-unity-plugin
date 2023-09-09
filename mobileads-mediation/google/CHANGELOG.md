@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 6.0.0
+
+#### Updated
+
+* Supported Android Google adapter version 22.2.0.0
+* Supported iOS Google adapter version 10.9.0.0
+* Rebranded adapter name to "Google Adapter"
+
 ## Version 2.9.0
 
 #### Updated
