@@ -1,8 +1,15 @@
 # Change Log
 
+## Version 6.0.1
+
+#### Updated
+
+* Supported Android SDK version 6.0.1
+
 ## Version 6.0.0
 
 #### Updated
+
 * Added App Open Ad format
 * Supported Android SDK version 6.0.0
 * Supported iOS SDK version 6.0.0

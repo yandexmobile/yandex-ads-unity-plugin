@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 6.0.1
+
+#### Updated
+
+* Supported Android SDK version 6.0.1.0
+
 ## Version 6.0.0
 
 #### Updated
