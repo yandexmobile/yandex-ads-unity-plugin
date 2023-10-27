@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 6.1.0
+
+#### Updated
+
+* Supported Android Chartboost adapter version 9.3.1.1
+* Supported iOS Chartboost adapter version 9.4.0.1
+
 ## Version 6.0.0
 
 #### Updated

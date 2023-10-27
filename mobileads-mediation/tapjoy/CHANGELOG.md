@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 6.1.0
+
+#### Updated
+
+* Supported Android Tapjoy adapter version 13.1.2.1
+
 ## Version 6.0.0
 
 #### Updated

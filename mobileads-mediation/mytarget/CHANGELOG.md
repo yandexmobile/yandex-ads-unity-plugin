@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 6.1.0
+
+#### Updated
+
+* Supported Android MyTarget adapter version 5.18.0.1
+* Supported iOS MyTarget adapter version 5.19.0.1
+
 ## Version 6.0.0
 
 #### Updated

@@ -1,10 +1,15 @@
 # Change Log
 
-## Version 6.0.1
+## Version 6.1.0
+
+#### Added
+
+* Ability to get calculated banner size before loading
 
 #### Updated
 
-* Supported Android SDK version 6.0.1
+* Supported Android SDK version 6.1.0
+* Supported iOS SDK Version 6.1.0
 
 ## Version 6.0.0
 
