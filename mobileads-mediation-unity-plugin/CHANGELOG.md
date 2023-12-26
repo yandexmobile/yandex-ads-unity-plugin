@@ -1,5 +1,34 @@
 # Change Log
 
+## Version 6.3.0
+
+### Supports
+
+* Yandex Mobile Ads Android SDK version 6.3.0
+* Yandex Mobile Ads iOS SDK version 6.3.0
+* AdColony Android SDK version 4.8.0
+* AdColony iOS SDK version 4.9.0
+* AppLovin Android SDK version 11.11.3
+* AppLovin iOS SDK version 12.1.0
+* Chartboost Android SDK version 9.3.1
+* Chartboost iOS SDK version 9.5.1
+* AdMob Android SDK version 22.3.0
+* AdMob iOS SDK version 10.14.0
+* InMobi Android SDK version 10.6.2
+* InMobi iOS SDK version 10.5.5
+* IronSource Android SDK version 7.6.0
+* IronSource iOS SDK version 7.6.0
+* Mintegral Android SDK version 16.5.81
+* Mintegral iOS SDK version 7.5.1
+* MyTarget Android SDK version 5.19.0
+* MyTarget iOS SDK version 5.20.0
+* Pangle Android SDK version 5.6.0.3
+* StartApp Android SDK version 4.11.3
+* Tapjoy Android SDK version 13.1.2
+* UnityAds Android SDK version 4.9.2
+* UnityAds iOS SDK version 4.9.2
+* Vungle Android SDK version 6.12.1
+
 ## Version 6.1.0
 
 ### Supports
