@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 6.4.0
+
+#### Updated
+
+* Supported Android BigoAds adapter version 4.5.1.0
+
 ## Version 6.3.0
 
 #### Updated
