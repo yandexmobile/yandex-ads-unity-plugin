@@ -1,11 +1,18 @@
 # Change Log
 
+## Version 6.4.0
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 6.4.0
+* Supported iOS YandexMobileAds version 6.4.0
+
 ## Version 6.3.0
 
 #### Updated
 
-* Supported Android SDK version 6.3.0
-* Supported iOS SDK Version 6.3.0
+* Supported Android Yandex Mobile Ads SDK version 6.3.0
+* Supported iOS YandexMobileAds version 6.3.0
 
 ## Version 6.1.0
 
@@ -21,7 +28,6 @@
 ## Version 6.0.0
 
 #### Updated
-
 * Added App Open Ad format
 * Supported Android SDK version 6.0.0
 * Supported iOS SDK version 6.0.0

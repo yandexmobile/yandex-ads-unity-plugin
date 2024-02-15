@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 6.4.0
+
+#### Updated
+
+* Supported Android InMobi adapter version 10.6.3.0
+* Supported iOS InMobi adapter version 10.5.5.5
+
 ## Version 6.3.0
 
 #### Updated
