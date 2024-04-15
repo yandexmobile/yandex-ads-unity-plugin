@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.0.0
+
+#### Updated
+
+* Supported Android StartApp adapter version 4.11.5.1
+
 ## Version 6.4.0
 
 #### Updated

@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.0.0
+
+#### Updated
+
+* Supported Android Vungle adapter version 7.1.0.1
+
 ## Version 6.4.0
 
 #### Updated
