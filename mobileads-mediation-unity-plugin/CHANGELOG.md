@@ -1,5 +1,21 @@
 # Change Log
 
+## Version 7.0.1
+
+### Supports
+
+* Yandex Mobile Ads Android SDK version 7.0.1
+* Yandex Mobile Ads iOS SDK version 7.0.1
+* AdColony iOS SDK version 4.9.0.12
+* AppLovin iOS SDK version 12.3.1.1
+* Chartboost iOS SDK version 9.7.0.1
+* AdMob iOS SDK version 11.2.0.1
+* InMobi iOS SDK version 10.5.5.8
+* IronSource iOS SDK version 7.9.1.1
+* Mintegral iOS SDK version 7.5.9.1
+* MyTarget iOS SDK version 5.21.1.1
+* UnityAds iOS SDK version 4.9.3.1
+
 ## Version 7.0.0
 
 ### Supports
