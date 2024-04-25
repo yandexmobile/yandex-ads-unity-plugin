@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.0.1
+
+#### Updated
+
+* Supported iOS IronSource adapter version 7.9.1.1
+
 ## Version 7.0.0
 
 #### Updated

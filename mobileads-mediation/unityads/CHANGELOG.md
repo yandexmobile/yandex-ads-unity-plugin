@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.0.1
+
+#### Updated
+
+* Supported iOS UnityAds adapter version 4.9.3.1
+
 ## Version 7.0.0
 
 #### Updated

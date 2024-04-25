@@ -1,5 +1,16 @@
 # Change Log
 
+## Version 7.0.1
+
+#### Updated
+
+* Supported iOS AdColony adapter version 4.9.0.12
+
+#### Updated
+
+* Supported Android AdColony adapter version 4.8.0.11
+* Supported iOS AdColony adapter version 4.9.0.11
+
 ## Version 7.0.0
 
 #### Updated
