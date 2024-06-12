@@ -1,49 +1,57 @@
 # Change Log
 
+## Version 7.1.0
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 7.1.0
+* Supported Android Google adapter version 23.0.0.1
+* Supported iOS Google adapter version 11.3.0.0
+
 ## Version 7.0.1
 
 #### Updated
 
 * Supported Android Yandex Mobile Ads SDK version 7.0.1
-* Supported iOS AdMob adapter version 11.2.0.1
+* Supported iOS Google adapter version 11.2.0.1
 
 ## Version 7.0.0
 
 #### Updated
 
 * Supported Android Yandex Mobile Ads SDK version 7.0.0
-* Supported Android AdMob adapter version 23.0.0.0
-* Supported iOS AdMob adapter version 11.2.0.0
+* Supported Android Google adapter version 23.0.0.0
+* Supported iOS Google adapter version 11.2.0.0
 
 ## Version 6.4.0
 
 #### Updated
 
 * Supported Android Yandex Mobile Ads SDK version 6.4.0
-* Supported Android AdMob adapter version 22.6.0.1
-* Supported iOS AdMob adapter version 10.14.0.1
+* Supported Android Google adapter version 22.6.0.1
+* Supported iOS Google adapter version 10.14.0.1
 
 ## Version 6.3.0
 
 #### Updated
 
 * Supported Android Yandex Mobile Ads SDK version 6.3.0
-* Supported iOS AdMob adapter version 10.14.0.0
+* Supported iOS Google adapter version 10.14.0.0
 
 ## Version 6.1.0
 
 #### Updated
 
 * Supported Android Yandex Mobile Ads SDK version 6.1.0
-* Supported Android AdMob SDK version 22.3.0.0
-* Supported iOS AdMob adapter version 10.12.0.0
+* Supported Android Google SDK version 22.3.0.0
+* Supported iOS Google adapter version 10.12.0.0
 
 ## Version 6.0.0
 
 #### Updated
 
-* Supported Android Google adapter version 22.2.0.0
-* Supported iOS Google adapter version 10.9.0.0
+* Supported Android AdMob adapter version 22.2.0.0
+* Supported iOS AdMob adapter version 10.9.0.0
 * Rebranded adapter name to "Google Adapter"
 
 ## Version 2.9.0
