@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 7.1.0
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 7.1.0
+* Supported iOS YandexMobileAds version 7.1.0
+* Supported iOS DivKit version 30.2.0
+
 ## Version 7.0.1
 
 #### Updated
@@ -48,7 +56,9 @@
 #### Updated
 * Added App Open Ad format
 * Supported Android SDK version 6.0.0
+    * Improvements and optimizations
 * Supported iOS SDK version 6.0.0
+    * Improvements and optimizations
 * Changed versioning to match the major version of the native SDK's
 
 #### Breaking changes
