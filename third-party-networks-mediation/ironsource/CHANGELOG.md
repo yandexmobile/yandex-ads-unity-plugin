@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 7.2.0
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 7.2.0
+* Supported Android IronSource adapter version 7.2.0.0
+* Supported iOS Yandex Mobile Ads SDK version 7.2.0
+* Supported iOS IronSource adapter version 7.2.0.0
+
 ## Version 7.1.0
 
 #### Updated
