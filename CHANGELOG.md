@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 7.4.0
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 7.4.0
+* Supported iOS YandexMobileAds version 7.4.0
+* Supported iOS DivKit version 30.12.0
+
 ## Version 7.3.0
 
 #### Updated
