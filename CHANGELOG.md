@@ -1,5 +1,17 @@
 # Change Log
 
+## Version 7.5.0
+
+#### Added
+
+* Debug Panel support for iOS.
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 7.5.0
+* Supported iOS YandexMobileAds version 7.5.1
+* Supported iOS DivKit version 30.16.0
+
 ## Version 7.4.0
 
 #### Updated
