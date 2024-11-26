@@ -14,6 +14,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 7.6.0
 * Supported Android IronSource adapter version 7.6.0.0
+* Supported iOS Yandex Mobile Ads SDK version 7.6.0
 * Supported iOS IronSource adapter version 7.6.0.0
 
 ## Version 7.5.0
@@ -22,6 +23,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 7.5.0
 * Supported Android IronSource adapter version 7.5.0.0
+* Supported iOS Yandex Mobile Ads SDK version 7.5.1
 * Supported iOS IronSource adapter version 7.5.1.0
 
 ## Version 7.4.0
@@ -30,6 +32,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 7.4.0
 * Supported Android IronSource adapter version 7.4.0.0
+* Supported iOS Yandex Mobile Ads SDK version 7.4.0
 * Supported iOS IronSource adapter version 7.4.0.0
 
 ## Version 7.3.0
@@ -46,6 +49,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 7.2.0
 * Supported Android IronSource adapter version 7.2.0.0
+* Supported iOS Yandex Mobile Ads SDK version 7.2.0
 * Supported iOS IronSource adapter version 7.2.0.0
 
 ## Version 7.1.0
@@ -63,6 +67,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 7.0.1
 * Supported Android IronSource adapter version 7.0.1.0
+* Supported iOS Yandex Mobile Ads SDK version 7.0.1
 * Supported iOS IronSource adapter version 7.0.1.0
 
 ## Version 7.0.0
@@ -80,6 +85,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 6.4.0
 * Supported Android IronSource adapter version 6.4.0.0
+* Supported iOS Yandex Mobile Ads SDK version 6.4.0
 * Supported iOS IronSource adapter version 6.4.0.0
 
 ## Version 6.3.0
@@ -88,6 +94,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 6.3.0
 * Supported Android IronSource adapter version 6.3.0.0
+* Supported iOS Yandex Mobile Ads SDK version 6.3.0
 * Supported iOS IronSource adapter version 6.3.0.0
 
 ## Version 6.1.0
@@ -95,9 +102,15 @@
 #### Updated
 
 * Supported Android Yandex Mobile Ads SDK version 6.1.0
-* Supported Android ironsource-mobileads version 6.1.0.0
+* Supported Android IronSource adapter version 6.1.0.0
 * Supported iOS Yandex Mobile Ads SDK version 6.1.0
 * Supported iOS IronSource adapter version 6.1.0.0
+
+## Version 6.0.1
+
+#### Updated
+
+* Supported Android IronSource adapter version 6.0.1.0
 
 ## Version 6.0.0
 
@@ -112,6 +125,7 @@
 
 * Supported Android IronSource adapter version 5.10.0.0
 * Supported iOS IronSource adapter version 5.9.0.0
+* Supported IronSource Unity plugin 7.3.0.1
 
 ## Version 2.8.0
 
