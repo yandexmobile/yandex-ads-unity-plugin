@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.7.0
+
+#### Updated
+
+* Supported Android Pangle adapter version 6.2.0.7.1
+
 ## Version 7.6.0
 
 #### Updated
