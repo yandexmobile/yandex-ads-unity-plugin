@@ -74,23 +74,23 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation by several 
 
 | Package                              | Description                                                                  |
 |--------------------------------------|------------------------------------------------------------------------------|
-| yandex-mobileads-lite-7.6.0          | Main Yandex Mobile Ads package distributed for use with [Google resolver]    |
-| yandex-mobileads-mediation-7.6.0     | Main Mobile Ads Mediation package distributed for use with [Google resolver] |
-| mobileads-google-mediation-7.6.0     | Admob mediation                                                              |
-| mobileads-applovin-mediation-7.6.0   | AppLovin mediation (Supported only by android)                               |
-| mobileads-chartboost-mediation-7.6.0 | Chartboost mediation (Supported only by android)                             |
-| mobileads-bigoads-mediation-7.6.0    | BigoAds mediation (Supported only by android)                                |
-| mobileads-inmobi-mediation-7.6.0     | Inmobi mediation                                                             |
-| mobileads-ironsource-mediation-7.6.0 | IronSource mediation                                                         |
-| mobileads-mintegral-mediation-7.6.0  | Mintegral mediation                                                          |
-| mobileads-mytarget-mediation-7.6.0   | MyTarget mediation                                                           |
-| mobileads-pangle-mediation-7.6.0     | Pangle mediation (Supported only by android)                                 |
-| mobileads-startapp-mediation-7.6.0   | StartApp mediation (Supported only by android)                               |
-| mobileads-tapjoy-mediation-7.6.0     | Tapjoy mediation (Supported only by android)                                 |
-| mobileads-unityads-mediation-7.6.0   | UnityAds mediation                                                           |
-| mobileads-vungle-mediation-7.6.0     | Vungle mediation                                                             |
-| admob-mobileads-mediation-7.6.0      | Third-party mediation with AdMob                                             |
-| ironsource-mobileads-mediation-7.6.0 | Third-party mediation with IronSource                                        |
+| yandex-mobileads-lite-7.5.0          | Main Yandex Mobile Ads package distributed for use with [Google resolver]    |
+| yandex-mobileads-mediation-7.5.0     | Main Mobile Ads Mediation package distributed for use with [Google resolver] |
+| mobileads-google-mediation-7.5.0     | Admob mediation                                                              |
+| mobileads-applovin-mediation-7.5.0   | AppLovin mediation (Supported only by android)                               |
+| mobileads-chartboost-mediation-7.5.0 | Chartboost mediation (Supported only by android)                             |
+| mobileads-bigoads-mediation-7.5.0    | BigoAds mediation (Supported only by android)                                |
+| mobileads-inmobi-mediation-7.5.0     | Inmobi mediation                                                             |
+| mobileads-ironsource-mediation-7.5.0 | IronSource mediation                                                         |
+| mobileads-mintegral-mediation-7.5.0  | Mintegral mediation                                                          |
+| mobileads-mytarget-mediation-7.5.0   | MyTarget mediation                                                           |
+| mobileads-pangle-mediation-7.5.0     | Pangle mediation (Supported only by android)                                 |
+| mobileads-startapp-mediation-7.5.0   | StartApp mediation (Supported only by android)                               |
+| mobileads-tapjoy-mediation-7.5.0     | Tapjoy mediation (Supported only by android)                                 |
+| mobileads-unityads-mediation-7.5.0   | UnityAds mediation                                                           |
+| mobileads-vungle-mediation-7.5.0     | Vungle mediation                                                             |
+| admob-mobileads-mediation-7.5.0      | Third-party mediation with AdMob                                             |
+| ironsource-mobileads-mediation-7.5.0 | Third-party mediation with IronSource                                        |
 
 [Google resolver]: https://github.com/googlesamples/unity-jar-resolver
 
