@@ -2,8 +2,6 @@
 
 ## Version 7.8.0
 
-"Релиз"
-
 #### Updated
 
 * Supported Android Yandex Mobile Ads SDK version 7.8.0
