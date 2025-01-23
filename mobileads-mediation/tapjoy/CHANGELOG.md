@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.9.0
+
+#### Updated
+
+* Supported Android Tapjoy adapter version 13.4.1.9
+
 ## Version 7.8.0
 
 #### Updated
