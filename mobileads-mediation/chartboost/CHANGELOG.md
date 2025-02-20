@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.10.1
+
+#### Updated
+
+* Supported iOS Chartboost adapter version 9.8.0.4
+
 ## Version 7.10.0
 
 #### Updated

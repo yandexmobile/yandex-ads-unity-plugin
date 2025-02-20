@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.10.1
+
+#### Updated
+
+* Supported iOS StartAppYandexMobileAdsAdapters version 4.10.4.10
+
 ## Version 7.10.0
 
 #### Updated

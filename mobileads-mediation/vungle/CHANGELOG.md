@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.10.1
+
+#### Updated
+
+* Supported iOS VungleYandexMobileAdsAdapters version 7.4.2.3
+
 ## Version 7.10.0
 
 #### Updated
