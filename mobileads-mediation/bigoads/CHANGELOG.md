@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.10.1
+
+#### Updated
+
+* Supported iOS BigoADSYandexMobileAdsAdapters version 4.6.0.2
+
 ## Version 7.10.0
 
 #### Updated

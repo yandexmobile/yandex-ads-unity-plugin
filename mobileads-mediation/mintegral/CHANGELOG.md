@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.10.1
+
+#### Updated
+
+* Supported iOS Mintegral adapter version 7.7.3.6
+
 ## Version 7.10.0
 
 #### Updated

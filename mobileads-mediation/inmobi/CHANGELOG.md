@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.10.1
+
+#### Updated
+
+* Supported iOS InMobi adapter version 10.7.8.6
+
 ## Version 7.10.0
 
 #### Updated

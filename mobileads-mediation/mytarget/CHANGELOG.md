@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.10.1
+
+#### Updated
+
+* Supported iOS MyTarget adapter version 5.22.0.3
+
 ## Version 7.10.0
 
 #### Updated
