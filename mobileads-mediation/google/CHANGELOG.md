@@ -53,6 +53,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 7.6.0
 * Supported Android AdMob adapter version 23.4.0.0
+* Supported iOS Yandex Mobile Ads SDK version 7.6.0
 * Supported iOS AdMob adapter version 11.10.0.0
 
 ## Version 7.5.0
@@ -61,6 +62,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 7.5.0
 * Supported Android AdMob adapter version 23.2.0.0
+* Supported iOS Yandex Mobile Ads SDK version 7.5.1
 * Supported iOS AdMob adapter version 11.7.0.3
 
 ## Version 7.4.0
@@ -69,6 +71,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 7.4.0
 * Supported Android AdMob adapter version 23.0.0.4
+* Supported iOS Yandex Mobile Ads SDK version 7.4.0
 * Supported iOS AdMob adapter version 11.7.0.0
 
 ## Version 7.3.0
@@ -77,6 +80,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 7.3.0
 * Supported Android AdMob adapter version 23.0.0.3
+* Supported iOS Yandex Mobile Ads SDK version 7.3.0
 * Supported iOS AdMob adapter version 11.3.0.5
 
 ## Version 7.2.0
@@ -85,6 +89,7 @@
 
 * Supported Android Yandex Mobile Ads SDK version 7.2.0
 * Supported Android AdMob adapter version 23.0.0.2
+* Supported iOS Yandex Mobile Ads SDK version 7.2.0
 * Supported iOS AdMob adapter version 11.3.0.2
 
 ## Version 7.1.0
