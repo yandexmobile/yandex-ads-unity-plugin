@@ -1,8 +1,12 @@
 # Change Log
 
-## Version 7.11.0
+## Version 7.11.1
 
-"MobileAds"
+#### Fixed
+
+* Fixed AdaptersInfo window
+
+## Version 7.11.0
 
 #### Updated
 
