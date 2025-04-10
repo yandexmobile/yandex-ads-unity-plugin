@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.12.0
+
+#### Updated
+
+* Supported Android Vungle adapter version 7.4.2.4
+* Supported iOS VungleYandexMobileAdsAdapters version 7.4.2.5
+
 ## Version 7.11.0
 
 #### Updated
