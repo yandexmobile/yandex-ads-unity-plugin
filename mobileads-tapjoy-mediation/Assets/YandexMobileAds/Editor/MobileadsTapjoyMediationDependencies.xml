@@ -1,0 +1,10 @@
+<dependencies>
+   <androidPackages>
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-tapjoy:14.3.1.0">
+         <repositories>
+            <repository>https://maven.google.com/</repository>
+            <repository>https://sdk.tapjoy.com/</repository>
+         </repositories>
+      </androidPackage>
+   </androidPackages>
+</dependencies>

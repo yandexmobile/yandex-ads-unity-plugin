@@ -1,0 +1,11 @@
+{
+    "name": "com.yandex.mobileads-ironsource-mediation",
+    "version": "7.13.0",
+    "displayName": "IronSource adapter for Yandex Mobile Ads Unity Plugin",
+    "description": "This adapter allows to use IronSource ad network in conjuction with Yandex Mobile Ads SDK",
+    "dependencies": {
+        "com.yandex.mobileads": "7.13.0"
+    },
+    "unity": "2019.4",
+    "unityRelease": "40f1"
+}
