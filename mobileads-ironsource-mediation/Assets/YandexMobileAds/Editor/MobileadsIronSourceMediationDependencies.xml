@@ -1,0 +1,17 @@
+<dependencies>
+   <androidPackages>
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-ironsource:8.8.0.1">
+         <repositories>
+            <repository>https://maven.google.com/</repository>
+            <repository>https://android-sdk.is.com/</repository>
+         </repositories>
+      </androidPackage>
+   </androidPackages>
+   <iosPods>
+      <iosPod name="IronSourceYandexMobileAdsAdapters" version="8.7.0.1">
+         <sources>
+            <source>https://github.com/CocoaPods/Specs</source>
+         </sources>
+      </iosPod>
+   </iosPods>
+</dependencies>

@@ -1,0 +1,11 @@
+{
+    "name": "com.yandex.mobileads-mediation",
+    "version": "7.13.0",
+    "displayName": "Yandex Mobile Ads Mediation Unity Plugin",
+    "description": "This plugin allows Unity developers to easily integrate Yandex Mobile Ads with mediation in Android and iOS apps",
+    "dependencies": {
+        "com.yandex.mobileads": "7.13.0"
+    },
+    "unity": "2019.4",
+    "unityRelease": "40f1"
+}
