@@ -1,19 +1,25 @@
+# This .gitignore file should be placed at the root of your Unity project directory
+#
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
+#
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Uu]ser[Ss]ettings/
 *.iml
-.gradle
 /local.properties
-/build
 /captures
 .externalNativeBuild
 
-temp/
-Temp/
-Obj/
-UnityGenerated/
-Library/
-UserSettings/
-thirdparty_BackUpThisFolder_ButDontShipItWithYourGame/
-unity_build_logs/
-sample-yandex-dependencies/
+# Visual Studio cache directory
+.vs/
+# Visual Studio Code cache directory
+.vscode/
+
+# Gradle cache directory
+.gradle/
+
 # IntelliJ directory
 .idea/
 
@@ -21,34 +27,62 @@ ExportedObj/
 *.svd
 *.userprefs
 *.csproj
+*.unityproj
+*.sln
 *.pidb
 *.suo
-*.sln
+*.tmp
 *.user
-*.unityproj
+*.userprefs
+*.pidb
 *.booproj
+*.svd
 *.vs
 .idea
 *.tmp
 *.pdb
+*.mdb
 *.opendb
 *.VC.db
 
+# Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
+*.mdb.meta
 
-yandex-*.unitypackage
 *.gradle.backup*
 *.gradle.DISABLED*
 *.properties.backup*
 *.log
 
+# Unity3D generated file on crash reports
+sysinfo.txt
+
+# Builds
+*.apk
+*.aab
+*.app
+
+# Crashlytics generated file
+crashlytics-build.properties
+
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Temporary auto-generated Android Assets
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
 .DS_Store
+
 *.sln.*.meta
 *.sln.meta
 
 /packages
 admob-mobileads-mediation/Assets/Plugins/Android/*.aar
+
+UnityGenerated/
+unity_build_logs/
 
 android-unity-library/
 Logs/
