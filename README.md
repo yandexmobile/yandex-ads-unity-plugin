@@ -13,7 +13,17 @@ EULA is available at [EULA website][LICENSE]
 
 ## Quick start
 
-1. To use Yandex Mobile Ads Unity plugin in your project download folder `mobileads-unity-plugin`
+### Using UPM
+
+1. Open UPM by selecting Window -> Package Manager in the Unity menu
+
+2. Go to + -> Install package from git URL... and paste `https://github.com/yandexmobile/yandex-ads-unity-plugin.git?path=/mobileads-sdk` (replace mobileads-sdk with the name of the desired package)
+
+3. Click on Install. The package will be added to your project
+
+### Using .unitypackage
+
+1. To use Yandex Mobile Ads Unity plugin in your project download the assets linked to the release ([Releases page](https://github.com/yandexmobile/yandex-ads-unity-plugin/releases))
 
 2. Open your project in the Unity editor
 
