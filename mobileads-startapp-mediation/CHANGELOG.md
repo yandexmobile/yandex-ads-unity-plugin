@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.14.0
+
+#### Updated
+
+* Supported Android StartApp adapter version 5.0.2.14
+* Supported iOS StartAppYandexMobileAdsAdapters version 4.10.4.17
+
 ## Version 7.13.0
 
 #### Updated

@@ -1,11 +1,16 @@
 {
     "name": "com.yandex.mobileads-google-mediation",
-    "version": "7.13.0",
-    "displayName": "Google adapter for Yandex Mobile Ads Unity Plugin",
+    "version": "7.14.0",
+    "displayName": "Google adapter for Yandex Mobile Ads plugin for Unity",
     "description": "This adapter allows to use AdMob ad network in conjuction with Yandex Mobile Ads SDK",
     "dependencies": {
-        "com.yandex.mobileads": "7.13.0"
+        "com.yandex.mobileads": "7.14.0"
     },
     "unity": "2019.4",
-    "unityRelease": "40f1"
+    "unityRelease": "40f1",
+    "author": {
+        "name": "Yandex Mobile Ads",
+        "url": "https://ads.yandex.com/monetization"
+    },
+    "licensesUrl": "https://legal.yandex.com/partner_ch"
 }

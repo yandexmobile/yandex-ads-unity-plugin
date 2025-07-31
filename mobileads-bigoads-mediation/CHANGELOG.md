@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.14.0
+
+#### Updated
+
+* Supported Android BigoAds adapter version 5.3.0.5
+* Supported iOS BigoADSYandexMobileAdsAdapters version 4.6.0.9
+
 ## Version 7.13.0
 
 #### Updated

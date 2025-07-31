@@ -1,13 +1,13 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-vungle:7.4.2.6">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-vungle:7.4.2.9">
          <repositories>
             <repository>https://maven.google.com/</repository>
          </repositories>
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="VungleYandexMobileAdsAdapters" version="7.4.2.7">
+      <iosPod name="VungleYandexMobileAdsAdapters" version="7.4.2.10">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
