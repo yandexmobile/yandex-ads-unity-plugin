@@ -5,7 +5,6 @@
 #### Updated
 
 * Supported Android com.yandex.android:mobileads-mediation version 7.15.0.0
-* Supported Android com.yandex.ads.mediation:mobileads-extras version 7.15.0.0
 * Supported iOS YandexMobileAdsMediation version 7.15.1
 * Supported iOS YandexMobileAdsMediationExtras version 7.15.1
 
