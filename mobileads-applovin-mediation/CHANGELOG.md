@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.14.0
+
+#### Updated
+
+* Supported Android AppLovin adapter version 13.1.0.5
+* Supported iOS AppLovin adapter version 13.1.0.4
+
 ## Version 7.13.0
 
 #### Updated

@@ -1,6 +1,6 @@
-# Yandex Mobile Ads Unity Plugin
+# Yandex Mobile Ads plugin for Unity
 
-This repository contains Yandex Mobile Ads Unity plugin. This plugin allows Unity developers to easily integrate Yandex
+This repository contains Yandex Mobile Ads plugin for Unity. This plugin allows Unity developers to easily integrate Yandex
 Mobile Ads in Android and iOS apps.
 
 ## Documentation
@@ -13,36 +13,28 @@ EULA is available at [EULA website][LICENSE]
 
 ## Quick start
 
-<!---
 ### Using OpenUPM CLI
 
-To download Yandex Mobile Ads Unity plugin to your project you can use the following command:
+To download Yandex Mobile Ads plugin for Unity to your project you can use the following command:
 ```
 openupm add com.yandex.mobileads
 ```
--->
 
 ### Using UPM
 
 1. Open UPM settings by selecting Edit > Project Settings > Package Manager in the Unity menu
 
-2. Add new scoped registry OpenUPM with URL `https://package.openupm.com` and scopes `com.yandex`, `com.google`
+2. Add new scoped registry OpenUPM with URL `https://package.openupm.com` and scopes 'com.yandex', `com.google`
 
 3. Open UPM by selecting Window -> Package Manager in the Unity menu
 
-4. Go to + -> Install package from git URL... and paste `https://github.com/yandexmobile/yandex-ads-unity-plugin.git?path=/mobileads-sdk` (replace mobileads-sdk with the name of the desired package)
+4. Go to My Registries and find `Yandex Mobile Ads plugin for Unity`
 
 5. Click on Install. The package will be added to your project
-
-<!---
-4. Go to My Registries and find `Yandex Mobile Ads Unity Plugin`
-
-5. Click on Install. The package will be added to your project
--->
 
 ### Using .unitypackage
 
-1. To use Yandex Mobile Ads Unity plugin in your project download the assets linked to the release ([Releases page](https://github.com/yandexmobile/yandex-ads-unity-plugin/releases))
+1. To use Yandex Mobile Ads plugin for Unity in your project download the assets linked to the release ([Releases page](https://github.com/yandexmobile/yandex-ads-unity-plugin/releases))
 
 2. Open your project in the Unity editor
 
@@ -73,7 +65,7 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation in several 
 
 1. Integrate [AdMob](https://developers.google.com/admob/unity/start)
 
-2. Import package `admob-mobileads-mediation-<version>.unitypackage` from folder `third-party-networks-mediation`
+2. Import package `admob-mobileads-mediation-<version>.unitypackage` from the release assets
 
 3. Add [Google resolver] to your project, if you haven't done it yet. Resolve dependencies.
 
@@ -103,21 +95,21 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation in several 
 
 | Package                              | Description                                                                  |
 |--------------------------------------|------------------------------------------------------------------------------|
-| yandex-mobileads-lite-7.13.0         | Main Yandex Mobile Ads package distributed for use with [Google resolver]    |
-| yandex-mobileads-mediation-7.13.0    | Main Mobile Ads Mediation package distributed for use with [Google resolver] |
-| mobileads-google-mediation-7.13.0    | Admob mediation                                                              |
-| mobileads-applovin-mediation-7.13.0  | AppLovin mediation (Supported only by android)                               |
-| mobileads-chartboost-mediation-7.13.0| Chartboost mediation (Supported only by android)                             |
-| mobileads-bigoads-mediation-7.13.0   | BigoAds mediation (Supported only by android)                                |
-| mobileads-inmobi-mediation-7.13.0    | Inmobi mediation                                                             |
-| mobileads-ironsource-mediation-7.13.0| IronSource mediation                                                         |
-| mobileads-mintegral-mediation-7.13.0 | Mintegral mediation                                                          |
-| mobileads-mytarget-mediation-7.13.0  | MyTarget mediation                                                           |
-| mobileads-pangle-mediation-7.13.0    | Pangle mediation (Supported only by android)                                 |
-| mobileads-startapp-mediation-7.13.0  | StartApp mediation (Supported only by android)                               |
-| mobileads-tapjoy-mediation-7.13.0    | Tapjoy mediation (Supported only by android)                                 |
-| mobileads-unityads-mediation-7.13.0  | UnityAds mediation                                                           |
-| mobileads-vungle-mediation-7.13.0    | Vungle mediation                                                             |
+| yandex-mobileads-lite-7.14.0         | Main Yandex Mobile Ads package distributed for use with [Google resolver]    |
+| yandex-mobileads-mediation-7.14.0    | Main Mobile Ads Mediation package distributed for use with [Google resolver] |
+| mobileads-google-mediation-7.14.0    | Admob mediation                                                              |
+| mobileads-applovin-mediation-7.14.0  | AppLovin mediation (Supported only by android)                               |
+| mobileads-chartboost-mediation-7.14.0| Chartboost mediation (Supported only by android)                             |
+| mobileads-bigoads-mediation-7.14.0   | BigoAds mediation (Supported only by android)                                |
+| mobileads-inmobi-mediation-7.14.0    | Inmobi mediation                                                             |
+| mobileads-ironsource-mediation-7.14.0| IronSource mediation                                                         |
+| mobileads-mintegral-mediation-7.14.0 | Mintegral mediation                                                          |
+| mobileads-mytarget-mediation-7.14.0  | MyTarget mediation                                                           |
+| mobileads-pangle-mediation-7.14.0    | Pangle mediation (Supported only by android)                                 |
+| mobileads-startapp-mediation-7.14.0  | StartApp mediation (Supported only by android)                               |
+| mobileads-tapjoy-mediation-7.14.0    | Tapjoy mediation (Supported only by android)                                 |
+| mobileads-unityads-mediation-7.14.0  | UnityAds mediation                                                           |
+| mobileads-vungle-mediation-7.14.0    | Vungle mediation                                                             |
 | admob-mobileads-mediation-7.12.0     | Third-party mediation with AdMob                                       |
 
 [Google resolver]: https://github.com/googlesamples/unity-jar-resolver

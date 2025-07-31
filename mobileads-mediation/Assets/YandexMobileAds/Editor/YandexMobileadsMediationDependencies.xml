@@ -10,12 +10,12 @@
          <repository>https://dl.appnext.com/</repository>
          <repository>https://repo1.maven.org/maven2/</repository>
       </repositories>
-      <androidPackage spec="com.yandex.android:mobileads-mediation:7.13.0.0"/>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-extras:7.13.0.0"/>
+      <androidPackage spec="com.yandex.android:mobileads-mediation:7.15.0.0"/>
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-extras:7.15.0.0"/>
    </androidPackages>
    <iosPods>
-      <iosPod name="YandexMobileAdsMediation" version="7.13.0"/>
-      <iosPod name="YandexMobileAdsMediationExtras" version="7.13.0"/>
+      <iosPod name="YandexMobileAdsMediation" version="7.15.1"/>
+      <iosPod name="YandexMobileAdsMediationExtras" version="7.15.1"/>
       <sources>
          <source>https://github.com/CocoaPods/Specs</source>
       </sources>
