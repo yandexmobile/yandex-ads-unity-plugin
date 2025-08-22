@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.15.1
+
+#### Updated
+
+* Supported Android IronSource adapter version 8.8.0.5
+
 ## Version 7.14.0
 
 #### Updated

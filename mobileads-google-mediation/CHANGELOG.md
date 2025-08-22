@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.15.1
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 7.15.1
+* Supported Android AdMob adapter version 23.6.0.6
+
 ## Version 7.14.0
 
 #### Updated

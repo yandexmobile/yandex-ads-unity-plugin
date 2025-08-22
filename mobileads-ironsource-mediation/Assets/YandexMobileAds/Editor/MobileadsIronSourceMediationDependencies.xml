@@ -1,6 +1,6 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-ironsource:8.8.0.4">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-ironsource:8.8.0.5">
          <repositories>
             <repository>https://maven.google.com/</repository>
             <repository>https://android-sdk.is.com/</repository>

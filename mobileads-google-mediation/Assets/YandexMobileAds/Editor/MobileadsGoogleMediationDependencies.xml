@@ -1,8 +1,8 @@
 <dependencies>
    <androidPackages>
       <androidPackage spec="com.google.android.gms:play-services-ads:22.3.0"/>
-      <androidPackage spec="com.yandex.android:mobileads:7.15.0"/>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-google:23.6.0.5">
+      <androidPackage spec="com.yandex.android:mobileads:7.15.1"/>
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-google:23.6.0.6">
          <repositories>
             <repository>https://maven.google.com/</repository>
          </repositories>

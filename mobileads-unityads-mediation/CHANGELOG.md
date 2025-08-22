@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.15.1
+
+#### Updated
+
+* Supported Android UnityAds adapter version 4.15.1.1
+
 ## Version 7.14.0
 
 #### Updated

@@ -1,10 +1,10 @@
 {
     "name": "com.yandex.mobileads-mintegral-mediation",
-    "version": "7.15.0",
+    "version": "7.15.1",
     "displayName": "Mintegral adapter for Yandex Mobile Ads plugin for Unity",
     "description": "This adapter allows to use Mintegral ad network in conjuction with Yandex Mobile Ads SDK",
     "dependencies": {
-        "com.yandex.mobileads": "7.15.0"
+        "com.yandex.mobileads": "7.15.1"
     },
     "unity": "2019.4",
     "unityRelease": "40f1",
