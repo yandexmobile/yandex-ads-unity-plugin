@@ -1,6 +1,6 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-inmobi:10.8.2.5">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-inmobi:10.8.2.6">
          <repositories>
             <repository>https://maven.google.com/</repository>
             <repository>https://android-sdk.is.com/</repository>

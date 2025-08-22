@@ -1,6 +1,6 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-unityads:4.15.1.0">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-unityads:4.15.1.1">
          <repositories>
             <repository>https://maven.google.com/</repository>
          </repositories>
