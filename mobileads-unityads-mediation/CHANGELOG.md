@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.16.0
+
+#### Updated
+
+* Supported Android UnityAds adapter version 4.15.1.2
+* Supported iOS UnityAds adapter version 4.16.1.0
+
 ## Version 7.15.1
 
 #### Updated
