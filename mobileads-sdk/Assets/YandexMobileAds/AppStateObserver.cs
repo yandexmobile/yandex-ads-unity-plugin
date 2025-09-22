@@ -14,7 +14,7 @@ using YandexMobileAds.Platforms;
 
 namespace YandexMobileAds
 {
-    internal class AppStateObserver
+    public class AppStateObserver
     {
         public static event EventHandler<AppStateChangedEventArgs> OnAppStateChanged
         {

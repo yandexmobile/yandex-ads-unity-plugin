@@ -1,6 +1,6 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-mintegral:16.9.81.0">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-mintegral:16.9.81.1">
          <repositories>
             <repository>https://maven.google.com/</repository>
             <repository>https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea</repository>
@@ -8,7 +8,7 @@
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="MintegralYandexMobileAdsAdapters" version="7.7.7.4">
+      <iosPod name="MintegralYandexMobileAdsAdapters" version="7.7.9.0">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>

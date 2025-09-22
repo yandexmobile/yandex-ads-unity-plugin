@@ -1,10 +1,10 @@
 {
     "name": "com.yandex.mobileads-bigoads-mediation",
-    "version": "7.15.1",
+    "version": "7.16.0",
     "displayName": "BigoAds adapter for Yandex Mobile Ads plugin for Unity",
     "description": "This adapter allows to use BigoAds ad network in conjuction with Yandex Mobile Ads SDK",
     "dependencies": {
-        "com.yandex.mobileads": "7.15.1"
+        "com.yandex.mobileads": "7.16.0"
     },
     "unity": "2019.4",
     "unityRelease": "40f1",

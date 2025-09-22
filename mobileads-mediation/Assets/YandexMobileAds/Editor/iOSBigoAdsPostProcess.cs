@@ -5,16 +5,15 @@ using UnityEditor.Callbacks;
 using System.IO;
 using UnityEngine;
 
-public class PostProcessBuildAppLovin
+public class PostProcessBuildBigoAds
 {
     [PostProcessBuild]
     public static void OnPostProcessBuild(BuildTarget buildTarget, string pathToBuiltProject)
     {
-         var version = "13.3.1";
         if (buildTarget == BuildTarget.iOS)
         {
-            string frameworkName = "AppLovinSDK.xcframework";
-            string frameworkPath = Path.Combine("Pods", "AppLovinSDK", "applovin-ios-sdk-" + version, frameworkName);
+            string frameworkName = "BigoADS.xcframework";
+            string frameworkPath = Path.Combine("Pods", "BigoADS", "BigoADS", frameworkName);
 
             string projPath = PBXProject.GetPBXProjectPath(pathToBuiltProject);
             PBXProject proj = new PBXProject();
