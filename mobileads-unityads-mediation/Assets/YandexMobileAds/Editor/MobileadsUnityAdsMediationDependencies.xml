@@ -1,13 +1,13 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-unityads:4.15.1.2">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-unityads:4.16.1.1">
          <repositories>
             <repository>https://maven.google.com/</repository>
          </repositories>
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="UnityAdsYandexMobileAdsAdapters" version="4.16.1.0">
+      <iosPod name="UnityAdsYandexMobileAdsAdapters" version="4.16.1.2">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
