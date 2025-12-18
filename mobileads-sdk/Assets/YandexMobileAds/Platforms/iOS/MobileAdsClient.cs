@@ -8,6 +8,7 @@
  */
 
 using YandexMobileAds.Common;
+using Io.AppMetrica.AdRevenueAdapter;
 
 namespace YandexMobileAds.Platforms.iOS
 {
@@ -32,7 +33,9 @@ namespace YandexMobileAds.Platforms.iOS
             return _instance;
         }
 
-        private MobileAdsClient() { }
+        private MobileAdsClient() {
+            AppMetricaAdRevenueAdapter.Activate();
+        }
 
         public void SetUserConsent(bool consent)
         {

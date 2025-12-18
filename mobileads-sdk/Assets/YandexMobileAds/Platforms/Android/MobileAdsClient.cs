@@ -9,6 +9,7 @@
 
 using UnityEngine;
 using YandexMobileAds.Common;
+using Io.AppMetrica.AdRevenueAdapter;
 
 namespace YandexMobileAds.Platforms.Android
 {
@@ -34,6 +35,7 @@ namespace YandexMobileAds.Platforms.Android
 
         private MobileAdsClient() : base(Utils.MobileAdsClassName)
         {
+            AppMetricaAdRevenueAdapter.Activate();
             this._mobileAdsClass = new AndroidJavaClass(Utils.MobileAdsClassName);
         }
 

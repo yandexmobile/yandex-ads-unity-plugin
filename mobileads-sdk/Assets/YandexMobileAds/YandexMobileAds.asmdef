@@ -1,6 +1,8 @@
 {
     "name": "YandexMobileAds",
-    "references": [],
+    "references": [
+        "AppMetricaAdRevenueAdapter"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

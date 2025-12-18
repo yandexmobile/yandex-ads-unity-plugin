@@ -1,15 +1,15 @@
 <dependencies>
    <androidPackages>
       <androidPackage spec="com.google.android.gms:play-services-ads:22.3.0"/>
-      <androidPackage spec="com.yandex.android:mobileads:7.17.0"/>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-google:23.6.0.9">
+      <androidPackage spec="com.yandex.android:mobileads:7.18.1"/>
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-google:23.6.0.10">
          <repositories>
             <repository>https://maven.google.com/</repository>
          </repositories>
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="GoogleYandexMobileAdsAdapters" version="12.2.0.7">
+      <iosPod name="GoogleYandexMobileAdsAdapters" version="12.2.0.8">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>

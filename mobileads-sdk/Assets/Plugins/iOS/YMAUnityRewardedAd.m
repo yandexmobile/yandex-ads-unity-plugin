@@ -85,7 +85,7 @@
 }
 
 - (void)rewardedAd:(YMARewardedAd *)rewardedAd
-didTrackImpressionWith:(nullable id<YMAImpressionData>)impressionData
+didTrackImpressionWithData:(nullable id<YMAImpressionData>)impressionData
 {
     if (self.didTrackImpressionCallback != NULL) {
         if (impressionData != nil) {
