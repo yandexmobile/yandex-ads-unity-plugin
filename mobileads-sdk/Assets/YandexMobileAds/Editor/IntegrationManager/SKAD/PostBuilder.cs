@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_IOS
+using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor.Callbacks;
@@ -93,3 +94,4 @@ namespace YandexAdsEditor
         }
     }
 }
+#endif
