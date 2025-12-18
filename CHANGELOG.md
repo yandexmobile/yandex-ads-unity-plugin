@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.18.0
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 7.18.1
+* Supported iOS Yandex Mobile Ads SDK version 7.18.1
+
 ## Version 7.17.0
 
 #### Updated

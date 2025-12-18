@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.18.0
+
+#### Updated
+
+* Supported Android Mintegral adapter version 17.0.31.0
+* Supported iOS Mintegral adapter version 7.7.9.3
+
 ## Version 7.17.0
 
 #### Updated
