@@ -1,6 +1,6 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-applovin:13.1.0.11">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-applovin:13.1.0.12">
          <repositories>
             <repository>https://maven.google.com/</repository>
          </repositories>
