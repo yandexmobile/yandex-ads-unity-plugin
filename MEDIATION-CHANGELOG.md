@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.18.1
+
+#### Updated
+
+* Supported Android com.yandex.android:mobileads-mediation version 7.18.2.0
+* Supported iOS YandexMobileAdsMediation version 7.18.3
+
 ## Version 7.18.0
 
 #### Updated

@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.18.1
+
+#### Updated
+
+* Supported Android MyTarget adapter version 5.27.4.1
+
 ## Version 7.18.0
 
 #### Updated
