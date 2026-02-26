@@ -17,7 +17,7 @@
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="YandexMobileAds" version="7.18.3">
+      <iosPod name="YandexMobileAds" version="7.18.4">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>

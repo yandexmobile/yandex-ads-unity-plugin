@@ -95,21 +95,21 @@ Third-party networks can be connected to Yandex Mobile Ads Mediation in several 
 
 | Package                              | Description                                                                  |
 |--------------------------------------|------------------------------------------------------------------------------|
-| yandex-mobileads-lite-7.18.1         | Main Yandex Mobile Ads package distributed for use with [Google resolver]    |
-| yandex-mobileads-mediation-7.18.1    | Main Mobile Ads Mediation package distributed for use with [Google resolver] |
-| mobileads-google-mediation-7.18.1    | Admob mediation                                                              |
-| mobileads-applovin-mediation-7.18.1  | AppLovin mediation (Supported only by android)                               |
-| mobileads-chartboost-mediation-7.18.1| Chartboost mediation (Supported only by android)                             |
-| mobileads-bigoads-mediation-7.18.1   | BigoAds mediation (Supported only by android)                                |
-| mobileads-inmobi-mediation-7.18.1    | Inmobi mediation                                                             |
-| mobileads-ironsource-mediation-7.18.1| IronSource mediation                                                         |
-| mobileads-mintegral-mediation-7.18.1 | Mintegral mediation                                                          |
-| mobileads-mytarget-mediation-7.18.1  | MyTarget mediation                                                           |
-| mobileads-pangle-mediation-7.18.1    | Pangle mediation (Supported only by android)                                 |
-| mobileads-startapp-mediation-7.18.1  | StartApp mediation (Supported only by android)                               |
-| mobileads-tapjoy-mediation-7.18.1    | Tapjoy mediation (Supported only by android)                                 |
-| mobileads-unityads-mediation-7.18.1  | UnityAds mediation                                                           |
-| mobileads-vungle-mediation-7.18.1    | Vungle mediation                                                             |
+| yandex-mobileads-lite-7.18.2         | Main Yandex Mobile Ads package distributed for use with [Google resolver]    |
+| yandex-mobileads-mediation-7.18.2    | Main Mobile Ads Mediation package distributed for use with [Google resolver] |
+| mobileads-google-mediation-7.18.2    | Admob mediation                                                              |
+| mobileads-applovin-mediation-7.18.2  | AppLovin mediation (Supported only by android)                               |
+| mobileads-chartboost-mediation-7.18.2| Chartboost mediation (Supported only by android)                             |
+| mobileads-bigoads-mediation-7.18.2   | BigoAds mediation (Supported only by android)                                |
+| mobileads-inmobi-mediation-7.18.2    | Inmobi mediation                                                             |
+| mobileads-ironsource-mediation-7.18.2| IronSource mediation                                                         |
+| mobileads-mintegral-mediation-7.18.2 | Mintegral mediation                                                          |
+| mobileads-mytarget-mediation-7.18.2  | MyTarget mediation                                                           |
+| mobileads-pangle-mediation-7.18.2    | Pangle mediation (Supported only by android)                                 |
+| mobileads-startapp-mediation-7.18.2  | StartApp mediation (Supported only by android)                               |
+| mobileads-tapjoy-mediation-7.18.2    | Tapjoy mediation (Supported only by android)                                 |
+| mobileads-unityads-mediation-7.18.2  | UnityAds mediation                                                           |
+| mobileads-vungle-mediation-7.18.2    | Vungle mediation                                                             |
 | admob-mobileads-mediation-7.12.0     | Third-party mediation with AdMob                                       |
 
 [Google resolver]: https://github.com/googlesamples/unity-jar-resolver

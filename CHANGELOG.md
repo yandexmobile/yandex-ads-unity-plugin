@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.18.2
+
+#### Updated
+
+* Supported iOS Yandex Mobile Ads SDK version 7.18.4
+* UPM fix
+
 ## Version 7.18.1
 
 #### Updated
