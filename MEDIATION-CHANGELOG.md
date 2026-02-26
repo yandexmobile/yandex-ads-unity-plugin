@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 7.18.2
+
+#### Updated
+
+* Supported iOS YandexMobileAdsMediation version 7.18.4
+
 ## Version 7.18.1
 
 #### Updated

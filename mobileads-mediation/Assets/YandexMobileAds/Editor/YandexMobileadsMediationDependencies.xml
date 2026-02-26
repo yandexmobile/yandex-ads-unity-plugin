@@ -14,7 +14,7 @@
       <androidPackage spec="io.appmetrica.analytics:analytics:7.14.0"/>
    </androidPackages>
    <iosPods>
-      <iosPod name="YandexMobileAdsMediation" version="7.18.3"/>
+      <iosPod name="YandexMobileAdsMediation" version="7.18.4"/>
       <sources>
          <source>https://github.com/CocoaPods/Specs</source>
       </sources>
