@@ -24,8 +24,6 @@ public class YandexMobileAdsAppOpenAdDemoScript : MonoBehaviour
     public void Awake()
     {
         this.appOpenAdLoader = new AppOpenAdLoader();
-        this.appOpenAdLoader.OnAdLoaded += this.HandleAdLoaded;
-        this.appOpenAdLoader.OnAdFailedToLoad += this.HandleAdFailedToLoad;
 
         // Use the AppStateObserver to listen to application open/close events.
         AppStateObserver.OnAppStateChanged += HandleAppStateChanged;
@@ -63,7 +61,7 @@ public class YandexMobileAdsAppOpenAdDemoScript : MonoBehaviour
     private void RequestAppOpenAd()
     {
         //Sets COPPA restriction for user age under 13
-        MobileAds.SetAgeRestrictedUser(true);
+        YandexAds.SetAgeRestricted(true);
 
         // Replace demo Unit ID 'demo-appOpenAd-yandex' with actual Ad Unit ID
         string adUnitId = "demo-appopenad-yandex";
@@ -73,7 +71,10 @@ public class YandexMobileAdsAppOpenAdDemoScript : MonoBehaviour
             this.appOpenAd.Destroy();
         }
 
-        this.appOpenAdLoader.LoadAd(this.CreateAdRequestConfiguration(adUnitId));
+        this.appOpenAdLoader.LoadAd(
+            this.CreateAdRequest(adUnitId),
+            onLoaded: this.HandleAdLoaded,
+            onFailed: this.HandleAdFailedToLoad);
         this.DisplayMessage("AppOpenAd is requested");
     }
 
@@ -94,9 +95,9 @@ public class YandexMobileAdsAppOpenAdDemoScript : MonoBehaviour
         this.appOpenAd.Show();
     }
 
-    private AdRequestConfiguration CreateAdRequestConfiguration(string adUnitId)
+    private AdRequest CreateAdRequest(string adUnitId)
     {
-        return new AdRequestConfiguration.Builder(adUnitId).Build();
+        return new AdRequest(adUnitId);
     }
 
     private void DisplayMessage(String message)
@@ -115,14 +116,14 @@ public class YandexMobileAdsAppOpenAdDemoScript : MonoBehaviour
         }
     }
 
-    public void HandleAdLoaded(object sender, AppOpenAdLoadedEventArgs args)
+    public void HandleAdLoaded(AppOpenAd appOpenAd)
     {
         this.DisplayMessage("HandleAdLoaded event received");
 
-        this.appOpenAd = args.AppOpenAd;
+        this.appOpenAd = appOpenAd;
     }
 
-    public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+    public void HandleAdFailedToLoad(AdFailedToLoadEventArgs args)
     {
         this.DisplayMessage("HandleAdFailedToLoad event received with message: " + args.Message);
     }

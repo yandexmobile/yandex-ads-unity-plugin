@@ -21,12 +21,12 @@ namespace YandexMobileAds.Common
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
         }
 
-        public void SetLocationConsent(bool consent)
+        public void SetLocationTracking(bool enabled)
         {
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
         }
 
-        public void SetAgeRestrictedUser(bool ageRestrictedUser)
+        public void SetAgeRestricted(bool ageRestricted)
         {
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
         }

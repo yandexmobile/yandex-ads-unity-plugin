@@ -7,6 +7,7 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
+using System.Collections.Generic;
 using UnityEngine;
 using YandexMobileAds.Base;
 
@@ -16,31 +17,50 @@ namespace YandexMobileAds.Platforms.Android
     {
         public static AdInfo CreateAdInfo(AndroidJavaObject nativeAdInfo)
         {
-            string AdUnitId = NativeApi.GetAdUnitId(nativeAdInfo);
-            AdSize AdSize = null;
+            string adUnitId = NativeApi.GetAdUnitId(nativeAdInfo);
+            string extraData = NativeApi.GetExtraData(nativeAdInfo);
+            string partnerText = NativeApi.GetPartnerText(nativeAdInfo);
+            List<Creative> creatives = NativeApi.GetCreatives(nativeAdInfo);
 
-            AndroidJavaObject adSizeObject = NativeApi.GetAdSize(nativeAdInfo);
-
-            if (adSizeObject != null)
-            {
-
-                AdSize = AdSizeUtils.CreateAdSize(adSizeObject);
-            }
-
-            return new AdInfo(AdUnitId, AdSize);
+            return new AdInfo(adUnitId, extraData, partnerText, creatives);
         }
 
         private static class NativeApi
         {
-
-            public static string GetAdUnitId(AndroidJavaObject adInfoJavaObject)
+            public static string GetAdUnitId(AndroidJavaObject adInfo)
             {
-                return adInfoJavaObject.Call<string>("getAdUnitId");
+                return adInfo.Call<string>("getAdUnitId");
             }
 
-            public static AndroidJavaObject GetAdSize(AndroidJavaObject adInfoJavaObject)
+            public static string GetExtraData(AndroidJavaObject adInfo)
             {
-                return adInfoJavaObject.Call<AndroidJavaObject>("getAdSize");
+                return adInfo.Call<string>("getExtraData");
+            }
+
+            public static string GetPartnerText(AndroidJavaObject adInfo)
+            {
+                return adInfo.Call<string>("getPartnerText");
+            }
+
+            public static List<Creative> GetCreatives(AndroidJavaObject adInfo)
+            {
+                AndroidJavaObject javaList = adInfo.Call<AndroidJavaObject>("getCreatives");
+                if (javaList == null)
+                {
+                    return new List<Creative>();
+                }
+
+                int count = javaList.Call<int>("size");
+                List<Creative> creatives = new List<Creative>(count);
+                for (int i = 0; i < count; i++)
+                {
+                    AndroidJavaObject javaCreative = javaList.Call<AndroidJavaObject>("get", i);
+                    string creativeId = javaCreative.Call<string>("getCreativeId");
+                    string campaignId = javaCreative.Call<string>("getCampaignId");
+                    string placeId = javaCreative.Call<string>("getPlaceId");
+                    creatives.Add(new Creative(creativeId, campaignId, placeId));
+                }
+                return creatives;
             }
         }
     }

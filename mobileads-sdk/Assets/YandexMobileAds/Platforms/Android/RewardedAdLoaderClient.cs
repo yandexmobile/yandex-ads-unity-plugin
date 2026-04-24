@@ -31,29 +31,28 @@ namespace YandexMobileAds.Platforms.Android
                 activity.Call<AndroidJavaObject>("getApplicationContext");
 
             this._rewardedAdLoader = NativeApi.NewInstance(applicationContext);
-            NativeApi.SetUnityRewardedAdLoadListener(this._rewardedAdLoader, this);
         }
 
-        public void LoadAd(AdRequestConfiguration adRequestConfiguration)
+        public void LoadAd(AdRequest adRequest)
         {
-            if (adRequestConfiguration == null) {
-                onAdFailedToLoad(Constants.AdRequestConfigurationIsNullErrorMessage);
+            if (adRequest == null) {
+                onAdFailedToLoad(Constants.AdRequestIsNullErrorMessage);
                 return;
             }
 
-            NativeApi.LoadAd(this._rewardedAdLoader,
-                Utils.GetAdRequestConfigurationJavaObject(adRequestConfiguration));
+            NativeApi.LoadAd(this._rewardedAdLoader, Utils.GetAdRequestJavaObject(adRequest), this);
         }
 
         public void CancelLoading()
         {
+            OnAdLoaded = null;
+            OnAdFailedToLoad = null;
             NativeApi.CancelLoading(this._rewardedAdLoader);
         }
 
         public void Destroy()
         {
             NativeApi.CancelLoading(this._rewardedAdLoader);
-            NativeApi.ClearUnityRewardedListener(this._rewardedAdLoader);
         }
 
 
@@ -96,19 +95,9 @@ namespace YandexMobileAds.Platforms.Android
                 return new AndroidJavaObject(JAVA_CLASS_NAME, context);
             }
 
-            public static void SetUnityRewardedAdLoadListener(AndroidJavaObject rewardedAdLoader, object listener)
+            public static void LoadAd(AndroidJavaObject rewardedAdLoader, AndroidJavaObject adRequest, object listener)
             {
-                rewardedAdLoader.Call("setUnityRewardedAdLoadListener", listener);
-            }
-
-            public static void ClearUnityRewardedListener(AndroidJavaObject rewardedAdLoader)
-            {
-                rewardedAdLoader.Call("clearUnityRewardedAdLoadListener");
-            }
-
-            public static void LoadAd(AndroidJavaObject rewardedAdLoader, AndroidJavaObject adRequestConfiguration)
-            {
-                rewardedAdLoader.Call("loadAd", adRequestConfiguration);
+                rewardedAdLoader.Call("loadAd", adRequest, listener);
             }
 
             public static void CancelLoading(AndroidJavaObject rewardedAdLoader)

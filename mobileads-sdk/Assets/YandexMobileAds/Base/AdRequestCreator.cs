@@ -16,14 +16,17 @@ namespace YandexMobileAds.Base
                 return null;
             }
 
-            var parameters = adRequest.Parameters ?? new Dictionary<string, string>();
-            parameters.Add(PluginTypeParameter, PluginType);
-            parameters.Add(PluginVersionParameter, MobileAdsPackageInfo.PackageVersion);
+            var parameters = adRequest.Parameters != null
+                ? new Dictionary<string, string>(adRequest.Parameters)
+                : new Dictionary<string, string>();
+            parameters[PluginTypeParameter] = PluginType;
+            parameters[PluginVersionParameter] = MobileAdsPackageInfo.PackageVersion;
 
-            return new AdRequest.Builder()
-                .WithAdRequest(adRequest)
-                .WithParameters(parameters)
-                .Build();
+            return new AdRequest(
+                adRequest.AdUnitId,
+                targeting: adRequest.Targeting,
+                adTheme: adRequest.AdTheme,
+                parameters: parameters);
         }
     }
 }

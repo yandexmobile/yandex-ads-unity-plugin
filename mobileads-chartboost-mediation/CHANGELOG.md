@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 8.0.0
+
+#### Updated
+
+* Supported Android mobileads-chartboost version 9.3.1.28
+* Supported iOS ChartboostYandexMobileAdsAdapters version 9.11.0.0
+
 ## Version 7.18.0
 
 #### Updated

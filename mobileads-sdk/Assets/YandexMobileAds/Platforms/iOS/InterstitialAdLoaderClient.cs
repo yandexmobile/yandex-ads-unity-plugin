@@ -42,22 +42,24 @@ namespace YandexMobileAds.Platforms.iOS
                 InterstitialDidFailToLoadAdCallback);
         }
 
-        public void LoadAd(AdRequestConfiguration adRequestConfiguration)
+        public void LoadAd(AdRequest adRequest)
         {
-            if (adRequestConfiguration == null) {
+            if (adRequest == null) {
                 InterstitialDidFailToLoadAdCallback(
                     _selfPointer,
                     "",
-                    Constants.AdRequestConfigurationIsNullErrorMessage);
+                    Constants.AdRequestIsNullErrorMessage);
                 return;
             }
 
-            AdRequestConfigurationClient adRequest = new AdRequestConfigurationClient(adRequestConfiguration);
-            InterstitialAdLoaderBridge.YMAUnityLoadInterstitialAd(this.ObjectId, adRequest.ObjectId);
+            AdRequestClient adRequestClient = new AdRequestClient(adRequest);
+            InterstitialAdLoaderBridge.YMAUnityLoadInterstitialAd(this.ObjectId, adRequestClient.ObjectId);
         }
 
         public void CancelLoading()
         {
+            OnAdLoaded = null;
+            OnAdFailedToLoad = null;
             InterstitialAdLoaderBridge.YMAUnityCancelLoadingInterstitialAd(this.ObjectId);
         }
 

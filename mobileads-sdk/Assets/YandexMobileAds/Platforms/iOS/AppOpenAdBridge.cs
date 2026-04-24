@@ -34,6 +34,9 @@ namespace YandexMobileAds.Platforms.iOS
 
         [DllImport("__Internal")]
         internal static extern void YMAUnityDestroyAppOpenAd(string objectId);
+
+        [DllImport("__Internal")]
+        internal static extern string YMAUnityGetAppOpenInfo(string appOpenAdObjectId);
     }
 
 #endif

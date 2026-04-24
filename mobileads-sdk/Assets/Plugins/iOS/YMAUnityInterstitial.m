@@ -7,7 +7,7 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 #import "YMAUnityInterstitial.h"
 #import "YMAUnityStringConverter.h"
 
@@ -26,8 +26,8 @@
     self = [super init];
     if (self != nil) {
         _interstitialAd = interstitialAd;
-        _interstitialAd.delegate = self;
         _clientRef = clientRef;
+        _interstitialAd.delegate = self;
     }
     return self;
 }

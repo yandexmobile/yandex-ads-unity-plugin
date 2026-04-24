@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 8.0.0
+
+#### Updated
+
+* Supported Android mobileads-mintegral version 17.0.41.0
+* Supported iOS MintegralYandexMobileAdsAdapters version 8.0.7.0
+
 ## Version 7.18.0
 
 #### Updated

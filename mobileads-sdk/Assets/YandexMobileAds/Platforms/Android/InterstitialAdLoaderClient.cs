@@ -31,29 +31,28 @@ namespace YandexMobileAds.Platforms.Android
                 activity.Call<AndroidJavaObject>("getApplicationContext");
 
             this._interstitialAdLoader = NativeApi.NewInstance(applicationContext);
-            NativeApi.SetUnityInterstitialAdLoadListener(this._interstitialAdLoader, this);
         }
 
-        public void LoadAd(AdRequestConfiguration adRequestConfiguration)
+        public void LoadAd(AdRequest adRequest)
         {
-            if (adRequestConfiguration == null) {
-                onAdFailedToLoad(Constants.AdRequestConfigurationIsNullErrorMessage);
+            if (adRequest == null) {
+                onAdFailedToLoad(Constants.AdRequestIsNullErrorMessage);
                 return;
             }
 
-            NativeApi.LoadAd(this._interstitialAdLoader,
-                Utils.GetAdRequestConfigurationJavaObject(adRequestConfiguration));
+            NativeApi.LoadAd(this._interstitialAdLoader, Utils.GetAdRequestJavaObject(adRequest), this);
         }
 
         public void CancelLoading()
         {
+            OnAdLoaded = null;
+            OnAdFailedToLoad = null;
             NativeApi.CancelLoading(this._interstitialAdLoader);
         }
 
         public void Destroy()
         {
             NativeApi.CancelLoading(this._interstitialAdLoader);
-            NativeApi.ClearUnityInterstitialListener(this._interstitialAdLoader);
         }
 
 #pragma warning disable IDE1006 // naming rules violation
@@ -95,19 +94,9 @@ namespace YandexMobileAds.Platforms.Android
                 return new AndroidJavaObject(JAVA_CLASS_NAME, context);
             }
 
-            public static void SetUnityInterstitialAdLoadListener(AndroidJavaObject interstitialAdLoader, object listener)
+            public static void LoadAd(AndroidJavaObject interstitialAdLoader, AndroidJavaObject adRequest, object listener)
             {
-                interstitialAdLoader.Call("setUnityInterstitialAdLoadListener", listener);
-            }
-
-            public static void ClearUnityInterstitialListener(AndroidJavaObject interstitialAdLoader)
-            {
-                interstitialAdLoader.Call("clearUnityInterstitialAdLoadListener");
-            }
-
-            public static void LoadAd(AndroidJavaObject interstitialAdLoader, AndroidJavaObject adRequestConfiguration)
-            {
-                interstitialAdLoader.Call("loadAd", adRequestConfiguration);
+                interstitialAdLoader.Call("loadAd", adRequest, listener);
             }
 
             public static void CancelLoading(AndroidJavaObject interstitialAdLoader)

@@ -18,7 +18,6 @@ namespace YandexMobileAds.Platforms.iOS
     public class AdRequestClient : IDisposable
     {
         public string ObjectId { get; private set; }
-        private readonly string _adUnitId;
         private readonly LocationClient _location;
         private readonly string _contextQuery;
         private readonly ListClient _contextTags;
@@ -28,21 +27,25 @@ namespace YandexMobileAds.Platforms.iOS
 
         public AdRequestClient(AdRequest adRequest)
         {
-            if (adRequest.Location != null)
+            AdTargeting targeting = adRequest.Targeting;
+
+            if (targeting?.Location != null)
             {
-                this._location = new LocationClient(adRequest.Location);
+                this._location = new LocationClient(targeting.Location);
             }
-            this._contextQuery = adRequest.ContextQuery;
-            this._age = adRequest.Age;
-            this._gender = adRequest.Gender;
+            this._contextQuery = targeting?.ContextQuery;
+            this._age = targeting?.Age;
+            this._gender = targeting?.Gender;
+
             this._contextTags = new ListClient();
-            if (adRequest.ContextTags != null)
+            if (targeting?.ContextTags != null)
             {
-                foreach (string item in adRequest.ContextTags)
+                foreach (string item in targeting.ContextTags)
                 {
                     this._contextTags.Add(item);
                 }
             }
+
             this._parameters = new DictionaryClient();
             if (adRequest.Parameters != null)
             {
@@ -51,13 +54,13 @@ namespace YandexMobileAds.Platforms.iOS
                     this._parameters.Put(entry.Key, entry.Value);
                 }
             }
-            string locationId = this._location != null ?
-                                    this._location.ObjectId : null;
-            string contextTagsId = this._contextTags != null ?
-                                       this._contextTags.ObjectId : null;
-            string parametersId = this._parameters != null ?
-                                      this._parameters.ObjectId : null;
+
+            string locationId = this._location != null ? this._location.ObjectId : null;
+            string contextTagsId = this._contextTags != null ? this._contextTags.ObjectId : null;
+            string parametersId = this._parameters != null ? this._parameters.ObjectId : null;
+
             this.ObjectId = AdRequestBridge.YMAUnityCreateAdRequest(
+                adRequest.AdUnitId,
                 locationId,
                 _contextQuery,
                 contextTagsId,

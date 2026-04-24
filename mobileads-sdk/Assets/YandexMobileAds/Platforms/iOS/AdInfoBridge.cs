@@ -19,7 +19,16 @@ namespace YandexMobileAds.Platforms.iOS
         internal static extern string YMAUnityAdInfoGetAdUnitId(string adInfoObjectId);
 
         [DllImport("__Internal")]
-        internal static extern string YMAUnityAdInfoGetAdSize(string adInfoObjectId);
+        internal static extern string YMAUnityAdInfoGetExtraData(string adInfoObjectId);
+
+        [DllImport("__Internal")]
+        internal static extern string YMAUnityAdInfoGetPartnerText(string adInfoObjectId);
+
+        [DllImport("__Internal")]
+        internal static extern int YMAUnityAdInfoGetCreativesCount(string adInfoObjectId);
+
+        [DllImport("__Internal")]
+        internal static extern string YMAUnityAdInfoGetCreativeAtIndex(string adInfoObjectId, int index);
     }
 
     #endif

@@ -16,8 +16,8 @@ namespace YandexMobileAds.Platforms.Android
     {
         public const string AdSizeClassName = "com.yandex.mobile.ads.banner.BannerAdSize";
         public const string FixedSizeMethodName = "fixedSize";
-        public const string InlineSizeMethodName = "inlineSize";
-        public const string StickySizeMethodName = "stickySize";
+        public const string InlineSizeMethodName = "inline";
+        public const string StickySizeMethodName = "sticky";
 
         public static BannerAdSizeClient GetBannerAdSizeClient(int width, int height, BannerAdSizeType bannerAdSizeType)
         {

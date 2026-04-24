@@ -1,5 +1,39 @@
 # Change Log
 
+## Version 8.0.0
+
+#### Breaking Changes
+
+* `AdRequest.Builder` removed. Use `AdRequest(adUnitId, ...)` constructor directly.
+* Targeting fields (`Age`, `Gender`, `Location`, `ContextQuery`, `ContextTags`) removed from `AdRequest`. Use new `AdTargeting` class.
+* `Banner(blockId, adSize, position)` constructor changed to `Banner(adSize, position)`. Pass `adUnitId` via `AdRequest` in `LoadAd`.
+* `MobileAds` class renamed to `YandexAds`. All static methods (`SetUserConsent`, `SetLocationTracking`, `SetAgeRestricted`, `ShowDebugPanel`) are now called on `YandexAds`.
+* `BannerAdSize` factory methods renamed: `FixedSize` → `Fixed`, `StickySize` → `Sticky`, `InlineSize` → `Inline`.
+* `RewardedAdLoader.OnAdLoaded` and `OnAdFailedToLoad` events removed. Use `LoadAd(request, onLoaded, onFailed)` or `async LoadAd(request)`.
+* `InterstitialAdLoader.OnAdLoaded` and `OnAdFailedToLoad` events removed. Use `LoadAd(request, onLoaded, onFailed)` or `async LoadAd(request)`.
+* `AppOpenAdLoader.OnAdLoaded` and `OnAdFailedToLoad` events removed. Use `LoadAd(request, onLoaded, onFailed)` or `async LoadAd(request)`.
+
+#### Added
+
+* `AdTargeting` — new class for user targeting data (`Age`, `Gender`, `Location`, `ContextQuery`, `ContextTags`).
+* `Creative` — new class with ad creative metadata (`CreativeId`, `CampaignId`, `PlaceId`).
+* `AdInfo.ExtraData` — extra data string of the ad.
+* `AdInfo.PartnerText` — partner text string (ADFOX).
+* `AdInfo.Creatives` — list of `Creative` objects for the ad.
+* `AppOpenAd.GetInfo()` — returns `AdInfo` for the loaded app open ad.
+* `Banner.GetInfo()` — returns `AdInfo` for the loaded banner ad.
+* `RewardedAdLoader.LoadAd(request, onLoaded, onFailed)` — closure-based ad loading.
+* `RewardedAdLoader.LoadAd(request)` — async/await ad loading returning `Task<RewardedAd>`.
+* `InterstitialAdLoader.LoadAd(request, onLoaded, onFailed)` — closure-based ad loading.
+* `InterstitialAdLoader.LoadAd(request)` — async/await ad loading returning `Task<Interstitial>`.
+* `AppOpenAdLoader.LoadAd(request, onLoaded, onFailed)` — closure-based ad loading.
+* `AppOpenAdLoader.LoadAd(request)` — async/await ad loading returning `Task<AppOpenAd>`.
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 8.0.0
+* Supported iOS Yandex Mobile Ads SDK version 8.0.0
+
 ## Version 7.18.2
 
 #### Updated

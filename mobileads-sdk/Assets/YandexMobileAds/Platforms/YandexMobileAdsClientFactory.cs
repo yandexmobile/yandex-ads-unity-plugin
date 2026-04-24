@@ -29,16 +29,16 @@ namespace YandexMobileAds.Platforms
             #endif
         }
 
-        internal static IBannerClient BuildBannerClient(string blockId, BannerAdSize adSize, AdPosition position)
+        internal static IBannerClient BuildBannerClient(BannerAdSize adSize, AdPosition position)
         {
             #if UNITY_EDITOR
                 return new DummyBannerClient();
             #elif UNITY_ANDROID
                 var adSizeClient = (YandexMobileAds.Platforms.Android.BannerAdSizeClient) adSize.GetClient();
-                return new YandexMobileAds.Platforms.Android.BannerClient(blockId, adSizeClient, position);
+                return new YandexMobileAds.Platforms.Android.BannerClient(adSizeClient, position);
             #elif (UNITY_5 && UNITY_IOS) || UNITY_IPHONE
                 var adSizeClient = (YandexMobileAds.Platforms.iOS.BannerAdSizeClient) adSize.GetClient();
-                return new YandexMobileAds.Platforms.iOS.BannerClient(blockId, adSizeClient, position);
+                return new YandexMobileAds.Platforms.iOS.BannerClient(adSizeClient, position);
             #else
                 return new DummyBannerClient();
             #endif

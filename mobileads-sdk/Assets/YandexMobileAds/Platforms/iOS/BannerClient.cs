@@ -41,8 +41,6 @@ namespace YandexMobileAds.Platforms.iOS
 
         public event EventHandler<EventArgs> OnAdLoaded;
         public event EventHandler<AdFailureEventArgs> OnAdFailedToLoad;
-        public event EventHandler<EventArgs> OnReturnedToApplication;
-        public event EventHandler<EventArgs> OnLeftApplication;
         public event EventHandler<EventArgs> OnAdClicked;
         public event EventHandler<ImpressionData> OnImpression;
 
@@ -50,22 +48,22 @@ namespace YandexMobileAds.Platforms.iOS
 
         private readonly IntPtr _selfPointer;
 
-        internal BannerClient(string blockId, BannerAdSizeClient adSizeClient, AdPosition position)
+        internal BannerClient(BannerAdSizeClient adSizeClient, AdPosition position)
         {
             this._selfPointer = GCHandle.ToIntPtr(GCHandle.Alloc(this));
 
             this.ObjectId = BannerBridge.YMAUnityCreateBannerView(
-                this._selfPointer, blockId, adSizeClient.ObjectId,
+                this._selfPointer, adSizeClient.ObjectId,
                 (int)position);
             BannerBridge.YMAUnitySetBannerCallbacks(
                 this.ObjectId,
-                    AdViewDidReceiveAdCallback,
-                    AdViewDidFailToReceiveAdWithErrorCallback,
-                    AdViewWillPresentScreenCallback,
-                    AdViewDidDismissScreenCallback,
-                    AdViewDidTrackImpression,
-                    AdViewWillLeaveApplicationCallback,
-                    AdViewDidClickCallback);
+                AdViewDidReceiveAdCallback,
+                AdViewDidFailToReceiveAdWithErrorCallback,
+                AdViewWillPresentScreenCallback,
+                AdViewDidDismissScreenCallback,
+                AdViewDidTrackImpression,
+                AdViewWillLeaveApplicationCallback,
+                AdViewDidClickCallback);
         }
 
         public void LoadAd(AdRequest adRequest)
@@ -73,7 +71,7 @@ namespace YandexMobileAds.Platforms.iOS
             if (adRequest == null) {
                 AdViewDidFailToReceiveAdWithErrorCallback(
                     _selfPointer,
-                    Constants.AdRequestConfigurationIsNullErrorMessage);
+                    Constants.AdRequestIsNullErrorMessage);
                 return;
             }
 
@@ -95,6 +93,23 @@ namespace YandexMobileAds.Platforms.iOS
         {
             this.Hide();
             ObjectBridge.YMAUnityDestroyObject(this.ObjectId);
+        }
+
+        public AdInfo GetInfo()
+        {
+            string adInfoObjectId = BannerBridge.YMAUnityGetBannerInfo(this.ObjectId);
+            if (adInfoObjectId == null)
+            {
+                return null;
+            }
+            AdInfoClient adInfoClient = new AdInfoClient(adInfoObjectId);
+            AdInfo adInfo = new AdInfo(
+                adInfoClient.AdUnitId,
+                adInfoClient.ExtraData,
+                adInfoClient.PartnerText,
+                adInfoClient.Creatives);
+            adInfoClient.Destroy();
+            return adInfo;
         }
 
         public void Dispose()
@@ -141,24 +156,10 @@ namespace YandexMobileAds.Platforms.iOS
         }
 
         [MonoPInvokeCallback(typeof(YMAUnityAdViewWillPresentScreenCallback))]
-        private static void AdViewWillPresentScreenCallback(IntPtr bannerClient)
-        {
-            BannerClient client = IntPtrToBannerClient(bannerClient);
-            if (client.OnLeftApplication != null)
-            {
-                client.OnLeftApplication(client, EventArgs.Empty);
-            }
-        }
+        private static void AdViewWillPresentScreenCallback(IntPtr bannerClient) { }
 
         [MonoPInvokeCallback(typeof(YMAUnityAdViewDidDismissScreenCallback))]
-        private static void AdViewDidDismissScreenCallback(IntPtr bannerClient)
-        {
-            BannerClient client = IntPtrToBannerClient(bannerClient);
-            if (client.OnReturnedToApplication != null)
-            {
-                client.OnReturnedToApplication(client, EventArgs.Empty);
-            }
-        }
+        private static void AdViewDidDismissScreenCallback(IntPtr bannerClient) { }
 
         [MonoPInvokeCallback(typeof(YMAUnityAdViewDidTrackImpressionCallback))]
         private static void AdViewDidTrackImpression(IntPtr bannerClient, string rawImpressionData)
@@ -172,14 +173,7 @@ namespace YandexMobileAds.Platforms.iOS
         }
 
         [MonoPInvokeCallback(typeof(YMAUnityAdViewWillLeaveApplicationCallback))]
-        private static void AdViewWillLeaveApplicationCallback(IntPtr bannerClient)
-        {
-            BannerClient client = IntPtrToBannerClient(bannerClient);
-            if (client.OnLeftApplication != null)
-            {
-                client.OnLeftApplication(client, EventArgs.Empty);
-            }
-        }
+        private static void AdViewWillLeaveApplicationCallback(IntPtr bannerClient) { }
 
         [MonoPInvokeCallback(typeof(YMAUnityAdViewDidClickCallback))]
         private static void AdViewDidClickCallback(IntPtr bannerClient)

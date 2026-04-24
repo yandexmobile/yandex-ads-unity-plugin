@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 8.0.0
+
+#### Updated
+
+* Supported Android mobileads-tapjoy version 14.3.1.9
+
 ## Version 7.18.0
 
 #### Updated

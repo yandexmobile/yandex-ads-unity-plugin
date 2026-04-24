@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 using YandexMobileAds;
 using YandexMobileAds.Base;
@@ -83,22 +83,12 @@ public class RewardedAdComponent : MonoBehaviour
     private void SetupLoader()
     {
         rewardedAdLoader = new RewardedAdLoader();
-        rewardedAdLoader.OnAdLoaded += HandleAdLoaded;
-        rewardedAdLoader.OnAdFailedToLoad += HandleAdFailedToLoad;
     }
 
     private void ConfigureAd()
     {
-        AdRequestConfiguration adRequestConfiguration = new AdRequestConfiguration.Builder(CurrentAdUnitId).Build();
-
-        try
-        {
-            rewardedAdLoader.LoadAd(adRequestConfiguration);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"{adName}: Configuration failed: {ex.Message}");
-        }
+        AdRequest adRequest = new AdRequest(CurrentAdUnitId);
+        rewardedAdLoader.LoadAd(adRequest, HandleAdLoaded, HandleAdFailedToLoad);
     }
 
     public void Load()
@@ -135,17 +125,16 @@ public class RewardedAdComponent : MonoBehaviour
 
         if (rewardedAdLoader != null)
         {
-            rewardedAdLoader.OnAdLoaded -= HandleAdLoaded;
-            rewardedAdLoader.OnAdFailedToLoad -= HandleAdFailedToLoad;
+            rewardedAdLoader.CancelLoading();
             rewardedAdLoader = null;
         }
     }
 
     #region Event Handlers
 
-    private void HandleAdLoaded(object sender, RewardedAdLoadedEventArgs args)
+    private void HandleAdLoaded(RewardedAd ad)
     {
-        rewardedAd = args.RewardedAd;
+        rewardedAd = ad;
 
         rewardedAd.OnAdShown += HandleAdShown;
         rewardedAd.OnAdDismissed += HandleAdDismissed;
@@ -162,7 +151,7 @@ public class RewardedAdComponent : MonoBehaviour
         }
     }
 
-    private void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args) => OnAdFailedToLoad?.Invoke(args.Message);
+    private void HandleAdFailedToLoad(AdFailedToLoadEventArgs args) => OnAdFailedToLoad?.Invoke(args.Message);
 
     private void HandleAdShown(object sender, EventArgs args) => OnAdShown?.Invoke(rewardedAd);
 

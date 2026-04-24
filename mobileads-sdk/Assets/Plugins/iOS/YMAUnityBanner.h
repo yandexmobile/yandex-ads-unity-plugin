@@ -18,7 +18,6 @@
 @interface YMAUnityBanner: NSObject
 
 - (instancetype)initWithClientRef:(YMAUnityBannerClientRef*)clientRef
-                         adUnitID:(char*)adUnitID
                            adSize:(YMABannerAdSize*)bannerAdSize
                          position:(YMAUnityAdPosition)position;
 

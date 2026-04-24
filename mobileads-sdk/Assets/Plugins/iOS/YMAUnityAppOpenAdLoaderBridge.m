@@ -32,11 +32,11 @@ void YMAUnitySetAppOpenAdLoaderCallbacks(char *unityAppOpenAdLoaderObjectID,
     appOpenAdLoader.didFailToLoadAdCallback = didFailToLoadAdCallback;
 }
 
-void YMAUnityLoadAppOpenAd(char *unityAppOpenAdLoaderObjectID, char *adRequestConfigurationID)
+void YMAUnityLoadAppOpenAd(char *unityAppOpenAdLoaderObjectID, char *adRequestID)
 {
-    YMAAdRequestConfiguration *adRequestConfiguration = [[YMAUnityObjectsStorage sharedInstance] objectWithID:adRequestConfigurationID];
+    YMAAdRequest *adRequest = [[YMAUnityObjectsStorage sharedInstance] objectWithID:adRequestID];
     YMAUnityAppOpenAdLoader *appOpenAdLoader = [[YMAUnityObjectsStorage sharedInstance] objectWithID:unityAppOpenAdLoaderObjectID];
-    [appOpenAdLoader loadWithRequestConfiguration:adRequestConfiguration];
+    [appOpenAdLoader loadAdWithRequest:adRequest];
 }
 
 void YMAUnityCancelLoadingAppOpenAd(char *unityAppOpenAdLoaderObjectID)

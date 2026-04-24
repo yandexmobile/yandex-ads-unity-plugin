@@ -7,7 +7,7 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 #import "YMAUnityRewardedAd.h"
 #import "YMAUnityStringConverter.h"
 
@@ -26,8 +26,8 @@
     self = [super init];
     if (self != nil) {
         _rewardedAd = rewardedAd;
-        _rewardedAd.delegate = self;
         _clientRef = clientRef;
+        _rewardedAd.delegate = self;
     }
     return self;
 }
@@ -54,7 +54,7 @@
     }
 }
 
-- (void)rewardedAd:(YMARewardedAd *)rewardedAd didFailToShowWithError:(NSError *)error
+- (void)rewardedAd:(YMARewardedAd * _Nonnull)rewardedAd didFailToShowWithError:(NSError * _Nonnull)error
 {
     if (self.didFailToShowCallback != NULL) {
         char *message = [YMAUnityStringConverter copiedCStringFromObjCString:error.localizedDescription];
@@ -97,5 +97,6 @@ didTrackImpressionWithData:(nullable id<YMAImpressionData>)impressionData
         }
     }
 }
+
 
 @end

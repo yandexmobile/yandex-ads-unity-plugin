@@ -1,6 +1,6 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-inmobi:10.8.7.2">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-inmobi:11.0.0.0">
          <repositories>
             <repository>https://maven.google.com/</repository>
             <repository>https://android-sdk.is.com/</repository>
@@ -8,7 +8,7 @@
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="InMobiYandexMobileAdsAdapters" version="10.8.6.3">
+      <iosPod name="InMobiYandexMobileAdsAdapters" version="11.1.1.0">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>

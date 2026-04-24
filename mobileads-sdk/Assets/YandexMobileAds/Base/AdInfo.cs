@@ -7,36 +7,51 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
-using System;
+using System.Collections.Generic;
 
 namespace YandexMobileAds.Base
 {
     /// <summary>
-    /// Container for base Ad information.
+    /// Container for ad information.
     /// </summary>
     public class AdInfo
     {
-
         /// <summary>
-        /// AdUnitId of the ad.
+        /// The ad unit identifier.
         /// </summary>
         public string AdUnitId { get; private set; }
 
         /// <summary>
-        /// Size of the ad.
+        /// Extra data of the ad.
         /// </summary>
-        public AdSize AdSize { get; private set; }
+        public string ExtraData { get; private set; }
 
-        internal AdInfo(string adUnitId, AdSize adSize)
+        /// <summary>
+        /// Any string in the ad (set in the Partner interface).
+        /// </summary>
+        /// <remarks>This property is only used for working with ADFOX.</remarks>
+        public string PartnerText { get; private set; }
+
+        /// <summary>
+        /// Information about creatives of the ad.
+        /// </summary>
+        public List<Creative> Creatives { get; private set; }
+
+        internal AdInfo(
+            string adUnitId,
+            string extraData = null,
+            string partnerText = null,
+            List<Creative> creatives = null)
         {
             this.AdUnitId = adUnitId;
-            this.AdSize = adSize;
+            this.ExtraData = extraData;
+            this.PartnerText = partnerText;
+            this.Creatives = creatives ?? new List<Creative>();
         }
 
-        override public string ToString()
+        public override string ToString()
         {
-            return $"AdInfo(AdUnitId='{this.AdUnitId}', AdSize={AdSize})";
+            return $"AdInfo(AdUnitId='{this.AdUnitId}')";
         }
-
     }
 }

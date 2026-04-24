@@ -43,22 +43,24 @@ namespace YandexMobileAds.Platforms.iOS
                 RewardedDidFailToLoadAdCallback);
         }
 
-        public void LoadAd(AdRequestConfiguration adRequestConfiguration)
+        public void LoadAd(AdRequest adRequest)
         {
-            if (adRequestConfiguration == null) {
+            if (adRequest == null) {
                 RewardedDidFailToLoadAdCallback(
                     _selfPointer,
                     "",
-                    Constants.AdRequestConfigurationIsNullErrorMessage);
+                    Constants.AdRequestIsNullErrorMessage);
                 return;
             }
 
-            AdRequestConfigurationClient adRequest = new AdRequestConfigurationClient(adRequestConfiguration);
-            RewardedAdLoaderBridge.YMAUnityLoadRewardedAd(this.ObjectId, adRequest.ObjectId);
+            AdRequestClient adRequestClient = new AdRequestClient(adRequest);
+            RewardedAdLoaderBridge.YMAUnityLoadRewardedAd(this.ObjectId, adRequestClient.ObjectId);
         }
 
         public void CancelLoading()
         {
+            OnAdLoaded = null;
+            OnAdFailedToLoad = null;
             RewardedAdLoaderBridge.YMAUnityCancelLoadingRewardedAd(this.ObjectId);
         }
 

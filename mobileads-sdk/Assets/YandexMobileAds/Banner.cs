@@ -20,7 +20,7 @@ namespace YandexMobileAds
     public class Banner
     {
         /// <summary>
-        /// Notifies that the banner is loaded. At this time, you can add banner if you haven’t done so yet.
+        /// Notifies that the banner is loaded. At this time, you can add banner if you haven't done so yet.
         /// </summary>
         public event EventHandler<EventArgs> OnAdLoaded;
 
@@ -28,17 +28,6 @@ namespace YandexMobileAds
         /// Notifies that the banner failed to load.
         /// </summary>
         public event EventHandler<AdFailureEventArgs> OnAdFailedToLoad;
-
-        /// <summary>
-        /// Called when user returned to application after click.
-        /// </summary>
-        public event EventHandler<EventArgs> OnReturnedToApplication;
-
-        /// <summary>
-        /// Notifies that the app will become inactive now because the user clicked on the banner
-        /// ad and is about to switch to a different application (Phone, App Store, and so on).
-        /// </summary>
-        public event EventHandler<EventArgs> OnLeftApplication;
 
         /// <summary>
         /// Notifies that the user has clicked on the banner.
@@ -55,14 +44,13 @@ namespace YandexMobileAds
 
         /// <summary>
         /// Initializes an object of the Banner class to display the banner with the specified size.
-        /// <param name="blockId"> A unique identifier in the R-M-XXXXXX-Y format, which is assigned in the Partner interface.</param>
-        /// <param name="adSize"> The size of banner ad. <see cref="YandexMobileAds.Base.BannerAdSize"/></param>
-        /// <param name="position"> Banner position on screen <see cref="YandexMobileAds.Base.AdPosition"/></param>
         /// </summary>
-        public Banner(string blockId, BannerAdSize adSize, AdPosition position)
+        /// <param name="adSize">The size of banner ad. <see cref="YandexMobileAds.Base.BannerAdSize"/></param>
+        /// <param name="position">Banner position on screen. <see cref="YandexMobileAds.Base.AdPosition"/></param>
+        public Banner(BannerAdSize adSize, AdPosition position)
         {
             this._adRequestFactory = new AdRequestCreator();
-            this._client = YandexMobileAdsClientFactory.BuildBannerClient(blockId, adSize, position);
+            this._client = YandexMobileAdsClientFactory.BuildBannerClient(adSize, position);
 
             MainThreadDispatcher.initialize();
             ConfigureBannerEvents();
@@ -101,6 +89,15 @@ namespace YandexMobileAds
             _client.Destroy();
         }
 
+        /// <summary>
+        /// Returns ad information.
+        /// </summary>
+        /// <returns>An <see cref="YandexMobileAds.Base.AdInfo"/> instance with ad metadata, or null if no ad has been loaded.</returns>
+        public AdInfo GetInfo()
+        {
+            return _client.GetInfo();
+        }
+
         private void ConfigureBannerEvents()
         {
             this._client.OnAdLoaded += (sender, args) =>
@@ -136,42 +133,6 @@ namespace YandexMobileAds
                     }
 
                     this.OnAdFailedToLoad(this, args);
-                });
-            };
-
-            this._client.OnReturnedToApplication += (sender, args) =>
-            {
-                if (this.OnReturnedToApplication == null)
-                {
-                    return;
-                }
-
-                MainThreadDispatcher.EnqueueAction(() =>
-                {
-                    if (this.OnReturnedToApplication == null)
-                    {
-                        return;
-                    }
-
-                    this.OnReturnedToApplication(this, args);
-                });
-            };
-
-            this._client.OnLeftApplication += (sender, args) =>
-            {
-                if (this.OnLeftApplication == null)
-                {
-                    return;
-                }
-
-                MainThreadDispatcher.EnqueueAction(() =>
-                {
-                    if (this.OnLeftApplication == null)
-                    {
-                        return;
-                    }
-
-                    this.OnLeftApplication(this, args);
                 });
             };
 

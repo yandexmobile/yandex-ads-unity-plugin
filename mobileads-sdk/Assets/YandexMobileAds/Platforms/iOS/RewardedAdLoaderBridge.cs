@@ -28,7 +28,7 @@ namespace YandexMobileAds.Platforms.iOS
 
         [DllImport("__Internal")]
         internal static extern void YMAUnityLoadRewardedAd(
-            string objectId, string adRequestConfigurationId);
+            string objectId, string adRequestId);
 
         [DllImport("__Internal")]
         internal static extern void YMAUnityCancelLoadingRewardedAd(string objectId);

@@ -63,10 +63,7 @@ namespace YandexMobileAds.Platforms.iOS
 
             string adInfoObjectId = RewardedAdBridge.YMAUnityGetRewardedInfo(this.ObjectId);
             AdInfoClient adInfoClient = new AdInfoClient(adInfoObjectId);
-            this._adInfo = new AdInfo(
-                adInfoClient.AdUnitId,
-                adInfoClient.AdSize
-            );
+            this._adInfo = new AdInfo(adInfoClient.AdUnitId, adInfoClient.ExtraData, adInfoClient.PartnerText, adInfoClient.Creatives);
             adInfoClient.Destroy();
 
             this._audioSessionClient = new AudioSessionManagerClient();

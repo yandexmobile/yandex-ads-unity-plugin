@@ -7,24 +7,24 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 
 void YMAUnitySetUserConsent(bool consent)
 {
-    [YMAMobileAds setUserConsent:consent];
+    [YMAYandexAds setUserConsent:consent];
 }
 
 void YMAUnitySetLocationConsent(bool consent)
 {
-    [YMAMobileAds setLocationTrackingEnabled:consent];
+    [YMAYandexAds setLocationTracking:consent];
 }
 
 void YMAUnitySetAgeRestrictedUser(bool ageRestrictedUser)
 {
-    [YMAMobileAds setAgeRestrictedUser:ageRestrictedUser];
+    [YMAYandexAds setAgeRestricted:ageRestrictedUser];
 }
 
 void YMAUnityShowDebugPanel(void)
 {
-    [YMAMobileAds showDebugPanel];
+    [YMAYandexAds showDebugPanel];
 }

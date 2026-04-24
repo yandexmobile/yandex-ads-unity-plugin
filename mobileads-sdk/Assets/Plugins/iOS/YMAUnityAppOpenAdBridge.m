@@ -7,7 +7,7 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 #import "YMAUnityAppOpenAd.h"
 #import "YMAUnityObjectsStorage.h"
 #import "YMAUnityStringConverter.h"
@@ -46,8 +46,8 @@ void YMAUnitySetAppOpenAdCallbacks(char *unityAppOpenAdObjectID,
 char *YMAUnityGetAppOpenInfo(char *unityAppOpenAdObjectID)
 {
     YMAUnityObjectsStorage *objectStorage = [YMAUnityObjectsStorage sharedInstance];
-    YMAAppOpenAd *appOpenAd = [objectStorage objectWithID:unityAppOpenAdObjectID];
-    YMAAdInfo *adInfo = [appOpenAd adInfo];
+    YMAUnityAppOpenAd *unityAppOpenAd = [objectStorage objectWithID:unityAppOpenAdObjectID];
+    YMAAdInfo *adInfo = [unityAppOpenAd getInfo];
 
     const char *adInfoObjectID = [YMAUnityObjectIDProvider IDForObject:adInfo];
     [[YMAUnityObjectsStorage sharedInstance] setObject:adInfo withID:adInfoObjectID];

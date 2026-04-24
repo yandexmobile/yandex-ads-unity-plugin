@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 8.0.0
+
+#### Updated
+
+* Supported Android mobileads-applovin version 13.5.1.0
+* Supported iOS AppLovinYandexMobileAdsAdapters version 13.5.1.0
+
 ## Version 7.18.1
 
 #### Updated

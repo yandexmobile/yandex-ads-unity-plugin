@@ -32,11 +32,11 @@ void YMAUnitySetInterstitialAdLoaderCallbacks(char *unityInterstitialAdLoaderObj
     interstitialAdLoader.didFailToLoadAdCallback = didFailToLoadAdCallback;
 }
 
-void YMAUnityLoadInterstitialAd(char *unityInterstitialAdLoaderObjectID, char *adRequestConfigurationID)
+void YMAUnityLoadInterstitialAd(char *unityInterstitialAdLoaderObjectID, char *adRequestID)
 {
-    YMAAdRequestConfiguration *adRequestConfiguration = [[YMAUnityObjectsStorage sharedInstance] objectWithID:adRequestConfigurationID];
+    YMAAdRequest *adRequest = [[YMAUnityObjectsStorage sharedInstance] objectWithID:adRequestID];
     YMAUnityInterstitialAdLoader *interstitialAdLoader = [[YMAUnityObjectsStorage sharedInstance] objectWithID:unityInterstitialAdLoaderObjectID];
-    [interstitialAdLoader loadWithRequestConfiguration:adRequestConfiguration];
+    [interstitialAdLoader loadAdWithRequest:adRequest];
 }
 
 void YMAUnityCancelLoadingInterstitialAd(char *unityInterstitialAdLoaderObjectID)

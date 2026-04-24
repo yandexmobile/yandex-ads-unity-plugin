@@ -51,7 +51,7 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
     {
 
         //Sets COPPA restriction for user age under 13
-        MobileAds.SetAgeRestrictedUser(true);
+        YandexAds.SetAgeRestricted(true);
 
         // Replace demo Unit ID 'demo-banner-yandex' with actual Ad Unit ID
         string adUnitId = "demo-banner-yandex";
@@ -61,19 +61,17 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
             this.banner.Destroy();
         }
         // Set sticky banner width
-        BannerAdSize bannerSize = BannerAdSize.StickySize(GetScreenWidthDp());
+        BannerAdSize bannerSize = BannerAdSize.Sticky(GetScreenWidthDp());
         // Or set inline banner maximum width and height
-        // BannerAdSize bannerSize = BannerAdSize.InlineSize(GetScreenWidthDp(), 300);
-        this.banner = new Banner(adUnitId, bannerSize, AdPosition.BottomCenter);
+        // BannerAdSize bannerSize = BannerAdSize.Inline(GetScreenWidthDp(), 300);
+        this.banner = new Banner(bannerSize, AdPosition.BottomCenter);
 
         this.banner.OnAdLoaded += this.HandleAdLoaded;
         this.banner.OnAdFailedToLoad += this.HandleAdFailedToLoad;
-        this.banner.OnReturnedToApplication += this.HandleReturnedToApplication;
-        this.banner.OnLeftApplication += this.HandleLeftApplication;
         this.banner.OnAdClicked += this.HandleAdClicked;
         this.banner.OnImpression += this.HandleImpression;
 
-        this.banner.LoadAd(this.CreateAdRequest());
+        this.banner.LoadAd(this.CreateAdRequest(adUnitId));
         this.DisplayMessage("Banner is requested");
     }
 
@@ -84,9 +82,9 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
         return ScreenUtils.ConvertPixelsToDp(screenWidth);
     }
 
-    private AdRequest CreateAdRequest()
+    private AdRequest CreateAdRequest(string adUnitId)
     {
-        return new AdRequest.Builder().Build();
+        return new AdRequest(adUnitId);
     }
 
     private void DisplayMessage(String message)
@@ -106,21 +104,6 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
     public void HandleAdFailedToLoad(object sender, AdFailureEventArgs args)
     {
         this.DisplayMessage("HandleAdFailedToLoad event received with message: " + args.Message);
-    }
-
-    public void HandleLeftApplication(object sender, EventArgs args)
-    {
-        this.DisplayMessage("HandleLeftApplication event received");
-    }
-
-    public void HandleReturnedToApplication(object sender, EventArgs args)
-    {
-        this.DisplayMessage("HandleReturnedToApplication event received");
-    }
-
-    public void HandleAdLeftApplication(object sender, EventArgs args)
-    {
-        this.DisplayMessage("HandleAdLeftApplication event received");
     }
 
     public void HandleAdClicked(object sender, EventArgs args)

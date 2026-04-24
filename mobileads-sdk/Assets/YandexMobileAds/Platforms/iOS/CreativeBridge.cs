@@ -13,13 +13,18 @@ namespace YandexMobileAds.Platforms.iOS
 {
     #if (UNITY_5 && UNITY_IOS) || UNITY_IPHONE
 
-    internal class AdSizeBridge
+    internal class CreativeBridge
     {
         [DllImport("__Internal")]
-        internal static extern double YMAUnityAdSizeGetWidth(string adSizeObjectId);
+        internal static extern string YMAUnityCreativeGetCreativeId(string creativeObjectId);
 
         [DllImport("__Internal")]
-        internal static extern double YMAUnityAdSizeGetHeight(string adSizeObjectId);
+        internal static extern string YMAUnityCreativeGetCampaignId(string creativeObjectId);
+
+        [DllImport("__Internal")]
+        internal static extern string YMAUnityCreativeGetPlaceId(string creativeObjectId);
+
+
     }
 
     #endif

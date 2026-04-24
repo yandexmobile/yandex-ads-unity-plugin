@@ -21,18 +21,18 @@ namespace YandexMobileAds.Common
         void SetUserConsent(bool consent);
 
         /// <summary>
-        /// Enables location usage for ad loading.
-        /// Location permission is still required to be granted additionally to the consent.
+        /// Enables or disables location tracking for ad loading.
+        /// Location permission is still required to be granted additionally.
         /// </summary>
-        /// <param name="consent"><c>true</c> if user provided consent to use location for ads loading, otherwise <c>false</c>.</param>
-        void SetLocationConsent(bool consent);
+        /// <param name="enabled"><c>true</c> to enable location tracking for ads loading, otherwise <c>false</c>.</param>
+        void SetLocationTracking(bool enabled);
 
         /// <summary>
         /// Set a value indicating whether user is a child or undefined age.
         /// If the value is set to true personal data will not be collected.
         /// </summary>
-        /// <param name="ageRestrictedUser"><c>true</c> if user falls under COPPA restrictions, otherwise <c>false</c>.</param>
-        void SetAgeRestrictedUser(bool ageRestrictedUser);
+        /// <param name="ageRestricted"><c>true</c> if user falls under COPPA restrictions, otherwise <c>false</c>.</param>
+        void SetAgeRestricted(bool ageRestricted);
 
         /// <summary>
         /// Shows Debug Panel.

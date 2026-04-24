@@ -28,10 +28,10 @@ namespace YandexMobileAds.Common
 
         private AdInfo adInfo;
 
-        internal DummyRewardedAdClient(AdRequestConfiguration configuration)
+        internal DummyRewardedAdClient(string adUnitID)
         {
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
-            adInfo = new AdInfo(configuration.AdUnitId, new AdSize(0, 0));
+            adInfo = new AdInfo(adUnitID);
 
         }
 

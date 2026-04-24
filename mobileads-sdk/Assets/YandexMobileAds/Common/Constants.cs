@@ -13,7 +13,5 @@ namespace YandexMobileAds.Common
     class Constants
     {
         internal const string AdRequestIsNullErrorMessage = "Invalid AdRequest: AdRequest must not be null.";
-        internal const string AdRequestConfigurationIsNullErrorMessage =
-            "Invalid AdRequestConfiguration: AdRequestConfiguration must not be null.";
     }
 }

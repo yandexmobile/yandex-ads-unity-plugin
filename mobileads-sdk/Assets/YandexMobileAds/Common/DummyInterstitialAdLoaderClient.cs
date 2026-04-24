@@ -30,10 +30,12 @@ namespace YandexMobileAds.Common
 
         public void CancelLoading()
         {
+            OnAdLoaded = null;
+            OnAdFailedToLoad = null;
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
         }
 
-        public void LoadAd(AdRequestConfiguration configuration)
+        public void LoadAd(AdRequest adRequest)
         {
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
 
@@ -41,7 +43,7 @@ namespace YandexMobileAds.Common
             {
                 GenericEventArgs<IInterstitialClient> adLoadedEventArgs = new GenericEventArgs<IInterstitialClient>()
                 {
-                    Value = new DummyInterstitialClient(configuration)
+                    Value = new DummyInterstitialClient(adRequest?.AdUnitId)
                 };
                 OnAdLoaded(this, adLoadedEventArgs);
             }

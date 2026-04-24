@@ -18,7 +18,7 @@ namespace YandexMobileAds.Platforms.iOS
     {
         [DllImport("__Internal")]
         internal static extern string YMAUnityCreateBannerView(IntPtr clientRef,
-            string adUnitId, string adSizeId, int position);
+            string adSizeId, int position);
 
         [DllImport("__Internal")]
         internal static extern void YMAUnityLoadBannerView(string objectId,
@@ -29,6 +29,9 @@ namespace YandexMobileAds.Platforms.iOS
 
         [DllImport("__Internal")]
         internal static extern void YMAUnityHideBannerView(string objectId);
+
+        [DllImport("__Internal")]
+        internal static extern string YMAUnityGetBannerInfo(string bannerObjectId);
 
         [DllImport("__Internal")]
         internal static extern void YMAUnitySetBannerCallbacks(

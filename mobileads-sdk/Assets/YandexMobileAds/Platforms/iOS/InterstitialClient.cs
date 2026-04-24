@@ -60,10 +60,7 @@ namespace YandexMobileAds.Platforms.iOS
 
             string adInfoObjectId = InterstitialBridge.YMAUnityGetInterstitialInfo(this.ObjectId);
             AdInfoClient adInfoClient = new AdInfoClient(adInfoObjectId);
-            this._adInfo = new AdInfo(
-                adInfoClient.AdUnitId,
-                adInfoClient.AdSize
-            );
+            this._adInfo = new AdInfo(adInfoClient.AdUnitId, adInfoClient.ExtraData, adInfoClient.PartnerText, adInfoClient.Creatives);
             
             this._audioSessionClient = new AudioSessionManagerClient();
             

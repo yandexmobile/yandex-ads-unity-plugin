@@ -29,7 +29,7 @@ namespace YandexMobileAds.Common
         ///<paramref name="configuration">configuration.</paramref>
         /// </summary>
         /// <param name="configuration">configuration of the ad request</param>
-        void LoadAd(AdRequestConfiguration configuration);
+        void LoadAd(AdRequest adRequest);
 
         /// <summary>
         /// Cancels all active loadings performed by this loader.

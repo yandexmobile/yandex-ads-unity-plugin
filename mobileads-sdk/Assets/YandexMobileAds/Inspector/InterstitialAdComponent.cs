@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 using YandexMobileAds;
 using YandexMobileAds.Base;
@@ -79,22 +79,12 @@ public class InterstitialAdComponent : MonoBehaviour
     private void SetupLoader()
     {
         interstitialAdLoader = new InterstitialAdLoader();
-        interstitialAdLoader.OnAdLoaded += HandleAdLoaded;
-        interstitialAdLoader.OnAdFailedToLoad += HandleAdFailedToLoad;
     }
 
     private void ConfigureAd()
     {
-        AdRequestConfiguration adRequestConfiguration = new AdRequestConfiguration.Builder(CurrentAdUnitId).Build();
-
-        try
-        {
-            interstitialAdLoader.LoadAd(adRequestConfiguration);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"Configuration failed: {ex.Message}");
-        }
+        AdRequest adRequest = new AdRequest(CurrentAdUnitId);
+        interstitialAdLoader.LoadAd(adRequest, HandleAdLoaded, HandleAdFailedToLoad);
     }
 
     public void Load()
@@ -130,17 +120,16 @@ public class InterstitialAdComponent : MonoBehaviour
 
         if (interstitialAdLoader != null)
         {
-            interstitialAdLoader.OnAdLoaded -= HandleAdLoaded;
-            interstitialAdLoader.OnAdFailedToLoad -= HandleAdFailedToLoad;
+            interstitialAdLoader.CancelLoading();
             interstitialAdLoader = null;
         }
     }
 
     #region Event Handlers
 
-    private void HandleAdLoaded(object sender, InterstitialAdLoadedEventArgs args)
+    private void HandleAdLoaded(Interstitial ad)
     {
-        interstitial = args.Interstitial;
+        interstitial = ad;
 
         interstitial.OnAdShown += HandleAdShown;
         interstitial.OnAdDismissed += HandleAdDismissed;
@@ -156,7 +145,7 @@ public class InterstitialAdComponent : MonoBehaviour
         }
     }
 
-    private void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args) => OnAdFailedToLoad?.Invoke(args.Message);
+    private void HandleAdFailedToLoad(AdFailedToLoadEventArgs args) => OnAdFailedToLoad?.Invoke(args.Message);
 
     private void HandleAdShown(object sender, EventArgs args) => OnAdShown?.Invoke(interstitial);
 
