@@ -25,8 +25,6 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
     public void Awake()
     {
         this.rewardedAdLoader = new RewardedAdLoader();
-        this.rewardedAdLoader.OnAdLoaded += this.HandleAdLoaded;
-        this.rewardedAdLoader.OnAdFailedToLoad += this.HandleAdFailedToLoad;
     }
 
     public void OnGUI()
@@ -69,7 +67,7 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
     {
         this.DisplayMessage("RewardedAd is not ready yet");
         //Sets COPPA restriction for user age under 13
-        MobileAds.SetAgeRestrictedUser(true);
+        YandexAds.SetAgeRestricted(true);
 
         if (this.rewardedAd != null)
         {
@@ -79,7 +77,10 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
         // Replace demo Unit ID 'demo-rewarded-yandex' with actual Ad Unit ID
         string adUnitId = "demo-rewarded-yandex";
 
-        this.rewardedAdLoader.LoadAd(this.CreateAdRequest(adUnitId));
+        this.rewardedAdLoader.LoadAd(
+            this.CreateAdRequest(adUnitId),
+            onLoaded: this.HandleAdLoaded,
+            onFailed: this.HandleAdFailedToLoad);
         this.DisplayMessage("Rewarded Ad is requested");
     }
 
@@ -101,9 +102,9 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
         this.rewardedAd.Show();
     }
 
-    private AdRequestConfiguration CreateAdRequest(string adUnitId)
+    private AdRequest CreateAdRequest(string adUnitId)
     {
-        return new AdRequestConfiguration.Builder(adUnitId).Build();
+        return new AdRequest(adUnitId);
     }
 
     private void DisplayMessage(String message)
@@ -114,13 +115,13 @@ public class YandexMobileAdsRewardedAdDemoScript : MonoBehaviour
 
     #region Rewarded Ad callback handlers
 
-    public void HandleAdLoaded(object sender, RewardedAdLoadedEventArgs args)
+    public void HandleAdLoaded(RewardedAd rewardedAd)
     {
         this.DisplayMessage("HandleAdLoaded event received");
-        this.rewardedAd = args.RewardedAd;
+        this.rewardedAd = rewardedAd;
     }
 
-    public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+    public void HandleAdFailedToLoad(AdFailedToLoadEventArgs args)
     {
         this.DisplayMessage(
             $"HandleAdFailedToLoad event received with message: {args.Message}");

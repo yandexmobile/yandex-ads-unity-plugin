@@ -1,4 +1,4 @@
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 #import "YMAUnityAudioSessionManager.h"
 #import "YMAUnityObjectsStorage.h"
 #import "YMAUnityStringConverter.h"
@@ -6,7 +6,7 @@
 
 char *YMAUnityCreateAudioSessionManager(YMAUnityAudioSessionManagerClientRef *clientRef)
 {   
-    YMAAudioSessionManager *audioSessionManager = [YMAMobileAds audioSessionManager];
+    YMAAudioSessionManager *audioSessionManager = [YMAYandexAds audioSessionManager];
     YMAUnityAudioSessionManager *unityAudioSessionManager = [[YMAUnityAudioSessionManager alloc] initWithClientRef:clientRef
                                                                             audioSessionManager: audioSessionManager];
 

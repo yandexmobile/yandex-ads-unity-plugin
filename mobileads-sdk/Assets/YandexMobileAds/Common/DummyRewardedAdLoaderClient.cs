@@ -27,7 +27,7 @@ namespace YandexMobileAds.Common
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
         }
 
-        public void LoadAd(AdRequestConfiguration configuration)
+        public void LoadAd(AdRequest adRequest)
         {
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
 
@@ -35,7 +35,7 @@ namespace YandexMobileAds.Common
             {
                 GenericEventArgs<IRewardedAdClient> adLoadedEventArgs = new GenericEventArgs<IRewardedAdClient>()
                 {
-                    Value = new DummyRewardedAdClient(configuration)
+                    Value = new DummyRewardedAdClient(adRequest?.AdUnitId)
                 };
                 OnAdLoaded(this, adLoadedEventArgs);
             }
@@ -43,6 +43,8 @@ namespace YandexMobileAds.Common
 
         public void CancelLoading()
         {
+            OnAdLoaded = null;
+            OnAdFailedToLoad = null;
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
         }
     }

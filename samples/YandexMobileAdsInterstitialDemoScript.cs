@@ -24,8 +24,6 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
     public void Awake()
     {
         this.interstitialAdLoader = new InterstitialAdLoader();
-        this.interstitialAdLoader.OnAdLoaded += this.HandleAdLoaded;
-        this.interstitialAdLoader.OnAdFailedToLoad += this.HandleAdFailedToLoad;
     }
 
     public void OnGUI()
@@ -68,7 +66,7 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
     private void RequestInterstitial()
     {
         //Sets COPPA restriction for user age under 13
-        MobileAds.SetAgeRestrictedUser(true);
+        YandexAds.SetAgeRestricted(true);
 
         // Replace demo Unit ID 'demo-interstitial-yandex' with actual Ad Unit ID
         string adUnitId = "demo-interstitial-yandex";
@@ -78,7 +76,10 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
             this.interstitial.Destroy();
         }
 
-        this.interstitialAdLoader.LoadAd(this.CreateAdRequest(adUnitId));
+        this.interstitialAdLoader.LoadAd(
+            this.CreateAdRequest(adUnitId),
+            onLoaded: this.HandleAdLoaded,
+            onFailed: this.HandleAdFailedToLoad);
         this.DisplayMessage("Interstitial is requested");
     }
 
@@ -99,9 +100,9 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
         this.interstitial.Show();
     }
 
-    private AdRequestConfiguration CreateAdRequest(string adUnitId)
+    private AdRequest CreateAdRequest(string adUnitId)
     {
-        return new AdRequestConfiguration.Builder(adUnitId).Build();
+        return new AdRequest(adUnitId);
     }
 
     private void DisplayMessage(String message)
@@ -112,14 +113,14 @@ public class YandexMobileAdsInterstitialDemoScript : MonoBehaviour
 
     #region Interstitial callback handlers
 
-    public void HandleAdLoaded(object sender, InterstitialAdLoadedEventArgs args)
+    public void HandleAdLoaded(Interstitial interstitial)
     {
         this.DisplayMessage("HandleAdLoaded event received");
 
-        this.interstitial = args.Interstitial;
+        this.interstitial = interstitial;
     }
 
-    public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+    public void HandleAdFailedToLoad(AdFailedToLoadEventArgs args)
     {
         this.DisplayMessage($"HandleAdFailedToLoad event received with message: {args.Message}");
     }

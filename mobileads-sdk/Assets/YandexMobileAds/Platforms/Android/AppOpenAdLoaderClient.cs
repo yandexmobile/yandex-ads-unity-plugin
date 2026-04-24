@@ -31,29 +31,28 @@ namespace YandexMobileAds.Platforms.Android
                 activity.Call<AndroidJavaObject>("getApplicationContext");
 
             this._appOpenAdLoader = NativeApi.NewInstance(applicationContext);
-            NativeApi.SetUnityAppOpenAdLoadListener(this._appOpenAdLoader, this);
         }
 
-        public void LoadAd(AdRequestConfiguration adRequestConfiguration)
+        public void LoadAd(AdRequest adRequest)
         {
-            if (adRequestConfiguration == null) {
-                onAdFailedToLoad(Constants.AdRequestConfigurationIsNullErrorMessage);
+            if (adRequest == null) {
+                onAdFailedToLoad(Constants.AdRequestIsNullErrorMessage);
                 return;
             }
 
-            NativeApi.LoadAd(this._appOpenAdLoader,
-                Utils.GetAdRequestConfigurationJavaObject(adRequestConfiguration));
+            NativeApi.LoadAd(this._appOpenAdLoader, Utils.GetAdRequestJavaObject(adRequest), this);
         }
 
         public void CancelLoading()
         {
+            OnAdLoaded = null;
+            OnAdFailedToLoad = null;
             NativeApi.CancelLoading(this._appOpenAdLoader);
         }
 
         public void Destroy()
         {
             NativeApi.CancelLoading(this._appOpenAdLoader);
-            NativeApi.ClearUnityAppOpenAdListener(this._appOpenAdLoader);
         }
 
 #pragma warning disable IDE1006 // naming rules violation
@@ -95,19 +94,9 @@ namespace YandexMobileAds.Platforms.Android
                 return new AndroidJavaObject(JAVA_CLASS_NAME, context);
             }
 
-            public static void SetUnityAppOpenAdLoadListener(AndroidJavaObject appOpenAdLoader, object listener)
+            public static void LoadAd(AndroidJavaObject appOpenAdLoader, AndroidJavaObject adRequest, object listener)
             {
-                appOpenAdLoader.Call("setUnityAppOpenAdLoadListener", listener);
-            }
-
-            public static void ClearUnityAppOpenAdListener(AndroidJavaObject appOpenAdLoader)
-            {
-                appOpenAdLoader.Call("clearUnityAppOpenAdLoadListener");
-            }
-
-            public static void LoadAd(AndroidJavaObject appOpenAdLoader, AndroidJavaObject adRequestConfiguration)
-            {
-                appOpenAdLoader.Call("loadAd", adRequestConfiguration);
+                appOpenAdLoader.Call("loadAd", adRequest, listener);
             }
 
             public static void CancelLoading(AndroidJavaObject appOpenAdLoader)

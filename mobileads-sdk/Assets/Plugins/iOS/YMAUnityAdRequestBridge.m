@@ -7,14 +7,14 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 #import <CoreLocation/CoreLocation.h>
 #import "YMAUnityObjectsStorage.h"
 #import "YMAUnityObjectIDProvider.h"
 #import "YMAUnityStringConverter.h"
 #import "YMAUnityNumberFormatter.h"
 
-char *YMAUnityCreateAdRequest(char *locationID, char *contextQuery, char *contextTagsID, char *parametersID, char *age, char *gender)
+char *YMAUnityCreateAdRequest(char *adUnitID, char *locationID, char *contextQuery, char *contextTagsID, char *parametersID, char *age, char *gender)
 {
     CLLocation *location = [[YMAUnityObjectsStorage sharedInstance] objectWithID:locationID];
     NSString *stringContextQuery = [YMAUnityStringConverter NSStringFromCString:contextQuery];
@@ -23,15 +23,11 @@ char *YMAUnityCreateAdRequest(char *locationID, char *contextQuery, char *contex
     NSString *stringGender = [YMAUnityStringConverter NSStringFromCString:gender];
     YMAUnityNumberFormatter *numberFormatter = [[YMAUnityNumberFormatter alloc] init];
     NSNumber *numberAge = [numberFormatter numberFromCString:age];
+    
+    
+    YMAAdTargeting *targeting = [[YMAAdTargeting alloc] initWithAge:numberAge gender:[[YMAGender alloc] init:stringGender] location:location contextQuery:stringContextQuery contextTags:contextTags];
+    YMAAdRequest *adRequest = [[YMAAdRequest alloc] initWithAdUnitID: [YMAUnityStringConverter NSStringFromCString:adUnitID] targeting:targeting adTheme:YMAAdThemeUnspecified biddingData:nil headerBiddingData:nil parameters:parameters];
 
-    YMAMutableAdRequest *adRequest = [[YMAMutableAdRequest alloc] init];
-
-    adRequest.location = location;
-    adRequest.contextQuery = stringContextQuery;
-    adRequest.contextTags = contextTags;
-    adRequest.parameters = parameters;
-    adRequest.age = numberAge;
-    adRequest.gender = stringGender;
     const char *objectID = [YMAUnityObjectIDProvider IDForObject:adRequest];
     [[YMAUnityObjectsStorage sharedInstance] setObject:adRequest withID:objectID];
     return [YMAUnityStringConverter copiedCString:objectID];

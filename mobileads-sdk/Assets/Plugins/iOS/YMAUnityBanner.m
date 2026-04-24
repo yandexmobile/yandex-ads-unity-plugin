@@ -7,14 +7,14 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 #import "YMAUnityBanner.h"
 #import "YMAUnityStringConverter.h"
 
-@interface YMAUnityBanner() <YMAAdViewDelegate>
+@interface YMAUnityBanner() <YMABannerAdViewDelegate>
 
 @property (nonatomic, assign, readonly) YMAUnityBannerClientRef *clientRef;
-@property (nonatomic, strong, readonly) YMAAdView *adView;
+@property (nonatomic, strong, readonly) YMABannerAdView *adView;
 @property (nonatomic, assign, readonly) YMAUnityAdPosition position;
 
 @end
@@ -22,14 +22,12 @@
 @implementation YMAUnityBanner
 
 - (instancetype)initWithClientRef:(YMAUnityBannerClientRef *)clientRef
-                         adUnitID:(char *)adUnitID
                            adSize:(YMABannerAdSize *)bannerAdSize
                          position:(YMAUnityAdPosition)position
 {
     self = [super init];
     if (self != nil) {
-        NSString *adUnitIDString = [[NSString alloc] initWithUTF8String:adUnitID];
-        _adView = [[YMAAdView alloc] initWithAdUnitID:adUnitIDString adSize:bannerAdSize];
+        _adView = [[YMABannerAdView alloc] initWithAdSize:bannerAdSize];
         _adView.delegate = self;
         _position = position;
         _clientRef = clientRef;
@@ -37,14 +35,14 @@
     return self;
 }
 
-- (void)adViewDidLoad:(YMAAdView *)adView
+- (void)bannerAdViewDidLoad:(YMABannerAdView *)bannerAdView
 {
     if (self.adReceivedCallback != NULL) {
         self.adReceivedCallback(self.clientRef);
     }
 }
 
-- (void)adViewDidFailLoading:(YMAAdView *)adView error:(NSError *)error
+- (void)bannerAdViewDidFailLoading:(YMABannerAdView *)bannerAdView error:(NSError *)error
 {
     if (self.loadingFailedCallback != NULL) {
         char *message = [YMAUnityStringConverter copiedCStringFromObjCString:error.localizedDescription];
@@ -52,21 +50,7 @@
     }
 }
 
-- (void)adView:(YMAAdView *)adView willPresentScreen:(UIViewController *)viewController
-{
-    if (self.willPresentScreenCallback != NULL) {
-        self.willPresentScreenCallback(self.clientRef);
-    }
-}
-
-- (void)adView:(YMAAdView *)adView didDismissScreen:(UIViewController *)viewController
-{
-    if (self.didDismissScreenCallback != NULL) {
-        self.didDismissScreenCallback(self.clientRef);
-    }
-}
-
-- (void)adView:(YMAAdView *)adView didTrackImpressionWithData:(nullable id<YMAImpressionData>)impressionData
+- (void)bannerAdView:(YMABannerAdView *)bannerAdView didTrackImpressionWithData:(nullable id<YMAImpressionData>)impressionData
 {
     if (self.didTrackImpressionCallback != NULL) {
         if (impressionData != nil) {
@@ -79,14 +63,7 @@
     }
 }
 
-- (void)adViewWillLeaveApplication:(YMAAdView *)adView
-{
-    if (self.willLeaveApplicationCallback != NULL) {
-        self.willLeaveApplicationCallback(self.clientRef);
-    }
-}
-
-- (void)adViewDidClick:(YMAAdView *)adView
+- (void)bannerAdViewDidClick:(YMABannerAdView *)bannerAdView
 {
     if (self.didClickCallback != NULL) {
         self.didClickCallback(self.clientRef);

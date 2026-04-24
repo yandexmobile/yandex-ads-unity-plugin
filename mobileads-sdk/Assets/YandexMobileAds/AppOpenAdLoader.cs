@@ -8,6 +8,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using YandexMobileAds.Base;
 using YandexMobileAds.Common;
 using YandexMobileAds.Platforms;
@@ -19,90 +20,70 @@ namespace YandexMobileAds
     /// </summary>
     public class AppOpenAdLoader
     {
-        /// <summary>
-        /// Notifies that ad is loaded.
-        /// </summary>
-        public event EventHandler<AppOpenAdLoadedEventArgs> OnAdLoaded;
-
-        /// <summary>
-        /// Notifies that an app open ad request failed.
-        /// </summary>
-        public event EventHandler<AdFailedToLoadEventArgs> OnAdFailedToLoad;
-
-        private readonly AdRequestConfigurationFactory _adRequestConfigurationFactory;
+        private readonly AdRequestCreator _adRequestCreator;
         private readonly IAppOpenAdLoaderClient _client;
 
         /// <summary>
-        /// Cunstructs an object of the <see cref="AppOpenAdLoader"/> class.
+        /// Constructs an object of the <see cref="AppOpenAdLoader"/> class.
         /// </summary>
         public AppOpenAdLoader()
         {
-            this._adRequestConfigurationFactory = new AdRequestConfigurationFactory();
-            this._client = YandexMobileAdsClientFactory.BuildAppOpenAdLoaderClient();
-
+            _adRequestCreator = new AdRequestCreator();
+            _client = YandexMobileAdsClientFactory.BuildAppOpenAdLoaderClient();
             MainThreadDispatcher.initialize();
-            ConfigureAppOpenAdEvents();
         }
 
         /// <summary>
-        /// Starts loading the ad by <see cref="AdRequestConfiguration"/>.
-        /// A successfuly loaded <see cref="AppOpenAd"/> will be delivered via <see cref="OnAdLoaded"/> event,
-        /// otherwise <see cref="OnAdFailedToLoad"/> event will be fired.
+        /// Starts loading the ad by <see cref="AdRequest"/>.
+        /// Invokes <paramref name="onLoaded"/> on the main thread when the ad is ready,
+        /// or <paramref name="onFailed"/> if loading fails.
         /// </summary>
-        public void LoadAd(AdRequestConfiguration configuration)
+        public void LoadAd(
+            AdRequest adRequest,
+            Action<AppOpenAd> onLoaded,
+            Action<AdFailedToLoadEventArgs> onFailed)
         {
-            _client.LoadAd(_adRequestConfigurationFactory.CreateAdRequestConfiguration(configuration));
+            EventHandler<GenericEventArgs<IAppOpenAdClient>> loadedHandler = null;
+            EventHandler<AdFailedToLoadEventArgs> failedHandler = null;
+
+            loadedHandler = (sender, args) =>
+            {
+                _client.OnAdLoaded -= loadedHandler;
+                _client.OnAdFailedToLoad -= failedHandler;
+                MainThreadDispatcher.EnqueueAction(() => onLoaded(new AppOpenAd(args.Value)));
+            };
+            failedHandler = (sender, args) =>
+            {
+                _client.OnAdLoaded -= loadedHandler;
+                _client.OnAdFailedToLoad -= failedHandler;
+                MainThreadDispatcher.EnqueueAction(() => onFailed(args));
+            };
+
+            _client.OnAdLoaded += loadedHandler;
+            _client.OnAdFailedToLoad += failedHandler;
+            _client.LoadAd(_adRequestCreator.CreateAdRequest(adRequest));
         }
 
         /// <summary>
-        /// Cancel active loading of the rewarded ads.
+        /// Starts loading the ad by <see cref="AdRequest"/>.
+        /// Returns a <see cref="Task{AppOpenAd}"/> that completes on the main thread.
+        /// Throws <see cref="AdLoadingException"/> if loading fails.
+        /// </summary>
+        public Task<AppOpenAd> LoadAd(AdRequest adRequest)
+        {
+            var tcs = new TaskCompletionSource<AppOpenAd>();
+            LoadAd(adRequest,
+                onLoaded: ad => tcs.TrySetResult(ad),
+                onFailed: args => tcs.TrySetException(new AdLoadingException(args.Message, args.AdUnitId)));
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Cancels active loading of app open ads.
         /// </summary>
         public void CancelLoading()
         {
-            this._client.CancelLoading();
-        }
-
-        private void ConfigureAppOpenAdEvents()
-        {
-            this._client.OnAdLoaded += (sender, args) =>
-                {
-                    if (this.OnAdLoaded == null)
-                    {
-                        return;
-                    }
-
-                    MainThreadDispatcher.EnqueueAction(() =>
-                    {
-                        if (this.OnAdLoaded == null)
-                        {
-                            return;
-                        }
-
-                        AppOpenAdLoadedEventArgs adLoadedEventArgs = new AppOpenAdLoadedEventArgs()
-                        {
-                            AppOpenAd = new AppOpenAd(args.Value)
-                        };
-                        this.OnAdLoaded(this, adLoadedEventArgs);
-                    });
-                };
-
-            this._client.OnAdFailedToLoad += (sender, args) =>
-                {
-                    if (this.OnAdFailedToLoad == null)
-                    {
-                        return;
-                    }
-
-                    MainThreadDispatcher.EnqueueAction(() =>
-                    {
-                        if (this.OnAdFailedToLoad == null)
-                        {
-                            return;
-                        }
-
-                        this.OnAdFailedToLoad(this, args);
-                    });
-                };
+            _client.CancelLoading();
         }
     }
 }

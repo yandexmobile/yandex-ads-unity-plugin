@@ -17,15 +17,7 @@ namespace YandexMobileAds.Platforms.iOS
     {
         [DllImport("__Internal")]
         internal static extern string YMAUnityCreateAdRequest(
-            string locationId,
-            string contextQuery,
-            string contextTagsId,
-            string parametersId,
-            string age,
-            string gender);
-
-        [DllImport("__Internal")]
-        internal static extern string YMAUnityCreateAdRequestConfiguration(string adUnitId,
+            string adUnitID,
             string locationId,
             string contextQuery,
             string contextTagsId,

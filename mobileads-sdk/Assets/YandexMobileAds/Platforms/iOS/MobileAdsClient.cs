@@ -42,14 +42,14 @@ namespace YandexMobileAds.Platforms.iOS
             MobileAdsBridge.YMAUnitySetUserConsent(consent);
         }
 
-        public void SetLocationConsent(bool consent)
+        public void SetLocationTracking(bool enabled)
         {
-            MobileAdsBridge.YMAUnitySetLocationConsent(consent);
+            MobileAdsBridge.YMAUnitySetLocationConsent(enabled);
         }
 
-        public void SetAgeRestrictedUser(bool ageRestrictedUser)
+        public void SetAgeRestricted(bool ageRestricted)
         {
-            MobileAdsBridge.YMAUnitySetAgeRestrictedUser(ageRestrictedUser);
+            MobileAdsBridge.YMAUnitySetAgeRestrictedUser(ageRestricted);
         }
 
         public void ShowDebugPanel()

@@ -34,12 +34,12 @@ void YMAUnitySetRewardedAdLoaderCallbacks(char *unityRewardedAdLoaderObjectID,
     rewardedAdLoader.didFailToLoadAdCallback = didFailToLoadAdCallback;
 }
 
-void YMAUnityLoadRewardedAd(char *unityRewardedAdLoaderObjectID, char *adRequestConfigurationID)
+void YMAUnityLoadRewardedAd(char *unityRewardedAdLoaderObjectID, char *adRequestID)
 {
-    YMAAdRequestConfiguration *adRequestConfiguration = [[YMAUnityObjectsStorage sharedInstance] objectWithID:adRequestConfigurationID];
+    YMAAdRequest *adRequest = [[YMAUnityObjectsStorage sharedInstance] objectWithID:adRequestID];
     YMAUnityRewardedAdLoader *rewardedAdLoader = [[YMAUnityObjectsStorage sharedInstance] objectWithID:unityRewardedAdLoaderObjectID];
 
-    [rewardedAdLoader loadWithRequestConfiguration:adRequestConfiguration];
+    [rewardedAdLoader loadAdWithRequest:adRequest];
 }
 
 void YMAUnityCancelLoadingRewardedAd(char *unityRewardedAdLoaderObjectID)

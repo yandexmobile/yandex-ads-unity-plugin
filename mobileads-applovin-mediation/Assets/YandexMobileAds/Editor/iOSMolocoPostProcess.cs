@@ -3,35 +3,30 @@ using UnityEditor.iOS.Xcode;
 using UnityEditor.iOS.Xcode.Extensions;
 using UnityEditor.Callbacks;
 using System.IO;
-using UnityEngine;
 
-public class PostProcessBuildAppLovin
+public class PostProcessBuildMoloco
 {
     [PostProcessBuild]
     public static void OnPostProcessBuild(BuildTarget buildTarget, string pathToBuiltProject)
     {
-         var version = "13.3.1";
         if (buildTarget == BuildTarget.iOS)
         {
-            string frameworkName = "AppLovinSDK.xcframework";
-            string frameworkPath = Path.Combine("Pods", "AppLovinSDK", "applovin-ios-sdk-" + version, frameworkName);
+            string frameworkName = "MolocoSDK.xcframework";
+            string frameworkPath = Path.Combine("Pods", "MolocoSDKiOS", frameworkName);
 
             string projPath = PBXProject.GetPBXProjectPath(pathToBuiltProject);
             PBXProject proj = new PBXProject();
             proj.ReadFromString(File.ReadAllText(projPath));
 
             string unityFrameworkTargetGuid = proj.GetUnityFrameworkTargetGuid();
-            string mainTargetGuid = proj.GetUnityMainTargetGuid(); 
+            string mainTargetGuid = proj.GetUnityMainTargetGuid();
 
             string fileGuid = proj.AddFile(frameworkPath, "Frameworks/" + frameworkName, PBXSourceTree.Source);
             proj.AddFileToBuildSection(unityFrameworkTargetGuid, proj.GetFrameworksBuildPhaseByTarget(unityFrameworkTargetGuid), fileGuid);
 
-            if (EditorUserBuildSettings.development == false || PlayerSettings.iOS.sdkVersion != iOSSdkVersion.SimulatorSDK)
-            {
-                string embedPhase = proj.AddCopyFilesBuildPhase(mainTargetGuid, "Embed Frameworks", "", "10");
-                PBXProjectExtensions.AddFileToEmbedFrameworks(proj, mainTargetGuid, fileGuid);
-            }
-            
+            proj.AddCopyFilesBuildPhase(mainTargetGuid, "Embed Frameworks", "", "10");
+            PBXProjectExtensions.AddFileToEmbedFrameworks(proj, mainTargetGuid, fileGuid);
+
             File.WriteAllText(projPath, proj.WriteToString());
         }
     }

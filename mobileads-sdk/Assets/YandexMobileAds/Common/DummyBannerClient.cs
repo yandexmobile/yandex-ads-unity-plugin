@@ -21,8 +21,6 @@ namespace YandexMobileAds.Common
 
         public event EventHandler<EventArgs> OnAdLoaded;
         public event EventHandler<AdFailureEventArgs> OnAdFailedToLoad;
-        public event EventHandler<EventArgs> OnReturnedToApplication;
-        public event EventHandler<EventArgs> OnLeftApplication;
         public event EventHandler<EventArgs> OnAdClicked;
         public event EventHandler<ImpressionData> OnImpression;
 
@@ -49,6 +47,11 @@ namespace YandexMobileAds.Common
         public void Destroy()
         {
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
+        }
+
+        public AdInfo GetInfo()
+        {
+            return null;
         }
     }
 }

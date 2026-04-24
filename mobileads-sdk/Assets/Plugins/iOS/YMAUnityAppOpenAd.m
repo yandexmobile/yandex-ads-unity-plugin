@@ -7,7 +7,7 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 #import "YMAUnityAppOpenAd.h"
 #import "YMAUnityStringConverter.h"
 
@@ -26,10 +26,15 @@
     self = [super init];
     if (self != nil) {
         _appOpenAd = appOpenAd;
-        _appOpenAd.delegate = self;
         _clientRef = clientRef;
+        _appOpenAd.delegate = self;
     }
     return self;
+}
+
+- (YMAAdInfo*)getInfo
+{
+    return [self.appOpenAd adInfo];
 }
 
 - (void)show
@@ -70,8 +75,7 @@
     }
 }
 
-- (void)appOpenAd:(YMAAppOpenAd *)appOpenAd
-didTrackImpressionWithData:(nullable id<YMAImpressionData>)impressionData
+- (void)appOpenAd:(YMAAppOpenAd *)appOpenAd didTrackImpressionWithData:(id<YMAImpressionData>)impressionData
 {
     if (self.didTrackImpressionCallback != NULL) {
         if (impressionData != nil) {

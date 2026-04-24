@@ -26,6 +26,7 @@ namespace YandexMobileAds.Platforms.Android
         public event EventHandler<AdFailureEventArgs> OnAdFailedToShow;
 
         private AndroidJavaObject _appOpenAd;
+        private readonly AdInfo _adInfo;
 
         public AppOpenAdClient(AndroidJavaObject appOpenAd) : base(UnityAppOpenAdListenerClassName)
         {
@@ -35,7 +36,19 @@ namespace YandexMobileAds.Platforms.Android
             }
 
             this._appOpenAd = appOpenAd;
+
+            AndroidJavaObject adInfoObject = NativeApi.GetInfo(appOpenAd);
+            if (adInfoObject != null)
+            {
+                this._adInfo = AdInfoFactory.CreateAdInfo(adInfoObject);
+            }
+
             NativeApi.SetUnityAppOpenAdListener(appOpenAd, this);
+        }
+
+        public AdInfo GetInfo()
+        {
+            return this._adInfo;
         }
 
         public void Show()
@@ -130,6 +143,11 @@ namespace YandexMobileAds.Platforms.Android
             public static void Show(AndroidJavaObject appOpenAd, AndroidJavaObject activity)
             {
                 appOpenAd.Call("show", activity);
+            }
+
+            public static AndroidJavaObject GetInfo(AndroidJavaObject appOpenAd)
+            {
+                return appOpenAd.Call<AndroidJavaObject>("getAdInfo");
             }
 
             public static void DestroyAppOpenAd(AndroidJavaObject appOpenAd)

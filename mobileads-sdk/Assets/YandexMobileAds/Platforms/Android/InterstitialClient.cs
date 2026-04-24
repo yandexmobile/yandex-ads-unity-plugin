@@ -143,7 +143,7 @@ namespace YandexMobileAds.Platforms.Android
 
             public static AndroidJavaObject GetInfo(AndroidJavaObject interstitialAd)
             {
-                return interstitialAd.Call<AndroidJavaObject>("getInfo");
+                return interstitialAd.Call<AndroidJavaObject>("getAdInfo");
             }
 
             public static void Show(AndroidJavaObject interstitialAd, AndroidJavaObject activity)

@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 8.0.0
+
+#### Updated
+
+* Supported Android mobileads-vungle version 7.7.0.0
+* Supported iOS VungleYandexMobileAdsAdapters version 7.7.0.0
+
 ## Version 7.18.0
 
 #### Updated

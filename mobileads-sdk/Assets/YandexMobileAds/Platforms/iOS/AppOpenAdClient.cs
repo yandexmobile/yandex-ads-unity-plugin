@@ -59,6 +59,23 @@ namespace YandexMobileAds.Platforms.iOS
             this.Destroy();
         }
 
+        public AdInfo GetInfo()
+        {
+            string adInfoObjectId = AppOpenAdBridge.YMAUnityGetAppOpenInfo(this.ObjectId);
+            if (adInfoObjectId == null)
+            {
+                return null;
+            }
+            AdInfoClient adInfoClient = new AdInfoClient(adInfoObjectId);
+            AdInfo adInfo = new AdInfo(
+                adInfoClient.AdUnitId,
+                adInfoClient.ExtraData,
+                adInfoClient.PartnerText,
+                adInfoClient.Creatives);
+            adInfoClient.Destroy();
+            return adInfo;
+        }
+
         public void Show()
         {
             AppOpenAdBridge.YMAUnityShowAppOpenAd(this.ObjectId);

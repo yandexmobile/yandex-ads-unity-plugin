@@ -7,7 +7,7 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 #import "YMAUnityObjectsStorage.h"
 #import "YMAUnityObjectIDProvider.h"
 #import "YMAUnityStringConverter.h"
@@ -38,18 +38,18 @@ double YMAUnityGetBannerAdSizeWidth(char *bannerAdSizeObjectID)
 
 char *YMAUnityCreateFixedBannerAdSize(NSInteger width, NSInteger height)
 {
-    YMABannerAdSize *bannerAdSize = [YMABannerAdSize fixedSizeWithWidth:width height:height];
+    YMABannerAdSize *bannerAdSize = [YMABannerAdSize fixedWithWidth:width height:height];
     return YMAUnityObjectIDWithAdSize(bannerAdSize);
 }
 
 char *YMAUnityCreateStickyBannerAdSize(NSInteger width)
 {
-    YMABannerAdSize *bannerAdSize = [YMABannerAdSize stickySizeWithContainerWidth:width];
+    YMABannerAdSize *bannerAdSize = [YMABannerAdSize stickyWithContainerWidth:width];
     return YMAUnityObjectIDWithAdSize(bannerAdSize);
 }
 
 char *YMAUnityCreateInlineBannerAdSize(NSInteger width, NSInteger maxHeight)
 {
-    YMABannerAdSize *bannerAdSize = [YMABannerAdSize inlineSizeWithWidth:width maxHeight:maxHeight];
+    YMABannerAdSize *bannerAdSize = [YMABannerAdSize inlineWithWidth:width maxHeight:maxHeight];
     return YMAUnityObjectIDWithAdSize(bannerAdSize);
 }

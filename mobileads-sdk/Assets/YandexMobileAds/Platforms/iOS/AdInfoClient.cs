@@ -8,18 +8,19 @@
  */
 
 using System;
-using YandexMobileAds.Base;
 using System.Collections.Generic;
+using YandexMobileAds.Base;
 
 namespace YandexMobileAds.Platforms.iOS
 {
-#if (UNITY_5 && UNITY_IOS) || UNITY_IPHONE
+    #if (UNITY_5 && UNITY_IOS) || UNITY_IPHONE
 
     internal class AdInfoClient : IDisposable
     {
-
         public string AdUnitId { get; private set; }
-        public AdSize AdSize { get; private set; }
+        public string ExtraData { get; private set; }
+        public string PartnerText { get; private set; }
+        public List<Creative> Creatives { get; private set; }
 
         private readonly string _objectId;
 
@@ -27,12 +28,9 @@ namespace YandexMobileAds.Platforms.iOS
         {
             this._objectId = adInfoObjectId;
             this.AdUnitId = AdInfoBridge.YMAUnityAdInfoGetAdUnitId(adInfoObjectId);
-            AdSizeClient adSizeClient = new AdSizeClient(AdInfoBridge.YMAUnityAdInfoGetAdSize(adInfoObjectId));
-            this.AdSize = new AdSize(
-                (int)adSizeClient.Width,
-                (int)adSizeClient.Height
-            );
-            adSizeClient.Destroy();
+            this.ExtraData = AdInfoBridge.YMAUnityAdInfoGetExtraData(adInfoObjectId);
+            this.PartnerText = AdInfoBridge.YMAUnityAdInfoGetPartnerText(adInfoObjectId);
+            this.Creatives = FetchCreatives(adInfoObjectId);
         }
 
         public void Destroy()
@@ -42,14 +40,23 @@ namespace YandexMobileAds.Platforms.iOS
 
         public void Dispose()
         {
-            this.Destroy();
+            Destroy();
         }
 
-        ~AdInfoClient()
+        private static List<Creative> FetchCreatives(string adInfoObjectId)
         {
-            this.Destroy();
+            int count = AdInfoBridge.YMAUnityAdInfoGetCreativesCount(adInfoObjectId);
+            var creatives = new List<Creative>(count);
+            for (int i = 0; i < count; i++)
+            {
+                string creativeObjectId = AdInfoBridge.YMAUnityAdInfoGetCreativeAtIndex(adInfoObjectId, i);
+                CreativeClient creativeClient = new CreativeClient(creativeObjectId);
+                creatives.Add(creativeClient.ToCreative());
+                creativeClient.Destroy();
+            }
+            return creatives;
         }
     }
 
-#endif
+    #endif
 }

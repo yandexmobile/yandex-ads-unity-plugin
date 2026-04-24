@@ -74,15 +74,15 @@ namespace YandexMobileAds.Base
         /// <para>This method is available for internal sdk logic.</para>
         /// <para>We do not recommend using a banner of this size, its use in the application may negatively affect
         /// monetization.</para>
-        /// <para>Use <see cref="StickySize"/> for small automatically updated banner attached to the the top or bottom
-        /// of the screen, or use <see cref="InlineSize"/> for adaptive banner placed in scrolling content.</para>
+        /// <para>Use <see cref="Sticky"/> for small automatically updated banner attached to the the top or bottom
+        /// of the screen, or use <see cref="Inline"/> for adaptive banner placed in scrolling content.</para>
         /// </summary>
         /// <param name="width">The width of the ad container in pixels.</param>
         /// <param name="height">The height of the ad container in pixels.</param>
         /// <returns>
         /// An object of the <see cref="BannerAdSize"/> class with the specified width and height of the banner.
         /// </returns>
-        public static BannerAdSize FixedSize(int width, int height)
+        public static BannerAdSize Fixed(int width, int height)
         {
             return new BannerAdSize(width, height, BannerAdSizeType.Fixed);
         }
@@ -95,7 +95,7 @@ namespace YandexMobileAds.Base
         /// <returns>
         /// An object of the <see cref="BannerAdSize"/> class with the specified maximum width of a sticky banner
         /// </returns>
-        public static BannerAdSize StickySize(int width)
+        public static BannerAdSize Sticky(int width)
         {
             return new BannerAdSize(width, NotSpecified, BannerAdSizeType.Sticky);
         }
@@ -109,7 +109,7 @@ namespace YandexMobileAds.Base
         /// <returns>
         /// An object of the <see cref="BannerAdSize"/> class with the specified maximum height and width of the banner.
         /// </returns>
-        public static BannerAdSize InlineSize(int width, int maxHeight)
+        public static BannerAdSize Inline(int width, int maxHeight)
         {
             return new BannerAdSize(width, maxHeight, BannerAdSizeType.Inline);
         }

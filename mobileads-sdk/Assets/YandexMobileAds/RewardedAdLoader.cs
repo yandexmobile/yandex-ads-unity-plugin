@@ -8,6 +8,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using YandexMobileAds.Base;
 using YandexMobileAds.Common;
 using YandexMobileAds.Platforms;
@@ -19,91 +20,70 @@ namespace YandexMobileAds
     /// </summary>
     public class RewardedAdLoader
     {
-
-        /// <summary>
-        /// Notifies that ad is loaded.
-        /// </summary>
-        public event EventHandler<RewardedAdLoadedEventArgs> OnAdLoaded;
-
-        /// <summary>
-        /// Notifies that a rewarded ad request failed.
-        /// </summary>
-        public event EventHandler<AdFailedToLoadEventArgs> OnAdFailedToLoad;
-
-        private readonly AdRequestConfigurationFactory _adRequestConfigurationFactory;
+        private readonly AdRequestCreator _adRequestCreator;
         private readonly IRewardedAdLoaderClient _client;
 
         /// <summary>
-        /// Cunstructs an object of the RewardedAdLoader class.
+        /// Constructs an object of the RewardedAdLoader class.
         /// </summary>
         public RewardedAdLoader()
         {
-            this._adRequestConfigurationFactory = new AdRequestConfigurationFactory();
-            this._client = YandexMobileAdsClientFactory.BuildRewardedAdLoaderClient();
-
+            _adRequestCreator = new AdRequestCreator();
+            _client = YandexMobileAdsClientFactory.BuildRewardedAdLoaderClient();
             MainThreadDispatcher.initialize();
-            ConfigureRewardedEvents();
         }
 
         /// <summary>
-        /// Starts loading the ad by <see cref="AdRequestConfiguration"/>.
-        /// A successfuly loaded <see cref="RewardedAd"/> will be delivered via <see cref="OnAdLoaded"/> event,
-        /// otherwise <see cref="OnAdFailedToLoad"/> event will be fired.
+        /// Starts loading the ad by <see cref="AdRequest"/>.
+        /// Invokes <paramref name="onLoaded"/> on the main thread when the ad is ready,
+        /// or <paramref name="onFailed"/> if loading fails.
         /// </summary>
-        public void LoadAd(AdRequestConfiguration adRequestConfiguration)
+        public void LoadAd(
+            AdRequest adRequest,
+            Action<RewardedAd> onLoaded,
+            Action<AdFailedToLoadEventArgs> onFailed)
         {
-            _client.LoadAd(_adRequestConfigurationFactory.CreateAdRequestConfiguration(adRequestConfiguration));
+            EventHandler<GenericEventArgs<IRewardedAdClient>> loadedHandler = null;
+            EventHandler<AdFailedToLoadEventArgs> failedHandler = null;
+
+            loadedHandler = (sender, args) =>
+            {
+                _client.OnAdLoaded -= loadedHandler;
+                _client.OnAdFailedToLoad -= failedHandler;
+                MainThreadDispatcher.EnqueueAction(() => onLoaded(new RewardedAd(args.Value)));
+            };
+            failedHandler = (sender, args) =>
+            {
+                _client.OnAdLoaded -= loadedHandler;
+                _client.OnAdFailedToLoad -= failedHandler;
+                MainThreadDispatcher.EnqueueAction(() => onFailed(args));
+            };
+
+            _client.OnAdLoaded += loadedHandler;
+            _client.OnAdFailedToLoad += failedHandler;
+            _client.LoadAd(_adRequestCreator.CreateAdRequest(adRequest));
         }
 
         /// <summary>
-        /// Cancel active loading of the rewarded ads.
+        /// Starts loading the ad by <see cref="AdRequest"/>.
+        /// Returns a <see cref="Task{RewardedAd}"/> that completes on the main thread.
+        /// Throws <see cref="AdLoadingException"/> if loading fails.
+        /// </summary>
+        public Task<RewardedAd> LoadAd(AdRequest adRequest)
+        {
+            var tcs = new TaskCompletionSource<RewardedAd>();
+            LoadAd(adRequest,
+                onLoaded: ad => tcs.TrySetResult(ad),
+                onFailed: args => tcs.TrySetException(new AdLoadingException(args.Message, args.AdUnitId)));
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Cancels active loading of rewarded ads.
         /// </summary>
         public void CancelLoading()
         {
             _client.CancelLoading();
-        }
-
-        private void ConfigureRewardedEvents()
-        {
-            this._client.OnAdLoaded += (sender, args) =>
-            {
-                if (this.OnAdLoaded == null)
-                {
-                    return;
-                }
-
-                MainThreadDispatcher.EnqueueAction(() =>
-                {
-                    if (this.OnAdLoaded == null)
-                    {
-                        return;
-                    }
-
-                    RewardedAdLoadedEventArgs adLoadedEventArgs = new RewardedAdLoadedEventArgs()
-                    {
-                        RewardedAd = new RewardedAd(args.Value)
-                    };
-                    this.OnAdLoaded(this, adLoadedEventArgs);
-                });
-            };
-
-            this._client.OnAdFailedToLoad += (sender, args) =>
-            {
-                if (this.OnAdFailedToLoad == null)
-                {
-                    return;
-                }
-
-                MainThreadDispatcher.EnqueueAction(() =>
-                {
-                    if (this.OnAdFailedToLoad == null)
-                    {
-                        return;
-                    }
-
-                    this.OnAdFailedToLoad(this, args);
-                });
-            };
         }
     }
 }

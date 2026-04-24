@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 8.0.0
+
+#### Updated
+
+* Supported Android mobileads-mytarget version 5.27.4.1
+* Supported iOS MyTargetYandexMobileAdsAdapters version 5.37.5.0
+
 ## Version 7.18.1
 
 #### Updated

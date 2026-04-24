@@ -28,11 +28,11 @@ namespace YandexMobileAds.Common
 
         private AdInfo adInfo;
 
-        internal DummyAppOpenAdClient(AdRequestConfiguration configuration)
+        internal DummyAppOpenAdClient(string adUnitID)
         {
             Debug.Log(TAG + MethodBase.GetCurrentMethod().Name);
 
-            adInfo = new AdInfo(configuration.AdUnitId, new AdSize(0, 0));
+            adInfo = new AdInfo(adUnitID);
         }
 
         public AdInfo GetInfo()

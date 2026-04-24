@@ -7,7 +7,7 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 #import "YMAUnityBanner.h"
 #import "YMAUnityObjectsStorage.h"
 #import "YMAUnityStringConverter.h"
@@ -15,13 +15,11 @@
 #import "YMAUnityAdPosition.h"
 
 char *YMAUnityCreateBannerView(YMAUnityBannerClientRef *clientRef,
-                               char *adUnitID,
                                char *bannerAdSizeID,
                                YMAUnityAdPosition position)
 {
     YMABannerAdSize *bannerAdSize = [[YMAUnityObjectsStorage sharedInstance] objectWithID:bannerAdSizeID];
     YMAUnityBanner *banner = [[YMAUnityBanner alloc] initWithClientRef:clientRef
-                                                              adUnitID:adUnitID
                                                                 adSize:bannerAdSize
                                                               position:position];
     const char *objectID = [YMAUnityObjectIDProvider IDForObject:banner];
@@ -64,4 +62,17 @@ void YMAUnityHideBannerView(char *objectID)
 {
     YMAUnityBanner *banner = [[YMAUnityObjectsStorage sharedInstance] objectWithID:objectID];
     [banner hide];
+}
+
+char *YMAUnityGetBannerInfo(char *bannerObjectID)
+{
+    YMAUnityObjectsStorage *objectStorage = [YMAUnityObjectsStorage sharedInstance];
+    YMABannerAdView *bannerView = [objectStorage objectWithID:bannerObjectID];
+    YMAAdInfo *adInfo = [bannerView adInfo];
+    if (adInfo == nil) {
+        return NULL;
+    }
+    const char *adInfoObjectID = [YMAUnityObjectIDProvider IDForObject:adInfo];
+    [[YMAUnityObjectsStorage sharedInstance] setObject:adInfo withID:adInfoObjectID];
+    return [YMAUnityStringConverter copiedCString:adInfoObjectID];
 }

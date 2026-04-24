@@ -40,6 +40,11 @@ namespace YandexMobileAds.Common
         event EventHandler<AdFailureEventArgs> OnAdFailedToShow;
 
         /// <summary>
+        /// Returns the ad info.
+        /// </summary>
+        AdInfo GetInfo();
+
+        /// <summary>
         /// Shows the ad.
         /// </summary>
         void Show();

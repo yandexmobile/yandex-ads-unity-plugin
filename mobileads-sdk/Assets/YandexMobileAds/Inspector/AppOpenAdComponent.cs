@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 using YandexMobileAds;
 using YandexMobileAds.Base;
@@ -80,16 +80,14 @@ public class AppOpenAdComponent : MonoBehaviour
     private void SetupLoader()
     {
         appOpenAdLoader = new AppOpenAdLoader();
-        appOpenAdLoader.OnAdLoaded += HandleAdLoaded;
-        appOpenAdLoader.OnAdFailedToLoad += HandleAdFailedToLoad;
     }
 
     private void ConfigureAd()
     {
-        AdRequestConfiguration adRequestConfiguration = new AdRequestConfiguration.Builder(CurrentAdUnitId).Build();
+        AdRequest adRequest = new AdRequest(CurrentAdUnitId);
         try
         {
-            appOpenAdLoader.LoadAd(adRequestConfiguration);
+            appOpenAdLoader.LoadAd(adRequest, HandleAdLoaded, HandleAdFailedToLoad);
         }
         catch (Exception ex)
         {
@@ -133,6 +131,7 @@ public class AppOpenAdComponent : MonoBehaviour
     public void OnDestroy()
     {
         AppStateObserver.OnAppStateChanged -= HandleAppStateChanged;
+        appOpenAdLoader?.CancelLoading();
         if (appOpenAd != null)
         {
             appOpenAd.OnAdShown -= HandleAdShown;
@@ -147,9 +146,9 @@ public class AppOpenAdComponent : MonoBehaviour
 
     #region Event Handlers
 
-    private void HandleAdLoaded(object sender, AppOpenAdLoadedEventArgs args)
+    private void HandleAdLoaded(AppOpenAd ad)
     {
-        appOpenAd = args.AppOpenAd;
+        appOpenAd = ad;
         appOpenAd.OnAdShown += HandleAdShown;
         appOpenAd.OnAdDismissed += HandleAdDismissed;
         appOpenAd.OnAdClicked += HandleAdClicked;
@@ -173,7 +172,7 @@ public class AppOpenAdComponent : MonoBehaviour
         }
     }
 
-    private void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args) => OnAdFailedToLoad?.Invoke(args.Message);
+    private void HandleAdFailedToLoad(AdFailedToLoadEventArgs args) => OnAdFailedToLoad?.Invoke(args.Message);
 
     private void HandleAdShown(object sender, EventArgs args) => OnAdShown?.Invoke(appOpenAd);
 

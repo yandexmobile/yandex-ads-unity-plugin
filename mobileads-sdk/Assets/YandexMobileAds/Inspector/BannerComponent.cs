@@ -48,8 +48,6 @@ public class BannerComponent : MonoBehaviour
 
     [Header("Interaction Callbacks")]
     public AdEventWithBanner OnAdClicked;
-    public AdEventWithBanner OnLeftApplication;
-    public AdEventWithBanner OnReturnedToApplication;
     public AdEventString OnImpression;
 
     [Header("Configure Callbacks")]
@@ -76,7 +74,7 @@ public class BannerComponent : MonoBehaviour
         if (!string.IsNullOrEmpty(currentAdUnitId))
         {
             ConfigureBanner();
-            banner.LoadAd(new AdRequest.Builder().Build());
+            banner.LoadAd(new AdRequest(currentAdUnitId));
         }
         else
         {
@@ -87,16 +85,14 @@ public class BannerComponent : MonoBehaviour
     private void ConfigureBanner()
     {
         BannerAdSize adSize = bannerType == BannerType.Sticky
-            ? BannerAdSize.StickySize(useScreenWidth ? ScreenUtils.ConvertPixelsToDp((int)Screen.safeArea.width) : manualWidth)
-            : BannerAdSize.InlineSize(useScreenWidth ? ScreenUtils.ConvertPixelsToDp((int)Screen.safeArea.width) : manualWidth, bannerHeight);
+            ? BannerAdSize.Sticky(useScreenWidth ? ScreenUtils.ConvertPixelsToDp((int)Screen.safeArea.width) : manualWidth)
+            : BannerAdSize.Inline(useScreenWidth ? ScreenUtils.ConvertPixelsToDp((int)Screen.safeArea.width) : manualWidth, bannerHeight);
 
-        banner = new Banner(currentAdUnitId, adSize, bannerPosition);
+        banner = new Banner(adSize, bannerPosition);
 
         banner.OnAdLoaded += HandleAdLoaded;
         banner.OnAdFailedToLoad += HandleAdFailedToLoad;
         banner.OnAdClicked += HandleAdClicked;
-        banner.OnLeftApplication += HandleLeftApplication;
-        banner.OnReturnedToApplication += HandleReturnedToApplication;
         banner.OnImpression += HandleImpression;
     }
 
@@ -105,8 +101,6 @@ public class BannerComponent : MonoBehaviour
         banner.OnAdLoaded -= HandleAdLoaded;
         banner.OnAdFailedToLoad -= HandleAdFailedToLoad;
         banner.OnAdClicked -= HandleAdClicked;
-        banner.OnLeftApplication -= HandleLeftApplication;
-        banner.OnReturnedToApplication -= HandleReturnedToApplication;
         banner.OnImpression -= HandleImpression;
 
         banner.Destroy();
@@ -125,8 +119,6 @@ public class BannerComponent : MonoBehaviour
 
     private void HandleAdFailedToLoad(object sender, AdFailureEventArgs args) => OnAdFailedToLoad?.Invoke(args.Message);
     private void HandleAdClicked(object sender, EventArgs args) => OnAdClicked?.Invoke(banner);
-    private void HandleLeftApplication(object sender, EventArgs args) => OnLeftApplication?.Invoke(banner);
-    private void HandleReturnedToApplication(object sender, EventArgs args) => OnReturnedToApplication?.Invoke(banner);
     private void HandleImpression(object sender, ImpressionData impressionData) =>
         OnImpression?.Invoke(impressionData?.rawData ?? string.Empty);
     #endregion

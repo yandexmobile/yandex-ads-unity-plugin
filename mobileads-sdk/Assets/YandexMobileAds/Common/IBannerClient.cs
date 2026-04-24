@@ -25,16 +25,6 @@ namespace YandexMobileAds.Common
         event EventHandler<AdFailureEventArgs> OnAdFailedToLoad;
 
         /// <summary>
-        /// Event fired when returned to application.
-        /// </summary>
-        event EventHandler<EventArgs> OnReturnedToApplication;
-
-        /// <summary>
-        /// Event fired when banner is leaving application.
-        /// </summary>
-        event EventHandler<EventArgs> OnLeftApplication;
-
-        /// <summary>
         /// Event fired when banner is clicked.
         /// </summary>
         event EventHandler<EventArgs> OnAdClicked;
@@ -64,5 +54,7 @@ namespace YandexMobileAds.Common
         /// Destroys banner view.
         /// </summary>
         void Destroy();
+
+        AdInfo GetInfo();
     }
 }

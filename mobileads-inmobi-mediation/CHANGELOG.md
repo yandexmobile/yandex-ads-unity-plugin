@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 8.0.0
+
+#### Updated
+
+* Supported Android mobileads-inmobi version 11.0.0.0
+* Supported iOS InMobiYandexMobileAdsAdapters version 11.1.1.0
+
 ## Version 7.18.0
 
 #### Updated

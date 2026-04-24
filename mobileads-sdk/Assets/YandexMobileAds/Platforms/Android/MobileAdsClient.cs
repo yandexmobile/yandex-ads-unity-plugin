@@ -44,14 +44,14 @@ namespace YandexMobileAds.Platforms.Android
             this._mobileAdsClass.CallStatic("setUserConsent", consent);
         }
 
-        public void SetLocationConsent(bool consent)
+        public void SetLocationTracking(bool enabled)
         {
-            this._mobileAdsClass.CallStatic("setLocationConsent", consent);
+            this._mobileAdsClass.CallStatic("setLocationTracking", enabled);
         }
 
-        public void SetAgeRestrictedUser(bool ageRestrictedUser)
+        public void SetAgeRestricted(bool ageRestricted)
         {
-            this._mobileAdsClass.CallStatic("setAgeRestrictedUser", ageRestrictedUser);
+            this._mobileAdsClass.CallStatic("setAgeRestricted", ageRestricted);
         }
 
         public void ShowDebugPanel()

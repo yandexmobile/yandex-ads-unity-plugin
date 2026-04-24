@@ -22,6 +22,7 @@
 @property(nonatomic, assign) YMAUnityAppOpenAdDidClickCallback didClickCallback;
 @property(nonatomic, assign) YMAUnityAppOpenAdDidTrackImpressionCallback didTrackImpressionCallback;
 
+- (YMAAdInfo*)getInfo;
 - (void)show;
 
 @end

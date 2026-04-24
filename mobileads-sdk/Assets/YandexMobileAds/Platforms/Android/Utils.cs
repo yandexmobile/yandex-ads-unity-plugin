@@ -17,7 +17,7 @@ namespace YandexMobileAds.Platforms.Android
     internal class Utils
     {
         public const string AdRequestBuilderClassName = "com.yandex.mobile.ads.common.AdRequest$Builder";
-        public const string AdRequestConfigurationBuilderClassName = "com.yandex.mobile.ads.common.AdRequestConfiguration$Builder";
+        public const string AdTargetingBuilderClassName = "com.yandex.mobile.ads.common.AdTargeting$Builder";
 
         public const string BannerViewClassName = "com.yandex.mobile.ads.unity.wrapper.banner.BannerAdWrapper";
 
@@ -29,7 +29,7 @@ namespace YandexMobileAds.Platforms.Android
 
         public const string LocationClassName = "android.location.Location";
 
-        public const string MobileAdsClassName = "com.yandex.mobile.ads.common.MobileAds";
+        public const string MobileAdsClassName = "com.yandex.mobile.ads.common.YandexAds";
 
         public const string UnityBannerAdListenerClassName =
             "com.yandex.mobile.ads.unity.wrapper.banner.UnityBannerAdListener";
@@ -51,26 +51,45 @@ namespace YandexMobileAds.Platforms.Android
                 return null;
             }
 
-            AndroidJavaObject adRequestBuilder = new AndroidJavaObject(AdRequestBuilderClassName);
+            AndroidJavaObject adRequestBuilder = new AndroidJavaObject(
+                AdRequestBuilderClassName,
+                adRequest.AdUnitId ?? ""
+            );
 
-            if (adRequest.ContextQuery != null)
+            AdTargeting targeting = adRequest.Targeting;
+            if (targeting != null)
             {
-                adRequestBuilder.Call<AndroidJavaObject>(
-                    "setContextQuery",
-                    adRequest.ContextQuery
-                );
-            }
+                AndroidJavaObject targetingBuilder = new AndroidJavaObject(AdTargetingBuilderClassName);
 
-            if (adRequest.ContextTags != null)
-            {
-                adRequestBuilder.Call<AndroidJavaObject>("setContextTags",
-                    stringListToJavaStringArrayList(adRequest.ContextTags));
-            }
+                if (targeting.Age != null)
+                {
+                    targetingBuilder.Call<AndroidJavaObject>("setAge", targeting.Age);
+                }
 
-            if (adRequest.Location != null)
-            {
-                adRequestBuilder.Call<AndroidJavaObject>("setLocation",
-                    locationToJavaLocation(adRequest.Location));
+                if (targeting.Gender != null)
+                {
+                    targetingBuilder.Call<AndroidJavaObject>("setGender", targeting.Gender);
+                }
+
+                if (targeting.Location != null)
+                {
+                    targetingBuilder.Call<AndroidJavaObject>("setLocation",
+                        locationToJavaLocation(targeting.Location));
+                }
+
+                if (targeting.ContextQuery != null)
+                {
+                    targetingBuilder.Call<AndroidJavaObject>("setContextQuery", targeting.ContextQuery);
+                }
+
+                if (targeting.ContextTags != null)
+                {
+                    targetingBuilder.Call<AndroidJavaObject>("setContextTags",
+                        stringListToJavaStringArrayList(targeting.ContextTags));
+                }
+
+                AndroidJavaObject targetingObject = targetingBuilder.Call<AndroidJavaObject>("build");
+                adRequestBuilder.Call<AndroidJavaObject>("setTargeting", targetingObject);
             }
 
             Dictionary<string, string> parameters = adRequest.Parameters;
@@ -78,18 +97,6 @@ namespace YandexMobileAds.Platforms.Android
             {
                 adRequestBuilder.Call<AndroidJavaObject>("setParameters",
                     dictionaryToJavaHashMap(parameters));
-            }
-
-            if (adRequest.Age != null)
-            {
-                adRequestBuilder.Call<AndroidJavaObject>("setAge",
-                    adRequest.Age);
-            }
-
-            if (adRequest.Gender != null)
-            {
-                adRequestBuilder.Call<AndroidJavaObject>("setGender",
-                    adRequest.Gender);
             }
 
             if (adRequest.AdTheme != AdTheme.None)
@@ -100,7 +107,6 @@ namespace YandexMobileAds.Platforms.Android
                 if (adRequest.AdTheme == AdTheme.Light)
                 {
                     enumEntry = adThemeEnum.GetStatic<AndroidJavaObject>("LIGHT");
-
                 }
                 else
                 {
@@ -111,84 +117,6 @@ namespace YandexMobileAds.Platforms.Android
             }
 
             return adRequestBuilder.Call<AndroidJavaObject>("build");
-        }
-
-        public static AndroidJavaObject GetAdRequestConfigurationJavaObject(AdRequestConfiguration adRequestConfiguration)
-        {
-            if (adRequestConfiguration == null)
-            {
-                return null;
-            }
-
-            if (adRequestConfiguration.AdUnitId == null)
-            {
-                return null;
-            }
-
-            AndroidJavaObject adRequestConfigurationBuilder = new AndroidJavaObject(
-                AdRequestConfigurationBuilderClassName,
-                adRequestConfiguration.AdUnitId
-            );
-
-            if (adRequestConfiguration.ContextQuery != null)
-            {
-                adRequestConfigurationBuilder.Call<AndroidJavaObject>(
-                    "setContextQuery",
-                    adRequestConfiguration.ContextQuery
-                );
-            }
-
-            if (adRequestConfiguration.ContextTags != null)
-            {
-                adRequestConfigurationBuilder.Call<AndroidJavaObject>("setContextTags",
-                    stringListToJavaStringArrayList(adRequestConfiguration.ContextTags));
-            }
-
-            if (adRequestConfiguration.Location != null)
-            {
-                adRequestConfigurationBuilder.Call<AndroidJavaObject>("setLocation",
-                    locationToJavaLocation(adRequestConfiguration.Location));
-            }
-
-            Dictionary<string, string> parameters = adRequestConfiguration.Parameters;
-            if (parameters != null)
-            {
-                adRequestConfigurationBuilder.Call<AndroidJavaObject>("setParameters",
-                    dictionaryToJavaHashMap(parameters));
-            }
-
-            if (adRequestConfiguration.Age != null)
-            {
-                adRequestConfigurationBuilder.Call<AndroidJavaObject>("setAge",
-                    adRequestConfiguration.Age);
-            }
-
-            if (adRequestConfiguration.Gender != null)
-            {
-                adRequestConfigurationBuilder.Call<AndroidJavaObject>("setGender",
-                    adRequestConfiguration.Gender);
-            }
-
-            if (adRequestConfiguration.AdTheme != AdTheme.None)
-            {
-                AndroidJavaClass adThemeEnum = new AndroidJavaClass(AdThemeClassName);
-                AndroidJavaObject enumEntry;
-
-                if (adRequestConfiguration.AdTheme == AdTheme.Light)
-                {
-                    enumEntry = adThemeEnum.GetStatic<AndroidJavaObject>("LIGHT");
-
-                }
-                else
-                {
-                    enumEntry = adThemeEnum.GetStatic<AndroidJavaObject>("DARK");
-                }
-
-                adRequestConfigurationBuilder.Call<AndroidJavaObject>("setPreferredTheme", enumEntry);
-            }
-
-
-            return adRequestConfigurationBuilder.Call<AndroidJavaObject>("build");
         }
 
         public static AndroidJavaObject GetCurrentActivity()

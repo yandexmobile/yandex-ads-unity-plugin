@@ -59,6 +59,15 @@ namespace YandexMobileAds
         }
 
         /// <summary>
+        /// Returns ad information.
+        /// </summary>
+        /// <returns>An <see cref="YandexMobileAds.Base.AdInfo"/> instance with ad metadata.</returns>
+        public AdInfo GetInfo()
+        {
+            return _client.GetInfo();
+        }
+
+        /// <summary>
         /// Shows the app open ad. Single app open ad can be showed just once.
         /// </summary>
         public void Show()

@@ -12,7 +12,7 @@
 #import <Foundation/Foundation.h>
 #import "YMAUnityRewardedAdLoaderTypes.h"
 
-@class YMAAdRequestConfiguration;
+@class YMAAdRequest;
 
 @interface YMAUnityRewardedAdLoader: NSObject
 
@@ -21,7 +21,7 @@
 @property(nonatomic, assign) YMAUnityRewardedDidLoadAdCallback didLoadAdCallback;
 @property(nonatomic, assign) YMAUnityRewardedDidFailToLoadAdCallback didFailToLoadAdCallback;
 
-- (void)loadWithRequestConfiguration:(YMAAdRequestConfiguration*)adRequestConfiguration;
+- (void)loadAdWithRequest:(YMAAdRequest *)adRequest;
 - (void)cancelLoading;
 
 @end

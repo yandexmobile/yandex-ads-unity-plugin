@@ -41,22 +41,24 @@ namespace YandexMobileAds.Platforms.iOS
                 AppOpenAdDidFailToLoadAdCallback);
         }
 
-        public void LoadAd(AdRequestConfiguration adRequestConfiguration)
+        public void LoadAd(AdRequest adRequest)
         {
-            if (adRequestConfiguration == null) {
+            if (adRequest == null) {
                 AppOpenAdDidFailToLoadAdCallback(
                     _selfPointer,
                     "",
-                    Constants.AdRequestConfigurationIsNullErrorMessage);
+                    Constants.AdRequestIsNullErrorMessage);
                 return;
             }
 
-            AdRequestConfigurationClient adRequest = new AdRequestConfigurationClient(adRequestConfiguration);
-            AppOpenAdLoaderBridge.YMAUnityLoadAppOpenAd(this.ObjectId, adRequest.ObjectId);
+            AdRequestClient adRequestClient = new AdRequestClient(adRequest);
+            AppOpenAdLoaderBridge.YMAUnityLoadAppOpenAd(this.ObjectId, adRequestClient.ObjectId);
         }
 
         public void CancelLoading()
         {
+            OnAdLoaded = null;
+            OnAdFailedToLoad = null;
             AppOpenAdLoaderBridge.YMAUnityCancelLoadingAppOpenAd(this.ObjectId);
         }
 

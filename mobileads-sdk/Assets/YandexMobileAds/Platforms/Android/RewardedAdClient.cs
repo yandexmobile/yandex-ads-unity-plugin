@@ -155,7 +155,7 @@ namespace YandexMobileAds.Platforms.Android
 
             public static AndroidJavaObject GetInfo(AndroidJavaObject rewardedAd)
             {
-                return rewardedAd.Call<AndroidJavaObject>("getInfo");
+                return rewardedAd.Call<AndroidJavaObject>("getAdInfo");
             }
 
             public static void Show(AndroidJavaObject rewardedAd, AndroidJavaObject activity)

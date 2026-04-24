@@ -20,13 +20,10 @@ namespace YandexMobileAds.Platforms.Android
 
         public event EventHandler<EventArgs> OnAdLoaded;
         public event EventHandler<AdFailureEventArgs> OnAdFailedToLoad;
-        public event EventHandler<EventArgs> OnReturnedToApplication;
-        public event EventHandler<EventArgs> OnLeftApplication;
         public event EventHandler<EventArgs> OnAdClicked;
         public event EventHandler<ImpressionData> OnImpression;
 
         internal BannerClient(
-            string blockId,
             BannerAdSizeClient bannerAdSizeClient,
             AdPosition position) : base(Utils.UnityBannerAdListenerClassName)
         {
@@ -34,7 +31,6 @@ namespace YandexMobileAds.Platforms.Android
             this.bannerView = new AndroidJavaObject(
                 Utils.BannerViewClassName,
                 activity,
-                blockId,
                 bannerAdSizeClient.GetBannerAdSizeAndroidJavaObject(),
                 (int)position
             );
@@ -68,6 +64,16 @@ namespace YandexMobileAds.Platforms.Android
             this.bannerView.Call("destroyBanner");
         }
 
+        public AdInfo GetInfo()
+        {
+            AndroidJavaObject adInfoObject = this.bannerView.Call<AndroidJavaObject>("getAdInfo");
+            if (adInfoObject == null)
+            {
+                return null;
+            }
+            return AdInfoFactory.CreateAdInfo(adInfoObject);
+        }
+
         #region UnityBannerAdListener implementation
 #pragma warning disable IDE1006 // naming rules violation
         public void onAdLoaded()
@@ -87,22 +93,6 @@ namespace YandexMobileAds.Platforms.Android
                     Message = errorReason
                 };
                 this.OnAdFailedToLoad(this, args);
-            }
-        }
-
-        public void onReturnedToApplication()
-        {
-            if (this.OnReturnedToApplication != null)
-            {
-                this.OnReturnedToApplication(this, EventArgs.Empty);
-            }
-        }
-
-        public void onLeftApplication()
-        {
-            if (this.OnLeftApplication != null)
-            {
-                this.OnLeftApplication(this, EventArgs.Empty);
             }
         }
 

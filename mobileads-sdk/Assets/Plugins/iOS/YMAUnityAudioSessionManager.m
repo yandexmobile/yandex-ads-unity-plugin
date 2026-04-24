@@ -1,4 +1,4 @@
-#import <YandexMobileAds/YandexMobileAds.h>
+#import <YandexMobileAds/YandexMobileAds-Swift.h>
 #import "YMAUnityAudioSessionManager.h"
 #import "YMAUnityStringConverter.h"
 
