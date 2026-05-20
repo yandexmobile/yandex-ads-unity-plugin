@@ -1,10 +1,10 @@
 {
-    "name": "com.yandex.mobileads-tapjoy-mediation",
+    "name": "com.yandex.admob-mobileads-mediation",
     "version": "8.0.1",
-    "displayName": "TapJoy adapter for Yandex Mobile Ads plugin for Unity",
-    "description": "This adapter allows to use TapJoy ad network in conjuction with Yandex Mobile Ads SDK",
+    "displayName": "Yandex adapter for Google Mobile Ads SDK Plugin",
+    "description": "This adapter allows to use Yandex ad network in conjuction with Google Mobile Ads SDK",
     "dependencies": {
-        "com.yandex.mobileads": "8.0.1"
+        "com.google.ads.mobile": "10.7.0"
     },
     "unity": "2019.4",
     "unityRelease": "40f1",

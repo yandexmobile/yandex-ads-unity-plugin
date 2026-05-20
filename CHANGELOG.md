@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 8.0.1
+
+#### Fixed
+* Supported build with AGP 9 (#181)
+* Add missing YandexAds class to unitypackage
+
 ## Version 8.0.0
 
 #### Breaking Changes

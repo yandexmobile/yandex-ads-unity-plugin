@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 8.0.1
+
+#### Fixed
+* Supported build with AGP 9 (#181)
+
 ## Version 8.0.0
 
 #### Updated
