@@ -2,6 +2,6 @@ namespace YandexMobileAds.Base
 {
     public static class MobileAdsPackageInfo
     {
-        public const string PackageVersion = "8.1.0";
+        public const string PackageVersion = "8.2.0";
     }
 }

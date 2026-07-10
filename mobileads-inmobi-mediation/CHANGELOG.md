@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 8.2.0
+
+#### Updated
+
+* Supported Android InMobi adapter version 11.0.0.2
+* Supported iOS InMobi adapter version 11.1.1.2
+
 ## Version 8.1.0
 
 #### Updated
