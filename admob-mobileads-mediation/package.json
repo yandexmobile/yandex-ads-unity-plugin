@@ -1,6 +1,6 @@
 {
     "name": "com.yandex.admob-mobileads-mediation",
-    "version": "8.2.0",
+    "version": "8.3.0",
     "displayName": "Yandex adapter for Google Mobile Ads SDK Plugin",
     "description": "This adapter allows to use Yandex ad network in conjuction with Google Mobile Ads SDK",
     "dependencies": {
