@@ -1,6 +1,13 @@
 <dependencies>
+   <iosPods>
+      <iosPod name="YandexMobileAds" version="8.3.0">
+         <sources>
+            <source>https://github.com/CocoaPods/Specs</source>
+         </sources>
+      </iosPod>
+   </iosPods>
    <androidPackages>
-      <androidPackage spec="com.yandex.android:mobileads:8.2.0">
+      <androidPackage spec="com.yandex.android:mobileads:8.3.0">
          <repositories>
             <repository>https://maven.google.com/</repository>
          </repositories>
@@ -16,11 +23,4 @@
          </repositories>
       </androidPackage>
    </androidPackages>
-   <iosPods>
-      <iosPod name="YandexMobileAds" version="8.2.1">
-         <sources>
-            <source>https://github.com/CocoaPods/Specs</source>
-         </sources>
-      </iosPod>
-   </iosPods>
 </dependencies>

@@ -1,16 +1,16 @@
 <dependencies>
-   <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-mytarget:5.45.3.3">
-         <repositories>
-            <repository>https://maven.google.com/</repository>
-         </repositories>
-      </androidPackage>
-   </androidPackages>
    <iosPods>
-      <iosPod name="MyTargetYandexMobileAdsAdapters" version="5.36.2.2">
+      <iosPod name="MyTargetYandexMobileAdsAdapters" version="5.36.2.3">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
       </iosPod>
    </iosPods>
+   <androidPackages>
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-mytarget:5.45.3.4">
+         <repositories>
+            <repository>https://maven.google.com/</repository>
+         </repositories>
+      </androidPackage>
+   </androidPackages>
 </dependencies>
