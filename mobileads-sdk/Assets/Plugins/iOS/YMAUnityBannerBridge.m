@@ -67,8 +67,8 @@ void YMAUnityHideBannerView(char *objectID)
 char *YMAUnityGetBannerInfo(char *bannerObjectID)
 {
     YMAUnityObjectsStorage *objectStorage = [YMAUnityObjectsStorage sharedInstance];
-    YMABannerAdView *bannerView = [objectStorage objectWithID:bannerObjectID];
-    YMAAdInfo *adInfo = [bannerView adInfo];
+    YMAUnityBanner *banner = [objectStorage objectWithID:bannerObjectID];
+    YMAAdInfo *adInfo = [banner getInfo];
     if (adInfo == nil) {
         return NULL;
     }

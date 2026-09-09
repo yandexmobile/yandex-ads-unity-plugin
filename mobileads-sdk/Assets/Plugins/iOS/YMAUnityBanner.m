@@ -35,6 +35,11 @@
     return self;
 }
 
+- (YMAAdInfo *)getInfo
+{
+    return [self.adView adInfo];
+}
+
 - (void)bannerAdViewDidLoad:(YMABannerAdView *)bannerAdView
 {
     if (self.adReceivedCallback != NULL) {
@@ -208,4 +213,3 @@
 }
 
 @end
-
