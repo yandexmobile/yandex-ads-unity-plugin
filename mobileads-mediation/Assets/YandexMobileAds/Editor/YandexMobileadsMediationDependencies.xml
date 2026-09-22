@@ -11,11 +11,11 @@
          <repository>https://dl.appnext.com/</repository>
          <repository>https://repo1.maven.org/maven2/</repository>
       </repositories>
-      <androidPackage spec="com.yandex.android:mobileads-mediation:8.4.0.0"/>
+      <androidPackage spec="com.yandex.android:mobileads-mediation:8.5.0.0"/>
       <androidPackage spec="io.appmetrica.analytics:analytics:8.0.0"/>
    </androidPackages>
    <iosPods>
-      <iosPod name="YandexMobileAdsMediation" version="8.4.0">
+      <iosPod name="YandexMobileAdsMediation" version="8.5.0">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>

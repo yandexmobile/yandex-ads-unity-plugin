@@ -1,6 +1,6 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-chartboost:9.13.0.0">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-chartboost:9.14.0.0">
          <repositories>
             <repository>https://maven.google.com/</repository>
             <repository>https://cboost.jfrog.io/artifactory/chartboost-ads/</repository>
@@ -8,7 +8,7 @@
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="ChartboostYandexMobileAdsAdapters" version="9.13.0.0">
+      <iosPod name="ChartboostYandexMobileAdsAdapters" version="9.13.0.1">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
