@@ -10,7 +10,7 @@ public class PostProcessBuildAppLovin
     [PostProcessBuild]
     public static void OnPostProcessBuild(BuildTarget buildTarget, string pathToBuiltProject)
     {
-         var version = "13.6.3";
+         var version = "13.6.4";
         if (buildTarget == BuildTarget.iOS)
         {
             string frameworkName = "AppLovinSDK.xcframework";

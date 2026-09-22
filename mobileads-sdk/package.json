@@ -1,6 +1,6 @@
 {
     "name": "com.yandex.mobileads",
-    "version": "8.4.0",
+    "version": "8.5.0",
     "displayName": "Yandex Mobile Ads plugin for Unity",
     "description": "This plugin allows Unity developers to easily integrate Yandex Mobile Ads in Android and iOS apps",
     "dependencies": {

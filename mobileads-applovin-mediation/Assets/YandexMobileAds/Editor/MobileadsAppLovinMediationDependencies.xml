@@ -1,13 +1,13 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-applovin:13.6.3.1">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-applovin:13.6.3.2">
          <repositories>
             <repository>https://maven.google.com/</repository>
          </repositories>
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="AppLovinYandexMobileAdsAdapters" version="13.6.3.0">
+      <iosPod name="AppLovinYandexMobileAdsAdapters" version="13.6.4.0">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
