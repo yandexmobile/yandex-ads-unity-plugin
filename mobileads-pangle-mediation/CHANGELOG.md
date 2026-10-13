@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 8.6.0
+
+#### Updated
+
+* Supported Android Pangle adapter version 8.3.0.3.0
+
 ## Version 8.5.0
 
 #### Updated
