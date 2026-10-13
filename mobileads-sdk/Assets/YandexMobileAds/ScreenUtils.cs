@@ -7,6 +7,7 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
+using UnityEngine;
 using YandexMobileAds.Common;
 using YandexMobileAds.Platforms;
 
@@ -25,6 +26,13 @@ namespace YandexMobileAds
         {
             IScreenClient client = YandexMobileAdsClientFactory.CreateScreenClient();
             return (int)(pixels / client.GetScreenScale());
+        }
+
+        internal static int GetCenteredSafeAreaWidthDp()
+        {
+            Rect safeArea = Screen.safeArea;
+            float largerInset = Mathf.Max(safeArea.xMin, Screen.width - safeArea.xMax);
+            return ConvertPixelsToDp((int)(Screen.width - 2 * largerInset));
         }
     }
 }

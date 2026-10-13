@@ -84,9 +84,10 @@ public class BannerComponent : MonoBehaviour
 
     private void ConfigureBanner()
     {
+        int width = useScreenWidth ? GetScreenWidthDp() : manualWidth;
         BannerAdSize adSize = bannerType == BannerType.Sticky
-            ? BannerAdSize.Sticky(useScreenWidth ? ScreenUtils.ConvertPixelsToDp((int)Screen.safeArea.width) : manualWidth)
-            : BannerAdSize.Inline(useScreenWidth ? ScreenUtils.ConvertPixelsToDp((int)Screen.safeArea.width) : manualWidth, bannerHeight);
+            ? BannerAdSize.Sticky(width)
+            : BannerAdSize.Inline(width, bannerHeight);
 
         banner = new Banner(adSize, bannerPosition);
 
@@ -94,6 +95,16 @@ public class BannerComponent : MonoBehaviour
         banner.OnAdFailedToLoad += HandleAdFailedToLoad;
         banner.OnAdClicked += HandleAdClicked;
         banner.OnImpression += HandleImpression;
+    }
+
+    private int GetScreenWidthDp()
+    {
+        bool isHorizontallyCentered = bannerPosition == AdPosition.TopCenter
+            || bannerPosition == AdPosition.Center
+            || bannerPosition == AdPosition.BottomCenter;
+        return isHorizontallyCentered
+            ? ScreenUtils.GetCenteredSafeAreaWidthDp()
+            : ScreenUtils.ConvertPixelsToDp((int)Screen.safeArea.width);
     }
 
     public void OnDestroy()

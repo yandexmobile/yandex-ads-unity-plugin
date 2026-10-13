@@ -1,5 +1,18 @@
 # Change Log
 
+## Version 8.6.0
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 8.6.0
+* Supported iOS Yandex Mobile Ads SDK version 8.6.0
+
+## Unreleased
+
+#### Fixed
+
+* Horizontally centered banners on Android stay centered on the screen in landscape when the display cutout makes the safe insets asymmetric
+
 ## Version 8.5.0
 
 #### Updated

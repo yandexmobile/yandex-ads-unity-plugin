@@ -75,11 +75,13 @@ public class YandexMobileAdsBannerDemoScript : MonoBehaviour
         this.DisplayMessage("Banner is requested");
     }
 
-    // Example how to get screen width for request
+    // Example how to get screen width for request. The larger horizontal safe-area inset is
+    // subtracted on both sides, so a centered banner stays centered and clear of the display cutout.
     private int GetScreenWidthDp()
     {
-        int screenWidth = (int)Screen.safeArea.width;
-        return ScreenUtils.ConvertPixelsToDp(screenWidth);
+        Rect safeArea = Screen.safeArea;
+        float largerInset = Mathf.Max(safeArea.xMin, Screen.width - safeArea.xMax);
+        return ScreenUtils.ConvertPixelsToDp((int)(Screen.width - 2 * largerInset));
     }
 
     private AdRequest CreateAdRequest(string adUnitId)
