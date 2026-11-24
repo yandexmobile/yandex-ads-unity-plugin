@@ -1,17 +1,26 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-inmobi:11.4.1.1">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-inmobi:11.4.1.2">
          <repositories>
+            <repository>https://ads.maven.yandex.net/</repository>
             <repository>https://maven.google.com/</repository>
             <repository>https://android-sdk.is.com/</repository>
          </repositories>
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="InMobiYandexMobileAdsAdapters" version="11.4.0.2">
+      <iosPod name="InMobiYandexMobileAdsAdapters" version="11.5.0.1">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
       </iosPod>
+      <iosPod name="InMobiSDK"/>
    </iosPods>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-ios"/>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-mediation-ios">
+      <swiftPackage replacesPod="InMobiYandexMobileAdsAdapters" name="InMobiYandexMobileAdsAdapters" version="11.5.0.1"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/InMobi/InMobiSDK-Swift-Package" version="11.5.0">
+      <swiftPackage name="InMobiSDK" target="All" replacesPod="InMobiSDK"/>
+   </remoteSwiftPackage>
 </dependencies>

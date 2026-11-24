@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 8.7.0
+
+#### Updated
+
+* Updated the Google Mobile Ads Unity plugin dependency to 11.4.0
+* Supported Android Yandex Mobile Ads SDK version 8.7.0
+* Supported Android AdMob version 8.7.0.0
+* Supported iOS AdMob adapter version 8.7.1.0
+
 ## Version 8.6.0
 
 #### Updated

@@ -1,7 +1,8 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.android:mobileads:8.6.0">
+      <androidPackage spec="com.yandex.android:mobileads:8.7.0">
          <repositories>
+            <repository>https://ads.maven.yandex.net/</repository>
             <repository>https://maven.google.com/</repository>
          </repositories>
       </androidPackage>
@@ -17,10 +18,13 @@
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="YandexMobileAds" version="8.6.0">
+      <iosPod name="YandexMobileAds" version="8.7.1">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
       </iosPod>
    </iosPods>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-ios">
+      <swiftPackage replacesPod="YandexMobileAds" name="YandexMobileAds" version="8.7.1"/>
+   </remoteSwiftPackage>
 </dependencies>

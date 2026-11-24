@@ -1,16 +1,25 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-vungle:7.7.8.1">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-vungle:7.7.9.0">
          <repositories>
+            <repository>https://ads.maven.yandex.net/</repository>
             <repository>https://maven.google.com/</repository>
          </repositories>
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="VungleYandexMobileAdsAdapters" version="7.7.5.2">
+      <iosPod name="VungleYandexMobileAdsAdapters" version="7.7.8.1">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
       </iosPod>
+      <iosPod name="VungleAds"/>
    </iosPods>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-ios"/>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-mediation-ios">
+      <swiftPackage replacesPod="VungleYandexMobileAdsAdapters" name="VungleYandexMobileAdsAdapters" version="7.7.8.1"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/Vungle/VungleAdsSDK-SwiftPackageManager" version="7.7.8">
+      <swiftPackage name="VungleAdsSDK" target="All" replacesPod="VungleAds"/>
+   </remoteSwiftPackage>
 </dependencies>

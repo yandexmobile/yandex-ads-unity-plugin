@@ -1,17 +1,22 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-chartboost:9.14.0.1">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-chartboost:9.14.1.0">
          <repositories>
+            <repository>https://ads.maven.yandex.net/</repository>
             <repository>https://maven.google.com/</repository>
             <repository>https://cboost.jfrog.io/artifactory/chartboost-ads/</repository>
          </repositories>
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="ChartboostYandexMobileAdsAdapters" version="9.13.0.2">
+      <iosPod name="ChartboostYandexMobileAdsAdapters" version="9.14.2.1">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
       </iosPod>
    </iosPods>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-ios"/>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-mediation-ios">
+      <swiftPackage replacesPod="ChartboostYandexMobileAdsAdapters" name="ChartboostYandexMobileAdsAdapters" version="9.14.2.1"/>
+   </remoteSwiftPackage>
 </dependencies>

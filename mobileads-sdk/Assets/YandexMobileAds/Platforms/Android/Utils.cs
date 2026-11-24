@@ -16,6 +16,9 @@ namespace YandexMobileAds.Platforms.Android
 {
     internal class Utils
     {
+        public const string AdVolumeControllerListenerClassName =
+            "com.yandex.mobile.ads.unity.wrapper.UnityAdVolumeControllerListener";
+
         public const string AdRequestBuilderClassName = "com.yandex.mobile.ads.common.AdRequest$Builder";
         public const string AdTargetingBuilderClassName = "com.yandex.mobile.ads.common.AdTargeting$Builder";
 

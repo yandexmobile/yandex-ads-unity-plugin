@@ -16,8 +16,6 @@ public class BannerComponentEditor : Editor
     SerializedProperty onAdLoaded;
     SerializedProperty onAdFailedToLoad;
     SerializedProperty onAdClicked;
-    SerializedProperty onLeftApplication;
-    SerializedProperty onReturnedToApplication;
     SerializedProperty onImpression;
 
     SerializedProperty bannerName;
@@ -40,8 +38,6 @@ public class BannerComponentEditor : Editor
         onAdLoaded = serializedObject.FindProperty("OnAdLoaded");
         onAdFailedToLoad = serializedObject.FindProperty("OnAdFailedToLoad");
         onAdClicked = serializedObject.FindProperty("OnAdClicked");
-        onLeftApplication = serializedObject.FindProperty("OnLeftApplication");
-        onReturnedToApplication = serializedObject.FindProperty("OnReturnedToApplication");
         onImpression = serializedObject.FindProperty("OnImpression");
     }
 
@@ -89,8 +85,6 @@ public class BannerComponentEditor : Editor
         if (showContentCallbacks)
         {
             EditorGUILayout.PropertyField(onAdClicked, new GUIContent("On Ad Clicked"));
-            EditorGUILayout.PropertyField(onLeftApplication, new GUIContent("On User Left Application"));
-            EditorGUILayout.PropertyField(onReturnedToApplication, new GUIContent("On User Returned To Application"));
             EditorGUILayout.PropertyField(onImpression, new GUIContent("On Ad Impression Recorded"));
         }
 
