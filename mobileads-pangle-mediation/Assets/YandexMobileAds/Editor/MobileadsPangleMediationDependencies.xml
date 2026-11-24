@@ -1,7 +1,8 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-pangle:8.3.0.3.0">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-pangle:8.3.0.4.0">
          <repositories>
+            <repository>https://ads.maven.yandex.net/</repository>
             <repository>https://maven.google.com/</repository>
             <repository>https://artifact.bytedance.com/repository/pangle</repository>
          </repositories>

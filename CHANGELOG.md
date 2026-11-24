@@ -1,5 +1,21 @@
 # Change Log
 
+## Version 8.7.0
+
+#### Updated
+
+* Supported Android Yandex Mobile Ads SDK version 8.7.0
+* Supported iOS Yandex Mobile Ads SDK version 8.7.1
+
+#### Fixed
+
+* Fixed Android build errors in Unity projects with custom assembly definitions.
+* Banners on Android 10 and lower no longer leave a gap of the navigation bar size at the screen edge when the app hides the system bars (immersive fullscreen)
+
+#### Added
+
+* Added iOS Swift Package Manager support for Yandex Mobile Ads
+
 ## Version 8.6.0
 
 #### Updated
@@ -7,11 +23,10 @@
 * Supported Android Yandex Mobile Ads SDK version 8.6.0
 * Supported iOS Yandex Mobile Ads SDK version 8.6.0
 
-## Unreleased
-
 #### Fixed
 
 * Horizontally centered banners on Android stay centered on the screen in landscape when the display cutout makes the safe insets asymmetric
+* Banners on Android no longer leave an extra gap of a system bar height, such as the navigation bar under a bottom banner, when the app is not drawn behind the system bars
 
 ## Version 8.5.0
 

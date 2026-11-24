@@ -1,5 +1,20 @@
 # Change Log
 
+## Version 8.7.0
+
+#### Updated
+
+* Supported Android com.yandex.android:mobileads-mediation version 8.7.0.0
+* Supported iOS YandexMobileAdsMediation version 8.7.1
+
+#### Fixed
+
+* Fixed Android build errors in Unity projects with custom assembly definitions.
+
+#### Added
+
+* Added iOS Swift Package Manager support for Yandex Mobile Ads Mediation
+
 ## Version 8.6.0
 
 #### Updated

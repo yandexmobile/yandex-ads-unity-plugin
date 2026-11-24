@@ -1,16 +1,25 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-startapp:5.3.1.3">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-startapp:5.3.1.4">
          <repositories>
+            <repository>https://ads.maven.yandex.net/</repository>
             <repository>https://maven.google.com/</repository>
          </repositories>
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="StartAppYandexMobileAdsAdapters" version="4.14.0.2">
+      <iosPod name="StartAppYandexMobileAdsAdapters" version="4.15.0.1">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
       </iosPod>
+      <iosPod name="StartAppSDK"/>
    </iosPods>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-ios"/>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-mediation-ios">
+      <swiftPackage replacesPod="StartAppYandexMobileAdsAdapters" name="StartAppYandexMobileAdsAdapters" version="4.15.0.1"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/StartApp-SDK/StartAppSDK-SwiftPackage" version="4.15.0">
+      <swiftPackage name="StartApp" target="All" replacesPod="StartAppSDK"/>
+   </remoteSwiftPackage>
 </dependencies>

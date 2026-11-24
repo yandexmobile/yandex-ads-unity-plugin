@@ -7,13 +7,20 @@ using UnityEngine;
 
 public class PostProcessBuildBigoAds
 {
-    [PostProcessBuild]
+    // EDM4U installs CocoaPods at order 50; framework embedding must run afterward.
+    private const int AfterCocoaPodsInstallation = 100;
+
+    [PostProcessBuild(AfterCocoaPodsInstallation)]
     public static void OnPostProcessBuild(BuildTarget buildTarget, string pathToBuiltProject)
     {
         if (buildTarget == BuildTarget.iOS)
         {
+            var podfile = Path.Combine(pathToBuiltProject, "Podfile");
+            if (!File.Exists(podfile) || !System.Text.RegularExpressions.Regex.IsMatch(File.ReadAllText(podfile),
+                @"^\s*pod\s+['""](?:(?:Yandex|YX)MobileAds(?:AdQuality|Mediation|AdMobAdapters)?|[^'""]*(?:Yandex|YX)MobileAdsAdapters)(?:/[^'""]*)?['""]",
+                System.Text.RegularExpressions.RegexOptions.Multiline)) return;
             string frameworkName = "BigoADS.xcframework";
-            string frameworkPath = Path.Combine("Pods", "BigoADS", "BigoADS", frameworkName);
+            string frameworkPath = Path.Combine("Pods", "BigoADS", frameworkName);
 
             string projPath = PBXProject.GetPBXProjectPath(pathToBuiltProject);
             PBXProject proj = new PBXProject();

@@ -109,6 +109,19 @@ namespace YandexMobileAds.Platforms
             #endif
         }
 
+        internal static IAdVolumeControllerClient CreateAdVolumeControllerClient()
+        {
+            #if UNITY_EDITOR
+                return new DummyAdVolumeControllerClient();
+            #elif UNITY_ANDROID
+                return new YandexMobileAds.Platforms.Android.AdVolumeControllerClient();
+            #elif (UNITY_5 && UNITY_IOS) || UNITY_IPHONE
+                return new YandexMobileAds.Platforms.iOS.AdVolumeControllerClient();
+            #else
+                return new DummyAdVolumeControllerClient();
+            #endif
+        }
+
         internal static IScreenClient CreateScreenClient()
         {
             #if UNITY_EDITOR

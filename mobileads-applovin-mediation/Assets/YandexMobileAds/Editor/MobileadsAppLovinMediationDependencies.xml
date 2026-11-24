@@ -1,16 +1,25 @@
 <dependencies>
    <androidPackages>
-      <androidPackage spec="com.yandex.ads.mediation:mobileads-applovin:13.6.3.3">
+      <androidPackage spec="com.yandex.ads.mediation:mobileads-applovin:13.6.4.0">
          <repositories>
+            <repository>https://ads.maven.yandex.net/</repository>
             <repository>https://maven.google.com/</repository>
          </repositories>
       </androidPackage>
    </androidPackages>
    <iosPods>
-      <iosPod name="AppLovinYandexMobileAdsAdapters" version="13.6.4.1">
+      <iosPod name="AppLovinYandexMobileAdsAdapters" version="13.6.4.3">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
       </iosPod>
+      <iosPod name="AppLovinSDK"/>
    </iosPods>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-ios"/>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-mediation-ios">
+      <swiftPackage replacesPod="AppLovinYandexMobileAdsAdapters" name="AppLovinYandexMobileAdsAdapters" version="13.6.4.3"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package" version="13.6.4">
+      <swiftPackage name="AppLovinSDK" target="All" replacesPod="AppLovinSDK"/>
+   </remoteSwiftPackage>
 </dependencies>

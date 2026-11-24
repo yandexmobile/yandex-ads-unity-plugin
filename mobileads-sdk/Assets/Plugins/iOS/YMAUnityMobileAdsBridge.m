@@ -7,6 +7,8 @@
  * You may obtain a copy of the License at https://legal.yandex.com/partner_ch/
  */
 
+#include <stdbool.h>
+
 #import <YandexMobileAds/YandexMobileAds-Swift.h>
 
 void YMAUnitySetUserConsent(bool consent)
@@ -27,4 +29,14 @@ void YMAUnitySetAgeRestrictedUser(bool ageRestrictedUser)
 void YMAUnityShowDebugPanel(void)
 {
     [YMAYandexAds showDebugPanel];
+}
+
+void YMAUnitySetAdMuted(bool muted)
+{
+    [YMAYandexAds.adVolumeController setMuted:muted];
+}
+
+void YMAUnitySetAdVolume(float volume)
+{
+    [YMAYandexAds.adVolumeController setVolume:volume];
 }

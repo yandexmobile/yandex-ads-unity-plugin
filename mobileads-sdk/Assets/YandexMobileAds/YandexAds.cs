@@ -18,6 +18,15 @@ namespace YandexMobileAds
     /// </summary>
     public static class YandexAds
     {
+        private static readonly Lazy<AdVolumeController> _adVolumeController =
+            new Lazy<AdVolumeController>(() => new AdVolumeController());
+
+        /// <summary>
+        /// Controls ad mute and volume. Access from the Unity main thread.
+        /// Getting the controller does not override creative settings.
+        /// </summary>
+        public static AdVolumeController AdVolumeController { get { return _adVolumeController.Value; } }
+
         /// <summary>
         /// Sets a value that indicates whether a user from the GDPR region permits the collection of personal data that will be used for analytics and ad targeting.
         /// User data will not be collected until data collection is permitted. If the user once permitted or prohibited data collection,

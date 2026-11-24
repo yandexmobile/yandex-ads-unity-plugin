@@ -1,6 +1,7 @@
 <dependencies>
    <androidPackages>
       <repositories>
+         <repository>https://ads.maven.yandex.net/</repository>
          <repository>https://maven.google.com/</repository>
          <repository>https://android-sdk.is.com/</repository>
          <repository>https://artifact.bytedance.com/repository/pangle</repository>
@@ -11,14 +12,46 @@
          <repository>https://dl.appnext.com/</repository>
          <repository>https://repo1.maven.org/maven2/</repository>
       </repositories>
-      <androidPackage spec="com.yandex.android:mobileads-mediation:8.6.0.0"/>
+      <androidPackage spec="com.yandex.android:mobileads-mediation:8.7.0.0"/>
       <androidPackage spec="io.appmetrica.analytics:analytics:8.0.0"/>
    </androidPackages>
    <iosPods>
-      <iosPod name="YandexMobileAdsMediation" version="8.6.0">
+      <iosPod name="YandexMobileAdsMediation" version="8.7.1">
          <sources>
             <source>https://github.com/CocoaPods/Specs</source>
          </sources>
       </iosPod>
+      <iosPod name="AppLovinSDK"/>
+      <iosPod name="VungleAds"/>
+      <iosPod name="StartAppSDK"/>
+      <iosPod name="InMobiSDK"/>
+      <iosPod name="MolocoSDKiOS"/>
+      <iosPod name="FBAudienceNetwork"/>
+      <iosPod name="BidMachine"/>
    </iosPods>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-ios"/>
+   <remoteSwiftPackage version="8.7.1" url="https://github.com/yandexmobile/yandex-ads-sdk-mediation-ios">
+      <swiftPackage replacesPod="YandexMobileAdsMediation" name="YandexMobileAdsMediation" version="8.7.1"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package" version="13.6.4">
+      <swiftPackage name="AppLovinSDK" target="All" replacesPod="AppLovinSDK"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/Vungle/VungleAdsSDK-SwiftPackageManager" version="7.7.8">
+      <swiftPackage name="VungleAdsSDK" target="All" replacesPod="VungleAds"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/StartApp-SDK/StartAppSDK-SwiftPackage" version="4.15.0">
+      <swiftPackage name="StartApp" target="All" replacesPod="StartAppSDK"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/InMobi/InMobiSDK-Swift-Package" version="11.5.0">
+      <swiftPackage name="InMobiSDK" target="All" replacesPod="InMobiSDK"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/moloco/moloco-sdk-ios-spm" version="4.11.1">
+      <swiftPackage name="MolocoSDK" target="All" replacesPod="MolocoSDKiOS"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/facebook/FBAudienceNetwork" version="6.22.0">
+      <swiftPackage name="FBAudienceNetwork" target="All" replacesPod="FBAudienceNetwork"/>
+   </remoteSwiftPackage>
+   <remoteSwiftPackage url="https://github.com/bidmachine/BidMachine-SPM" version="3.8.1">
+      <swiftPackage name="BidMachine" target="All" replacesPod="BidMachine"/>
+   </remoteSwiftPackage>
 </dependencies>

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
@@ -110,7 +110,7 @@ namespace YandexAdsEditor
                     var androidPackage = doc.Descendants("androidPackage").FirstOrDefault();
                     string androidVersion = androidPackage?.Attribute("spec")?.Value.Split(':').LastOrDefault() ?? "—";
 
-                    var iosPod = doc.Descendants("iosPod").FirstOrDefault();
+                    var iosPod = doc.Descendants("swiftPackage").Concat(doc.Descendants("iosPod")).FirstOrDefault();
                     string iosVersion = iosPod?.Attribute("version")?.Value ?? "—";
 
                     string adapterName = Path.GetFileNameWithoutExtension(xmlFile)
@@ -143,7 +143,7 @@ namespace YandexAdsEditor
                 .FirstOrDefault(p => p.Attribute("spec")?.Value.StartsWith("com.yandex.android:mobileads-mediation") == true);
                 string androidVersion = androidPackage?.Attribute("spec")?.Value.Split(':').LastOrDefault() ?? "—";
 
-                var iosPod = doc.Descendants("iosPod")
+                var iosPod = doc.Descendants("swiftPackage").Concat(doc.Descendants("iosPod"))
                 .FirstOrDefault(p => p.Attribute("name")?.Value.StartsWith("YandexMobileAdsMediation") == true);
                 string iosVersion = iosPod?.Attribute("version")?.Value ?? "—";
 
