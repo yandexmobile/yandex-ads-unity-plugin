@@ -1,0 +1,6 @@
+{
+    "name": "YandexMobileAds.AppLovin.Editor",
+    "includePlatforms": [
+        "Editor"
+    ]
+}
